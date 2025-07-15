@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/portfolio/fonts/atkinson-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/portfolio/fonts/atkinson-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #e5e7eb;
+}
+.aurora-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.15;
+    background: 
+        radial-gradient(ellipse at top left, #00c6ff, transparent),
+        radial-gradient(ellipse at top right, #ff00ff, transparent),
+        radial-gradient(ellipse at bottom left, #ff6b00, transparent),
+        radial-gradient(ellipse at bottom right, #00ff87, transparent);
+    background-size: 200% 200%;
+    animation: aurora 20s ease infinite;
+}
+@keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.glass-card {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glow-text {
+    text-shadow: 0 0 8px rgba(0, 198, 255, 0.6), 0 0 20px rgba(0, 198, 255, 0.4);
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #00c6ff;
+    margin-top: 8px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #00c6ff;
+}
+.skill-card:hover .skill-icon {
+    transform: scale(1.1);
+}
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 198, 255, 0.1), 0 10px 10px -5px rgba(0, 198, 255, 0.08);
+}
