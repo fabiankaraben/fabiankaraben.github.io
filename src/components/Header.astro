@@ -1,13 +1,92 @@
-<header class="flex justify-between items-center py-4 max-w-screen-xl mx-auto">
-    <div class="text-2xl font-bold tracking-wider [text-shadow:0_0_8px_rgba(0,198,255,0.6),_0_0_20px_rgba(0,198,255,0.4)]">
-        <a href="/">FK</a>
+<header class="relative max-w-screen-xl mx-auto">
+    <div class="flex justify-between items-center py-4">
+        <div class="text-2xl font-bold tracking-wider [text-shadow:0_0_8px_rgba(0,198,255,0.6),_0_0_20px_rgba(0,198,255,0.4)]">
+            <a href="/">FK</a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+            <a href="/#about" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">About</a>
+            <a href="/#skills" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Skills</a>
+            <a href="/#projects" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Projects</a>
+            <a href="/blog" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Blog</a>
+            <a href="/#contact" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Contact</a>
+        </nav>
+        
+        <!-- Desktop CTA Button -->
+        <a href="/#contact" class="hidden md:inline-block px-5 py-2 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-500 rounded-lg shadow-lg shadow-cyan-500/20 transition-all duration-300"> Hire Me </a>
+        
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-button" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-50 rounded">
+            <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300 ease-in-out"></span>
+            <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300 ease-in-out"></span>
+            <span class="block w-6 h-0.5 bg-gray-300 transition-all duration-300 ease-in-out"></span>
+        </button>
     </div>
-    <nav class="hidden md:flex space-x-8">
-        <a href="/#about" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">About</a>
-        <a href="/#skills" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Skills</a>
-        <a href="/#projects" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Projects</a>
-        <a href="/blog" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Blog</a>
-        <a href="/#contact" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Contact</a>
+    
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-sm border-t border-gray-700 shadow-lg transform -translate-y-2 opacity-0 invisible transition-all duration-300 ease-in-out z-50">
+        <div class="px-4 py-6 space-y-4">
+            <a href="/#about" class="block text-gray-300 hover:text-cyan-400 transition-colors duration-300 py-2">About</a>
+            <a href="/#skills" class="block text-gray-300 hover:text-cyan-400 transition-colors duration-300 py-2">Skills</a>
+            <a href="/#projects" class="block text-gray-300 hover:text-cyan-400 transition-colors duration-300 py-2">Projects</a>
+            <a href="/blog" class="block text-gray-300 hover:text-cyan-400 transition-colors duration-300 py-2">Blog</a>
+            <a href="/#contact" class="block text-gray-300 hover:text-cyan-400 transition-colors duration-300 py-2">Contact</a>
+            <a href="/#contact" class="block w-full text-center px-5 py-3 mt-4 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-500 rounded-lg shadow-lg shadow-cyan-500/20 transition-all duration-300"> Hire Me </a>
+        </div>
     </nav>
-    <a href="/#contact" class="hidden md:inline-block px-5 py-2 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-500 rounded-lg shadow-lg shadow-cyan-500/20 transition-all duration-300"> Hire Me </a>
 </header>
+
+<script>
+    // Mobile menu toggle functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerLines = mobileMenuButton?.querySelectorAll('span');
+    
+    let isMenuOpen = false;
+    
+    mobileMenuButton?.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            // Open menu
+            mobileMenu?.classList.remove('-translate-y-2', 'opacity-0', 'invisible');
+            mobileMenu?.classList.add('translate-y-0', 'opacity-100', 'visible');
+            
+            // Animate hamburger to X
+            if (hamburgerLines) {
+                hamburgerLines[0].classList.add('rotate-45', 'translate-y-1.5');
+                hamburgerLines[1].classList.add('opacity-0');
+                hamburgerLines[2].classList.add('-rotate-45', '-translate-y-1.5');
+            }
+        } else {
+            // Close menu
+            mobileMenu?.classList.add('-translate-y-2', 'opacity-0', 'invisible');
+            mobileMenu?.classList.remove('translate-y-0', 'opacity-100', 'visible');
+            
+            // Animate X back to hamburger
+            if (hamburgerLines) {
+                hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
+                hamburgerLines[1].classList.remove('opacity-0');
+                hamburgerLines[2].classList.remove('-rotate-45', '-translate-y-1.5');
+            }
+        }
+    });
+    
+    // Close menu when clicking on a link
+    const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+    mobileMenuLinks?.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) {
+                mobileMenuButton?.click();
+            }
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (isMenuOpen && !mobileMenuButton?.contains(event.target as Node) && !mobileMenu?.contains(event.target as Node)) {
+            mobileMenuButton?.click();
+        }
+    });
+</script>
