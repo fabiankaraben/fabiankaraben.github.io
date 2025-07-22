@@ -1,0 +1,211 @@
+---
+title: 'SQL Job Interview Questions'
+description: 'In this post we dive deep into the most critical SQL concepts, from JOINs and GROUP BY to indexing and ACID transactions.'
+pubDate: 'Jul 21 2025'
+heroImage: '../../assets/blog/sql-job-interview-questions.jpg'
+---
+
+In the digital age, **data is king**. 👑 From the simplest mobile app to complex enterprise systems, data is the lifeblood that powers modern technology. At the center of managing and manipulating this data is **SQL (Structured Query Language)**. For any aspiring data analyst, data scientist, backend developer, or database administrator, mastering SQL isn't just a skill—it's a necessity.
+
+Whether you're just starting or looking to make your next big career move, a SQL interview is a critical hurdle. To help you prepare, we've compiled a comprehensive list of 50 common SQL interview questions, complete with answers, covering the essentials: JOINs, aggregate functions, indexing, and transactions. Let's dive in\!
+
+-----
+
+## JOINs: Connecting the Dots
+
+JOIN clauses are fundamental to SQL, allowing you to combine rows from two or more tables based on a related column. Understanding the nuances of different JOIN types is crucial.
+
+**1. What is a `JOIN` in SQL?**
+A `JOIN` clause is used to combine rows from two or more tables based on a related column between them.
+
+**2. What are the most common types of `JOIN`s?**
+The most common types are `INNER JOIN`, `LEFT JOIN` (or `LEFT OUTER JOIN`), `RIGHT JOIN` (or `RIGHT OUTER JOIN`), and `FULL OUTER JOIN`.
+
+**3. Explain an `INNER JOIN`.**
+An `INNER JOIN` returns records that have matching values in both tables. It's the intersection of the two tables.
+
+**4. Explain a `LEFT JOIN`.**
+A `LEFT JOIN` returns all records from the left table and the matched records from the right table. If there is no match, the result is `NULL` on the right side.
+
+**5. Explain a `RIGHT JOIN`.**
+A `RIGHT JOIN` is the opposite of a `LEFT JOIN`. It returns all records from the right table and the matched records from the left table. If there is no match, the result is `NULL` on the left side.
+
+**6. Explain a `FULL OUTER JOIN`.**
+A `FULL OUTER JOIN` returns all records when there is a match in either the left or the right table. It combines the functionality of both `LEFT JOIN` and `RIGHT JOIN`.
+
+**7. What is a `CROSS JOIN`?**
+A `CROSS JOIN` produces a Cartesian product of the two tables involved, meaning it returns all possible combinations of rows from both tables.
+
+**8. What is a `SELF JOIN`?**
+A `SELF JOIN` is a regular join, but the table is joined with itself. This is useful for querying hierarchical data or comparing rows within the same table.
+
+**9. What is the difference between `JOIN` and `UNION`?**
+`JOIN` combines columns from different tables based on a related key, while `UNION` combines rows from two or more tables, stacking them on top of each other. `UNION` requires the data types in the columns to be similar.
+
+**10. Can you join a table to itself?**
+Yes, this is called a `SELF JOIN`.
+
+**11. What is the difference between `WHERE` and `ON` clauses in a `JOIN`?**
+The `ON` clause is used to specify the join condition (how the tables are related). The `WHERE` clause is used to filter the results *after* the join has occurred. For `INNER JOIN`s, they can sometimes be used interchangeably, but for outer joins, using `WHERE` can effectively turn it into an `INNER JOIN`.
+
+**12. How do you handle `NULL` values when joining tables?**
+`NULL` values in a key column won't match with anything in the other table, not even other `NULL`s. Outer joins are often used to see records from one table that don't have a match in the other.
+
+-----
+
+## Aggregate Functions & `GROUP BY`: Summarizing Your Data
+
+Aggregate functions perform a calculation on a set of values and return a single value. They are frequently used with the `GROUP BY` clause.
+
+**13. What are aggregate functions in SQL?**
+Aggregate functions perform a calculation on a set of rows and return a single, summary value. Examples include `COUNT()`, `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
+
+**14. What does the `GROUP BY` clause do?**
+The `GROUP BY` clause groups rows that have the same values in specified columns into summary rows. It's often used with aggregate functions to perform calculations on each group.
+
+**15. What is the difference between `WHERE` and `HAVING`?**
+The `WHERE` clause filters rows *before* any groupings are made (it works on individual rows). The `HAVING` clause filters groups *after* the `GROUP BY` clause has been applied (it works on aggregated data).
+
+**16. Can you use an alias in a `GROUP BY` clause?**
+This depends on the specific SQL dialect. In standard SQL, you cannot use a column alias in the `GROUP BY` clause because the `GROUP BY` is evaluated before the `SELECT` clause where the alias is defined. However, some systems like PostgreSQL allow it.
+
+**17. What is the order of execution in a SQL query with `GROUP BY`?**
+The logical order of operations is: `FROM` -\> `WHERE` -\> `GROUP BY` -\> `HAVING` -\> `SELECT` -\> `ORDER BY` -\> `LIMIT`.
+
+**18. How does `COUNT(*)` differ from `COUNT(column_name)`?**
+`COUNT(*)` counts all rows in the specified table or group. `COUNT(column_name)` counts the number of non-`NULL` values in that specific column.
+
+**19. How does `COUNT(DISTINCT column_name)` work?**
+It counts the number of unique, non-`NULL` values in the specified column.
+
+**20. Can you use a `WHERE` clause without a `GROUP BY` clause when using aggregate functions?**
+Yes. If you use an aggregate function without a `GROUP BY` clause, it will treat the entire table as a single group. The `WHERE` clause would filter the rows before the aggregation is applied to the entire set.
+
+**21. What happens if you include a non-aggregated column in the `SELECT` list that is not in the `GROUP BY` clause?**
+Most SQL databases will throw an error. Every column in the `SELECT` list must either be part of an aggregate function or be listed in the `GROUP BY` clause.
+
+**22. How can you find the second highest value in a column?**
+You can use a subquery with `MAX()` or use window functions like `DENSE_RANK()`.
+*Example using a subquery:*
+
+```sql
+SELECT MAX(Salary) FROM Employees WHERE Salary < (SELECT MAX(Salary) FROM Employees);
+```
+
+**23. Can you use multiple aggregate functions in a single query?**
+Yes, you can use multiple aggregate functions in the `SELECT` list, for example `SELECT COUNT(id), AVG(price) FROM products;`.
+
+**24. How can you filter groups based on the count of items in them?**
+Use the `HAVING` clause. For example, to find departments with more than 10 employees:
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 10;
+```
+
+-----
+
+## Indexing Strategies: Speeding Up Your Queries ⚡
+
+Indexes are special lookup tables that the database search engine can use to speed up data retrieval.
+
+**25. What is an index?**
+An index is a data structure (commonly a B-Tree) that improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space.
+
+**26. Why use an index?**
+Indexes are used to quickly locate data without having to search every row in a database table every time the table is accessed. They are critical for performance.
+
+**27. What are the disadvantages of using indexes?**
+
+  - **Slower writes:** `INSERT`, `UPDATE`, and `DELETE` statements become slower because the index also needs to be updated.
+  - **Storage space:** Indexes take up disk space.
+
+**28. What is a clustered index?**
+A clustered index determines the physical order of data in a table. A table can have only one clustered index. The primary key is often the clustered index by default.
+
+**29. What is a non-clustered index?**
+A non-clustered index has a structure separate from the data rows. It contains the index key values, and each key value has a pointer to the data row that contains the key value. A table can have multiple non-clustered indexes.
+
+**30. What is the difference between a clustered and a non-clustered index?**
+
+  - **Number:** A table can have only one clustered index but many non-clustered indexes.
+  - **Storage:** A clustered index stores the data physically reordered, while a non-clustered index is a separate object that points back to the data rows.
+
+**31. What columns are good candidates for an index?**
+
+  - Columns that are frequently used in `WHERE` clauses or `JOIN` conditions.
+  - Foreign key columns.
+  - Columns used in `ORDER BY` and `GROUP BY` clauses.
+
+**32. What is a composite index?**
+A composite (or compound) index is an index on two or more columns of a table. The order of columns in the index definition matters.
+
+**33. What is index fragmentation?**
+Index fragmentation occurs when the logical ordering of pages in an index does not match the physical ordering on the disk. It can slow down data retrieval. It can be fixed by rebuilding or reorganizing the index.
+
+**34. What is a covering index?**
+A covering index is one that includes all the columns needed to satisfy a query, including those in the `SELECT` list, `WHERE` clause, and `JOIN` conditions. The database can answer the query using only the index, without accessing the table data, which is much faster.
+
+**35. What is query optimization?**
+Query optimization is the process by which the database system determines the most efficient way to execute a given SQL query. The query optimizer uses indexes to create an optimal "execution plan."
+
+-----
+
+## Transactions: Ensuring Data Integrity
+
+Transactions are a sequence of operations performed as a single logical unit of work.
+
+**36. What is a transaction?**
+A transaction is a sequence of one or more SQL statements that are executed as a single unit of work. Either all of the statements succeed (`COMMIT`), or none of them do (`ROLLBACK`).
+
+**37. What are the ACID properties?**
+ACID is an acronym that stands for Atomicity, Consistency, Isolation, and Durability. These are properties of transactions that guarantee data validity despite errors, power failures, and other mishaps.
+
+**38. Explain Atomicity.**
+**Atomicity** ensures that all operations within a work unit are completed successfully. If not, the transaction is aborted, and all previous operations are rolled back to their former state. It's an "all or nothing" principle.
+
+**39. Explain Consistency.**
+**Consistency** ensures that the database properly changes states upon a successfully committed transaction. The data must always remain in a consistent state.
+
+**40. Explain Isolation.**
+**Isolation** ensures that concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially. It prevents transactions from interfering with each other.
+
+**41. Explain Durability.**
+**Durability** ensures that once a transaction has been committed, it will remain so, even in the event of a power loss, crash, or error.
+
+**42. What is a `COMMIT` statement?**
+The `COMMIT` command is used to save all the changes made during the current transaction.
+
+**43. What is a `ROLLBACK` statement?**
+The `ROLLBACK` command is used to undo transactions that have not already been saved to the database.
+
+**44. What is a `SAVEPOINT`?**
+A `SAVEPOINT` is a point in a transaction that you can roll back to without rolling back the entire transaction.
+
+**45. What is a transaction isolation level?**
+An isolation level determines the degree to which one transaction must be isolated from the data modifications made by other transactions. Common levels include `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, and `SERIALIZABLE`.
+
+**46. What is a dirty read?**
+A dirty read occurs when a transaction is allowed to read data from a row that has been modified by another transaction but not yet committed.
+
+**47. What is a non-repeatable read?**
+A non-repeatable read occurs when a transaction reads the same row twice but gets different data each time because another transaction modified and committed the data in between reads.
+
+**48. What is a phantom read?**
+A phantom read occurs when a transaction re-executes a query returning a set of rows that satisfies a search condition and finds that additional rows have been inserted by another committed transaction.
+
+**49. What is the `SERIALIZABLE` isolation level?**
+This is the highest isolation level. It prevents dirty reads, non-repeatable reads, and phantom reads by placing a range lock on the data. It ensures that transactions execute as if they were running one at a time, serially.
+
+**50. What is a deadlock?**
+A deadlock is a situation where two or more transactions are waiting for each other to release locks, creating a cycle of dependencies. The database system will typically detect the deadlock and abort one of the transactions.
+
+-----
+
+## Conclusion: You've Got This\! 🎉
+
+Congratulations on making it through our list\! While these 50 questions cover the core concepts, the world of SQL is vast. The key to success is not just memorizing answers but truly understanding the **why** behind each concept. Practice writing queries, experiment with different datasets, and analyze query execution plans.
+
+The goal of an interview is to demonstrate your problem-solving skills and your foundational knowledge. Keep practicing, stay curious, and you'll be well on your way to acing that interview and landing your dream data-centric role. Good luck\!

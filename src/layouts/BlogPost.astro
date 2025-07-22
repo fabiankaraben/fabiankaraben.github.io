@@ -1,0 +1,172 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+
+import "../styles/global.css";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+
+    <body class="antialiased">
+        <div class="aurora-background"></div>
+
+        <!-- Main Container -->
+        <div class="relative z-10 min-h-screen p-4 sm:p-6 lg:p-8 max-w-screen-xl mx-auto">
+            <Header />
+            <main class="w-[calc(100%-2rem)] max-w-full m-0">
+                <article class="py-16">
+                    <div class="w-full">
+                        {heroImage && <Image width={720} height={360} src={heroImage} alt="" class="block mx-auto rounded-xl shadow-[var(--box-shadow)]" />}
+                    </div>
+                    <div class="w-[900px] max-w-[calc(100%-2rem)] mx-auto p-4 text-[rgb(var(--gray-light))]">
+                        <div class="mb-4 py-4 text-center leading-none">
+                            <div class="mb-2 text-[rgb(var(--gray))]">
+                                <FormattedDate date={pubDate} />
+                                {
+                                    updatedDate && (
+                                        <div class="italic">
+                                            Last updated on <FormattedDate date={updatedDate} />
+                                        </div>
+                                    )
+                                }
+                            </div>
+                            <h1 class="text-4xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">{title}</h1>
+                        </div>
+                        <slot />
+                    </div>
+                </article>
+            </main>
+            <Footer />
+        </div>
+    </body>
+</html>
+
+<style is:inline>
+    article h1,
+    article h2,
+    article h3,
+    article h4,
+    article h5,
+    article h6 {
+        margin: 1.5rem 0 1rem 0;
+        color: rgb(var(--gray-light));
+        line-height: 1.2;
+    }
+    article h1 {
+        font-size: 3.052em;
+    }
+    article h2 {
+        font-size: 2.441em;
+    }
+    article h3 {
+        font-size: 1.953em;
+    }
+    article h4 {
+        font-size: 1.563em;
+    }
+    article h5 {
+        font-size: 1.25em;
+    }
+    article strong,
+    article b {
+        font-weight: 700;
+    }
+    article a {
+        color: #00c6ff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    article a:hover {
+        color: #ff00ff;
+    }
+    article p {
+        margin-bottom: 1.5em;
+    }
+    article .prose p {
+        margin-bottom: 2em;
+    }
+    article textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+    article input {
+        font-size: 16px;
+    }
+    article table {
+        width: 100%;
+    }
+    article img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 1.5rem auto;
+    }
+    article code {
+        padding: 2px 5px;
+        background-color: #1e293b;
+        color: #e5e7eb;
+        border-radius: 4px;
+    }
+    article pre {
+        padding: 1.5em;
+        border-radius: 8px;
+        background-color: #1e293b;
+        color: #e5e7eb;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+    article pre > code {
+        all: unset;
+        font-family: monospace;
+    }
+    article blockquote {
+        border-left: 4px solid #00c6ff;
+        padding: 0 0 0 20px;
+        margin: 0 0 1em 0;
+        font-size: 1.2em;
+        font-style: italic;
+        color: rgb(var(--gray));
+    }
+    article hr {
+        border: none;
+        border-top: 1px solid rgb(var(--gray-light));
+        margin: 2rem 0;
+    }
+    @media (max-width: 720px) {
+        body {
+            font-size: 18px;
+        }
+        main {
+            padding: 1em;
+        }
+    }
+
+    .sr-only {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+        clip: rect(1px 1px 1px 1px);
+        /* maybe deprecated but we need to support legacy browsers */
+        clip: rect(1px, 1px, 1px, 1px);
+        /* modern browsers, clip-path works inwards from each corner */
+        clip-path: inset(50%);
+        /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+        white-space: nowrap;
+    }
+</style>

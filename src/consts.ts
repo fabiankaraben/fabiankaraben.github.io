@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = 'Fabián Karaben';
 export const SITE_DESCRIPTION = 'Welcome to my portfolio!';
+export const GITHUB_USERNAME = 'fabiankaraben';
+export const LINKEDIN_USERNAME = 'fabiankaraben';
