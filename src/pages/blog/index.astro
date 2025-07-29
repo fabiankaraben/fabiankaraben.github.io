@@ -31,10 +31,10 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
                             posts.map((post) => (
                                 <li>
                                     <a href={`/blog/${post.id}/`}>
-                                        <div class="transition-transform duration-300 ease-in-out hover:-translate-y-[10px] hover:shadow-[0_20px_25px_-5px_rgba(0,198,255,0.1),_0_10px_10px_-5px_rgba(0,198,255,0.08)] bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg overflow-hidden flex flex-col">
+                                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
                                             <div class="p-6 flex flex-col h-full">
                                                 {post.data.heroImage && <Image width={720} height={360} src={post.data.heroImage} alt="" class="rounded-lg" />}
-                                                <h3 class="text-xl font-bold mt-4 mb-2 text-cyan-400">{post.data.title}</h3>
+                                                <h3 class="text-xl font-bold mt-6 mb-2 text-cyan-400">{post.data.title}</h3>
                                                 <div class="text-xs text-gray-500 mb-4">
                                                     <FormattedDate date={post.data.pubDate} />
                                                 </div>

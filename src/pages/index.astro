@@ -63,6 +63,13 @@ import { Icon } from "astro-icon/components";
                     <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">Core Technologies</h2>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                         <!-- Skill Card Example -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 pt-3 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <div class="skill-icon w-32 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="golang" class="text-8xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg mt-3">Go</h3>
+                            <p class="text-sm text-gray-400">Gin, Echo, Chi</p>
+                        </div>
                         <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
                             <div class="skill-icon w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
                                 <Icon name="typescript" class="text-6xl mx-auto" />
@@ -96,7 +103,36 @@ import { Icon } from "astro-icon/components";
                                 <Icon name="docker" class="text-6xl mx-auto" />
                             </div>
                             <h3 class="font-semibold text-lg">Docker</h3>
-                            <p class="text-sm text-gray-400">CLI, Compose, Swarm</p>
+                            <p class="text-sm text-gray-400">Portability, Consistency</p>
+                        </div>
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <div class="skill-icon w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="postgresql" class="text-6xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg">PostgreSQL</h3>
+                            <p class="text-sm text-gray-400">Extensibility, Reliability</p>
+                        </div>
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <div class="skill-icon w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="mongodb" class="text-6xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg">MongoDB</h3>
+                            <p class="text-sm text-gray-400">Scalability, Replication</p>
+                        </div>
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <div class="skill-icon w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="redis" class="text-6xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg">Redis</h3>
+                            <p class="text-sm text-gray-400">Caching, Performance</p>
+                        </div>
+
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <div class="skill-icon w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="sqlite" class="text-6xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg">SQLite</h3>
+                            <p class="text-sm text-gray-400">Serverless, D1, Turso</p>
                         </div>
                     </div>
                 </section>
@@ -106,7 +142,7 @@ import { Icon } from "astro-icon/components";
                     <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">Featured Projects</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Project Card 1 -->
-                        <div class="transition-transform duration-300 ease-in-out hover:-translate-y-[10px] hover:shadow-[0_20px_25px_-5px_rgba(0,198,255,0.1),_0_10px_10px_-5px_rgba(0,198,255,0.08)] bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg overflow-hidden">
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
                             <img src="https://placehold.co/600x400/111827/00c6ff?text=XeoCast+API" alt="XeoCast" class="w-full h-48 object-cover" />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">XeoCast (api-worker)</h3>
@@ -125,7 +161,7 @@ import { Icon } from "astro-icon/components";
                             </div>
                         </div>
                         <!-- Project Card 2 -->
-                        <div class="transition-transform duration-300 ease-in-out hover:-translate-y-[10px] hover:shadow-[0_20px_25px_-5px_rgba(0,198,255,0.1),_0_10px_10px_-5px_rgba(0,198,255,0.08)] bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg overflow-hidden">
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
                             <img src="https://placehold.co/600x400/111827/ff00ff?text=Heavy+Compute+Service" onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/e5e7eb?text=Image+Error';" alt="Project Beta" class="w-full h-48 object-cover" />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">xeocast-heavy-compute-service</h3>
@@ -143,7 +179,7 @@ import { Icon } from "astro-icon/components";
                             </div>
                         </div>
                         <!-- Project Card 3 -->
-                        <div class="transition-transform duration-300 ease-in-out hover:-translate-y-[10px] hover:shadow-[0_20px_25px_-5px_rgba(0,198,255,0.1),_0_10px_10px_-5px_rgba(0,198,255,0.08)] bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg overflow-hidden">
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
                             <img src="https://placehold.co/600x400/111827/ff6b00?text=Video+Service" onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/e5e7eb?text=Image+Error';" alt="Project Gamma" class="w-full h-48 object-cover" />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">xeocast-video-service</h3>
@@ -159,6 +195,23 @@ import { Icon } from "astro-icon/components";
                                     <a href="https://video-srv.xeocast.com/docs" target="_blank" class="text-orange-400 hover:text-white transition-colors">API Docs</a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications Section -->
+                <section id="certifications" class="py-24">
+                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">Certifications</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Certification Card Example -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <div class="skill-icon w-26 h-32 pt-10 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="aws" class="text-5xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg">AWS Certified Cloud Practitioner</h3>
+                            <p class="text-sm text-gray-400 mt-1">Amazon Web Services</p>
+                            <p class="text-sm text-gray-400 mt-1">Issued Oct 2024 · Expires Oct 2027</p>
+                            <a href="https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url" target="_blank" class="text-orange-400 hover:text-white transition-colors font-semibold mt-4 text-sm">Verify &rarr;</a>
                         </div>
                     </div>
                 </section>
