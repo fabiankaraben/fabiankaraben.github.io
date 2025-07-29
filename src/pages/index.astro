@@ -6,6 +6,9 @@ import { SITE_TITLE, SITE_DESCRIPTION, GITHUB_USERNAME, LINKEDIN_USERNAME } from
 import { Image } from "astro:assets";
 import fkPortrait from "../assets/fk.jpg";
 import { Icon } from "astro-icon/components";
+import xeocastProject from "../assets/projects/xeocast.jpg";
+import xeopubProject from "../assets/projects/xeopub.jpg";
+import xeodocsProject from "../assets/projects/xeodocs.jpg";
 ---
 
 <!doctype html>
@@ -141,9 +144,9 @@ import { Icon } from "astro-icon/components";
                 <section id="projects" class="py-24">
                     <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">Featured Projects</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Project Card 1 -->
+                        <!-- XeoCast Project 1 -->
                         <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
-                            <img src="https://placehold.co/600x400/111827/00c6ff?text=XeoCast+API" alt="XeoCast" class="w-full h-48 object-cover" />
+                            <Image src={xeocastProject} alt="XeoCast (api-worker)" class="w-full h-48 object-cover" />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">XeoCast (api-worker)</h3>
                                 <p class="text-gray-400 mb-4 text-sm">The API of the XeoCast dashboard, a system to generate and publish podcast episodes with AI.</p>
@@ -160,39 +163,75 @@ import { Icon } from "astro-icon/components";
                                 </div>
                             </div>
                         </div>
-                        <!-- Project Card 2 -->
+                        <!-- XeoCast Project 2 -->
                         <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
-                            <img src="https://placehold.co/600x400/111827/ff00ff?text=Heavy+Compute+Service" onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/e5e7eb?text=Image+Error';" alt="Project Beta" class="w-full h-48 object-cover" />
+                            <Image src={xeocastProject} alt="XeoCast (heavy-compute-service)" class="w-full h-48 object-cover" />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">xeocast-heavy-compute-service</h3>
                                 <p class="text-gray-400 mb-4 text-sm">Perform XeoCast tasks that cannot or should not be run on Cloudflare Worker.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Hono</span>
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Node.js</span>
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Hono</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Node.js</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
                                 </div>
                                 <div class="flex justify-end gap-4">
-                                    <a href="https://github.com/xeocast/xeocast-heavy-compute-service" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://hc-api.xeocast.com/doc/ui" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">API Docs</a>
+                                    <a href="https://github.com/xeocast/xeocast-heavy-compute-service" target="_blank" class="text-cyan-400 hover:text-white transition-colors">GitHub</a>
+                                    <a href="https://hc-api.xeocast.com/doc/ui" target="_blank" class="text-cyan-400 hover:text-white transition-colors">API Docs</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Project Card 3 -->
+                        <!-- XeoCast Project 3 -->
                         <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
-                            <img src="https://placehold.co/600x400/111827/ff6b00?text=Video+Service" onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/e5e7eb?text=Image+Error';" alt="Project Gamma" class="w-full h-48 object-cover" />
+                            <Image src={xeocastProject} alt="XeoCast (video-service)" class="w-full h-48 object-cover" width={600} height={400} loading="lazy" quality={100} />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">xeocast-video-service</h3>
                                 <p class="text-gray-400 mb-4 text-sm">Video processing service for the XeoCast project. Generate the video podcast episodes.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Python</span>
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">FFmpeg</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Python</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">FFmpeg</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/xeocast/xeocast-video-service" target="_blank" class="text-cyan-400 hover:text-white transition-colors">GitHub</a>
+                                    <a href="https://video-srv.xeocast.com/docs" target="_blank" class="text-cyan-400 hover:text-white transition-colors">API Docs</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- XeoPub Project 1 -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={xeopubProject} alt="XeoPub (api-worker)" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">XeoPub (api-worker)</h3>
+                                <p class="text-gray-400 mb-4 text-sm">The API of the XeoPub dashboard, a system to generate and publish articles with AI.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Hono</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Cloudflare</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">SQLite</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/xeopub/xeopub-admin-workers/tree/main/api-worker" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">GitHub</a>
+                                    <a href="https://dash-api.xeopub.com/doc/ui" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">API Docs</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- XeoDocs Project 1 -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={xeodocsProject} alt="XeoDocs (api-worker)" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">XeoDocs (api-worker)</h3>
+                                <p class="text-gray-400 mb-4 text-sm">The API of the XeoDocs dashboard, a system to translate open source docs with AI.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Go</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Gin</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Turso</span>
                                     <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
                                 </div>
                                 <div class="flex justify-end gap-4">
-                                    <a href="https://github.com/xeocast/xeocast-video-service" target="_blank" class="text-orange-400 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://video-srv.xeocast.com/docs" target="_blank" class="text-orange-400 hover:text-white transition-colors">API Docs</a>
+                                    <a href="https://github.com/xeodocs/xeodocs-dash-api" target="_blank" class="text-orange-400 hover:text-white transition-colors">GitHub</a>
+                                    <a href="https://dash-api.xeodocs.com/docs" target="_blank" class="text-orange-400 hover:text-white transition-colors">API Docs</a>
                                 </div>
                             </div>
                         </div>
