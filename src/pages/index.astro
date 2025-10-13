@@ -9,6 +9,9 @@ import { Icon } from "astro-icon/components";
 import xeocastProject from "../assets/projects/xeocast.jpg";
 import xeopubProject from "../assets/projects/xeopub.jpg";
 import xeodocsProject from "../assets/projects/xeodocs.jpg";
+import goMiniProject from "../assets/mini-projects/go.jpg";
+import nodejsMiniProject from "../assets/mini-projects/nodejs.jpg";
+import pythonMiniProject from "../assets/mini-projects/python.jpg";
 ---
 
 <!doctype html>
@@ -232,6 +235,98 @@ import xeodocsProject from "../assets/projects/xeodocs.jpg";
                                 <div class="flex justify-end gap-4">
                                     <a href="https://github.com/xeodocs/xeodocs-dash-api" target="_blank" class="text-orange-400 hover:text-white transition-colors">GitHub</a>
                                     <a href="https://dash-api.xeodocs.com/docs" target="_blank" class="text-orange-400 hover:text-white transition-colors">API Docs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mini-projects Section -->
+                <section id="projects" class="py-24">
+                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">150 Mini-projects series</h2>
+                    <p class="text-gray-400 mb-8 text-lg">Learning from examples and practical exercises is crucial because it bridges theoretical knowledge with real-world application. Examples provide context, showing how concepts work in practice, while hands-on exercises build problem-solving skills and confidence. This active learning approach enhances retention, fosters creativity, and prepares learners for challenges by simulating professional scenarios.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 150 Go mini-projects -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={goMiniProject} alt="XeoCast (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">150 Go mini-projects</h3>
+                                <p class="text-gray-400 mb-4 text-sm">Explore 150 Go mini-projects, from basic HTTP servers to advanced microservices, with Docker, enhancing backend skills in a hands-on way.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Go</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Backend</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Microservices</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">REST API</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">JWT</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Redis</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">GraphQL</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">MongoDB</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">WebSocket</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">RabbitMQ</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">gRPC</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Elasticsearch</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Jaeger</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Security</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/fabiankaraben/golang-mini-projects" target="_blank" class="text-cyan-400 hover:text-white transition-colors">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 150 Node.js mini-projects -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={nodejsMiniProject} alt="XeoPub (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">150 Node.js mini-projects</h3>
+                                <p class="text-gray-400 mb-4 text-sm">Explore 150 Node.js mini-projects with TypeScript, Docker, and diverse backend skills, from basics to advanced, for hands-on learning.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Node.js</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Express</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">REST API</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Microservices</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">JWT</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">MongoDB</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Redis</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">RabbitMQ</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">GraphQL</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">WebSocket</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">ORM</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Caching</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Security</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/fabiankaraben/nodejs-mini-projects" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 150 Python mini-projects -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={pythonMiniProject} alt="XeoDocs (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">150 Python mini-projects</h3>
+                                <p class="text-gray-400 mb-4 text-sm">Explore 150 Python mini-projects, from basic HTTP servers to advanced microservices, using Docker for hands-on backend practice.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Python</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Backend</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">REST API</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Microservices</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Flask</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Redis</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">JWT</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">OAuth2</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">WebSocket</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">ORM</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Caching</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Security</span>
+                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Testing</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/fabiankaraben/python-mini-projects" target="_blank" class="text-orange-400 hover:text-white transition-colors">GitHub</a>
                                 </div>
                             </div>
                         </div>
