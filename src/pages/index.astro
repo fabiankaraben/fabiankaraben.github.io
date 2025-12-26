@@ -7,8 +7,8 @@ import { Image } from "astro:assets";
 import fkPortrait from "../assets/fk.jpg";
 import { Icon } from "astro-icon/components";
 import xeocastProject from "../assets/projects/xeocast.jpg";
-import xeopubProject from "../assets/projects/xeopub.jpg";
-import xeodocsProject from "../assets/projects/xeodocs.jpg";
+import xeocontextProject from "../assets/projects/xeocontext.webp";
+import wordsusProject from "../assets/projects/wordsus.webp";
 import goMiniProject from "../assets/mini-projects/go.jpg";
 import nodejsMiniProject from "../assets/mini-projects/nodejs.jpg";
 import pythonMiniProject from "../assets/mini-projects/python.jpg";
@@ -147,6 +147,39 @@ import pythonMiniProject from "../assets/mini-projects/python.jpg";
                 <section id="projects" class="py-24">
                     <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-12">Featured Projects</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- XeoContext Project -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={xeocontextProject} alt="XeoContext" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">XeoContext</h3>
+                                <p class="text-gray-400 mb-4 text-sm">The Source of Truth for System Design. Unified viewer for Markdown, OpenAPI, and AsyncAPI definitions.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Markdown</span>
+                                    <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">OpenAPI</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://xeocontext.com" target="_blank" class="text-cyan-400 hover:text-white transition-colors">Website</a>
+                                    <a href="https://github.com/xeost/xeocontext" target="_blank" class="text-cyan-400 hover:text-white transition-colors">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Wordsus Project -->
+                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
+                            <Image src={wordsusProject} alt="Wordsus" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Wordsus</h3>
+                                <p class="text-gray-400 mb-4 text-sm">Your Personal Cloud Library. A unified, browser-based reader for PDFs and EPUBs with native-like performance.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">PWA</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">WebSockets</span>
+                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Canvas</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://wordsus.com" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">Website</a>
+                                </div>
+                            </div>
+                        </div>
                         <!-- XeoCast Project 1 -->
                         <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
                             <Image src={xeocastProject} alt="XeoCast (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
@@ -199,42 +232,6 @@ import pythonMiniProject from "../assets/mini-projects/python.jpg";
                                 <div class="flex justify-end gap-4">
                                     <a href="https://github.com/xeocast/xeocast-video-service" target="_blank" class="text-cyan-400 hover:text-white transition-colors">GitHub</a>
                                     <a href="https://video-srv.xeocast.com/docs" target="_blank" class="text-cyan-400 hover:text-white transition-colors">API Docs</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- XeoPub Project 1 -->
-                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
-                            <Image src={xeopubProject} alt="XeoPub (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">XeoPub (api-worker)</h3>
-                                <p class="text-gray-400 mb-4 text-sm">The API of the XeoPub dashboard, a system to generate and publish articles with AI.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Hono</span>
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">Cloudflare</span>
-                                    <span class="bg-fuchsia-900/50 text-fuchsia-300 text-xs font-medium px-2.5 py-1 rounded-full">SQLite</span>
-                                </div>
-                                <div class="flex justify-end gap-4">
-                                    <a href="https://github.com/xeopub/xeopub-admin-workers/tree/main/api-worker" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://dash-api.xeopub.com/doc/ui" target="_blank" class="text-fuchsia-400 hover:text-white transition-colors">API Docs</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- XeoDocs Project 1 -->
-                        <div class="group bg-[rgba(17,24,39,0.6)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.1)] rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400">
-                            <Image src={xeodocsProject} alt="XeoDocs (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">XeoDocs (api-worker)</h3>
-                                <p class="text-gray-400 mb-4 text-sm">The API of the XeoDocs dashboard, a system to translate open source docs with AI.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Go</span>
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Gin</span>
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Turso</span>
-                                    <span class="bg-orange-900/50 text-orange-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
-                                </div>
-                                <div class="flex justify-end gap-4">
-                                    <a href="https://github.com/xeodocs/xeodocs-dash-api" target="_blank" class="text-orange-400 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://dash-api.xeodocs.com/docs" target="_blank" class="text-orange-400 hover:text-white transition-colors">API Docs</a>
                                 </div>
                             </div>
                         </div>
