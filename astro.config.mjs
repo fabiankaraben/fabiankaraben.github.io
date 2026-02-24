@@ -9,7 +9,24 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://fabiankaraben.github.io',
-  integrations: [mdx(), sitemap(), icon()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    icon({
+      svgoOptions: {
+        plugins: [
+          {
+            name: "preset-default",
+            params: {
+              overrides: {
+                cleanupIds: false,
+              },
+            },
+          },
+        ],
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()]
   }
