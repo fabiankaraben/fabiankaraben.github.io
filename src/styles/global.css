@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
+	--accent: #f97316; /* Tailwind orange-500 */
+	--accent-dark: #c2410c; /* Tailwind orange-700 */
+	--black: 15, 23, 42; /* Tailwind slate-900 */
+	--gray: 148, 163, 184; /* Tailwind slate-400 */
+	--gray-light: 226, 232, 240; /* Tailwind slate-200 */
+	--gray-dark: 30, 41, 59; /* Tailwind slate-800 */
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+		0 2px 6px rgba(15, 23, 42, 0.4), 
+        0 8px 24px rgba(15, 23, 42, 0.6),
+		0 16px 32px rgba(15, 23, 42, 0.6);
 }
 
 html {
@@ -18,27 +19,21 @@ html {
 }
 
 body {
-    background-color: #0a0a0a;
-    color: #e5e7eb;
+    background-color: #0f172a; /* Tailwind slate-900 */
+    color: #cbd5e1; /* Tailwind slate-300 */
 }
-.aurora-background {
+
+.tech-grid-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.15;
-    background: 
-        radial-gradient(ellipse at top left, #00c6ff, transparent),
-        radial-gradient(ellipse at top right, #ff00ff, transparent),
-        radial-gradient(ellipse at bottom left, #ff6b00, transparent),
-        radial-gradient(ellipse at bottom right, #00ff87, transparent);
-    background-size: 200% 200%;
-    animation: aurora 20s ease infinite;
-}
-@keyframes aurora {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    background-size: 50px 50px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
 }

@@ -22,7 +22,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     </head>
 
     <body class="antialiased">
-        <div class="aurora-background"></div>
+        <div class="tech-grid-background"></div>
 
         <!-- Main Container -->
         <div class="relative z-10 min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 max-w-screen-xl mx-auto">
@@ -44,7 +44,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                                     )
                                 }
                             </div>
-                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold relative after:content-[''] after:absolute after:left-1/2 after:transform after:-translate-x-1/2 after:bottom-[-8px] after:w-[40px] sm:after:w-[50px] after:h-[3px] after:bg-cyan-400 after:rounded-[2px] after:shadow-[0_0_10px_#00c6ff] mb-8 sm:mb-12">{title}</h1>
+                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold relative after:content-[''] after:absolute after:left-1/2 after:transform after:-translate-x-1/2 after:bottom-[-8px] after:w-[40px] sm:after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-8 sm:mb-12">{title}</h1>
                         </div>
                         <slot />
                     </div>
@@ -85,8 +85,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         line-height: 1.3;
         font-weight: 700;
         text-shadow:
-            0 0 5px rgba(0, 198, 255, 0.5),
-            0 0 10px rgba(255, 0, 255, 0.5);
+            0 0 5px rgba(249, 115, 22, 0.3),
+            0 0 10px rgba(15, 23, 42, 0.5);
     }
 
     article h1 {
@@ -110,14 +110,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
     /* Links with a futuristic hover effect */
     article a {
-        color: #00c6ff;
+        color: #f97316;
         text-decoration: none;
         transition: all 0.3s ease;
-        text-shadow: 0 0 3px rgba(0, 198, 255, 0.7);
+        text-shadow: 0 0 3px rgba(249, 115, 22, 0.5);
     }
     article a:hover {
-        color: #ff00ff;
-        text-shadow: 0 0 5px rgba(255, 0, 255, 0.9);
+        color: #fbd38d;
+        text-shadow: 0 0 5px rgba(249, 115, 22, 0.8);
     }
 
     /* Paragraphs with better readability */
@@ -131,7 +131,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     article code {
         padding: 3px 6px;
         background-color: #1a1a1a;
-        color: #00c6ff;
+        color: #f97316;
         border-radius: 5px;
         font-family: "Fira Code", "Courier New", monospace;
         font-size: 0.95em;
@@ -157,7 +157,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     /* Blockquotes with a futuristic design */
     article blockquote {
         border-left: 3px solid;
-        border-image: linear-gradient(to bottom, #00c6ff, #ff00ff) 1;
+        border-image: linear-gradient(to bottom, #f97316, #fbd38d) 1;
         padding: 1em 1.5em;
         margin: 2rem 0;
         font-style: italic;
@@ -170,7 +170,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     article hr {
         border: none;
         height: 2px;
-        background-image: linear-gradient(to right, transparent, #00c6ff, #ff00ff, transparent);
+        background-image: linear-gradient(to right, transparent, #f97316, #fbd38d, transparent);
         margin: 3rem 0;
     }
 
@@ -181,8 +181,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         border-radius: 12px;
         margin: 2rem auto;
         box-shadow:
-            0 0 20px rgba(0, 198, 255, 0.3),
-            0 0 30px rgba(255, 0, 255, 0.3);
+            0 0 20px rgba(249, 115, 22, 0.2),
+            0 0 30px rgba(15, 23, 42, 0.3);
     }
 
     /* Responsive adjustments */
