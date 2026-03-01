@@ -13,9 +13,80 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
 <BlogPost {...post.data}>
-    <Content />
+    <div class="relative">
+        <Content />
+
+        <!-- Floating Table of Contents for desktop screens -->
+        {
+            headings && headings.length > 0 && (
+                <aside class="hidden xl:block absolute left-full top-0 ml-10 w-64 h-full z-10">
+                    <div class="sticky top-24 border-l-2 border-[#2a2a2a] pl-5 py-2 max-h-[calc(100vh-8rem)] overflow-y-auto overflow-x-hidden custom-scrollbar">
+                        <h3 class="!text-[#888] !font-semibold !m-0 !mb-4 uppercase tracking-wider !text-[15px] whitespace-nowrap">Table of Contents</h3>
+                        <nav>
+                            <ul class="space-y-3 !text-sm !list-none !p-0 !m-0">
+                                {headings
+                                    .filter((h) => h.depth > 1 && h.depth <= 3)
+                                    .map((heading) => (
+                                        <li class={`${heading.depth === 2 ? "!mt-3 first:!mt-0" : "!pl-3 !text-[0.9em]"}`}>
+                                            <a href={`#${heading.slug}`} class="toc-link !text-white hover:!text-[#f97316] !transition-colors !duration-200 block !no-underline !text-shadow-none" data-slug={heading.slug}>
+                                                {heading.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            )
+        }
+    </div>
 </BlogPost>
+
+<script>
+    const setupTocObserver = () => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const activeSlug = entry.target.id;
+                        document.querySelectorAll(".toc-link").forEach((link) => {
+                            if (link.getAttribute("data-slug") === activeSlug) {
+                                link.classList.add("!text-[#f97316]", "font-medium");
+                                link.classList.remove("!text-white");
+                            } else {
+                                link.classList.remove("!text-[#f97316]", "font-medium");
+                                link.classList.add("!text-white");
+                            }
+                        });
+                    }
+                });
+            },
+            { rootMargin: "-10% 0px -80% 0px" }
+        );
+
+        document.querySelectorAll("article h2, article h3").forEach((heading) => {
+            observer.observe(heading);
+        });
+    };
+
+    setupTocObserver();
+    document.addEventListener("astro:page-load", setupTocObserver);
+</script>
+
+<style>
+    /* Custom scrollbar for TOC */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+    }
+</style>
