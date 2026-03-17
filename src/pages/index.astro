@@ -10,6 +10,8 @@ import xeocastProject from "../assets/projects/xeocast.jpg";
 import xeocontextProject from "../assets/projects/xeocontext.webp";
 import wordsusProject from "../assets/projects/wordsus.webp";
 import goMiniProject from "../assets/mini-projects/go.jpg";
+import coreBankingApiProject from "../assets/projects/core-banking-api.webp";
+import coreBankingPlatformProject from "../assets/projects/core-banking-platform.webp";
 ---
 
 <!DOCTYPE html>
@@ -208,6 +210,50 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
                             </div>
                             <h3 class="font-semibold text-lg">SQLite</h3>
                             <p class="text-sm text-slate-400">Serverless, D1, Turso</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Portfolio Projects Section -->
+                <section id="portfolio-projects" class="py-24">
+                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-12">Portfolio Projects</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Core Banking API Project -->
+                        <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
+                            <Image src={coreBankingApiProject} alt="Core Banking API" class="w-full h-56 object-cover" width={720} height={402} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Core Banking API</h3>
+                                <p class="text-slate-400 mb-4 text-sm">A monolithic banking backend built with Java 21, Spring Boot, and Hexagonal Architecture. Features robust ACID transactions and idempotency controlled with Redis.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Java 21</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Spring Boot 3</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">RabbitMQ</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Hexagonal Architecture</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">PostgreSQL</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Redis</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/fabiankaraben/core-banking-api" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Core Banking Platform Project -->
+                        <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
+                            <Image src={coreBankingPlatformProject} alt="Core Banking Platform" class="w-full h-56 object-cover" width={720} height={402} loading="lazy" quality={90} />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Core Banking Platform</h3>
+                                <p class="text-slate-400 mb-4 text-sm">A highly scalable, distributed enterprise system using an Event-Driven Architecture (EDA). Implements distributed transactions and Database-per-Service.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Java 21</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Spring Boot 3.3</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Apache Kafka</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Saga Pattern</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Microservices</span>
+                                </div>
+                                <div class="flex justify-end gap-4">
+                                    <a href="https://github.com/fabiankaraben/core-banking-platform" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
