@@ -21,7 +21,7 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
         <div class="tech-grid-background"></div>
 
         <!-- Main Container -->
-        <div class="relative z-10 min-h-screen p-4 sm:p-6 lg:p-8 max-w-screen-xl mx-auto">
+        <div class="relative z-10 min-h-screen p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
             <Header />
             <main>
                 <!-- Hero Section -->
@@ -57,6 +57,23 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
                         <div class="md:col-span-4">
                             <p class="text-slate-300 leading-relaxed">I'm a backend developer with a solid background in infrastructure (DevOps), Node.js, and Go, currently focused on the Java and Spring Boot ecosystem. I'm looking to join a team as a Java Backend Developer where I can contribute my architectural background and my ability to implement robust and efficient systems.</p>
                             <p class="mt-4 text-slate-300 leading-relaxed">I hold an <strong>AWS</strong> certification and am actively pursuing additional certifications to enhance my proficiency in cloud service providers.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications Section -->
+                <section id="certifications" class="py-24">
+                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-12">Certifications</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Certification Card Example -->
+                        <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
+                            <div class="skill-icon w-26 h-32 pt-10 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                <Icon name="aws" class="text-5xl mx-auto" />
+                            </div>
+                            <h3 class="font-semibold text-lg">AWS Certified Cloud Practitioner</h3>
+                            <p class="text-sm text-slate-400 mt-1">Amazon Web Services</p>
+                            <p class="text-sm text-slate-400 mt-1">Issued Oct 2024 · Expires Oct 2027</p>
+                            <a href="https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url" target="_blank" class="text-orange-400 hover:text-white transition-colors font-semibold mt-4 text-sm">Verify &rarr;</a>
                         </div>
                     </div>
                 </section>
@@ -177,7 +194,7 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
 
                 <!-- Projects Section -->
                 <section id="projects" class="py-24">
-                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-12">Featured Projects</h2>
+                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-12">Real Projects</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- XeoContext Project -->
                         <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
@@ -189,6 +206,8 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Markdown</span>
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">OpenAPI</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">AsyncAPI</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Next.js</span>
                                 </div>
                                 <div class="flex justify-end gap-4">
                                     <a href="https://xeocontext.com" target="_blank" class="text-orange-500 hover:text-white transition-colors">Website</a>
@@ -206,6 +225,9 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">PWA</span>
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">WebSockets</span>
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Canvas</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Go</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">PDF Reader</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">EPUB Reader</span>
                                 </div>
                                 <div class="flex justify-end gap-4">
                                     <a href="https://wordsus.com" target="_blank" class="text-indigo-400 hover:text-white transition-colors">Website</a>
@@ -213,58 +235,23 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
                                 </div>
                             </div>
                         </div>
-                        <!-- XeoCast Project 1 -->
+                        <!-- XeoCast Project -->
                         <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
-                            <Image src={xeocastProject} alt="XeoCast (api-worker)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
+                            <Image src={xeocastProject} alt="XeoCast" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
                             <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">XeoCast (api-worker)</h3>
-                                <p class="text-slate-400 mb-4 text-sm">The API of the XeoCast dashboard, a system to generate and publish podcast episodes with AI.</p>
+                                <h3 class="text-xl font-bold mb-2">XeoCast</h3>
+                                <p class="text-slate-400 mb-4 text-sm">A system to generate podcast episodes with AI. Features a Cloudflare-based API and automated video processing with Python/FFmpeg.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Hono</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Cloudflare</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">SQLite</span>
-                                </div>
-                                <div class="flex justify-end gap-4">
-                                    <a href="https://xeocast.com" target="_blank" class="text-orange-500 hover:text-white transition-colors">Podcasts</a>
-                                    <a href="https://github.com/xeocast/xeocast-admin-workers/tree/main/api-worker" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://dash-api.xeocast.com/doc/ui" target="_blank" class="text-orange-500 hover:text-white transition-colors">API Docs</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- XeoCast Project 2 -->
-                        <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
-                            <Image src={xeocastProject} alt="XeoCast (heavy-compute-service)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">xeocast-heavy-compute-service</h3>
-                                <p class="text-slate-400 mb-4 text-sm">Perform XeoCast tasks that cannot or should not be run on Cloudflare Worker.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">TypeScript</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Hono</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Node.js</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
-                                </div>
-                                <div class="flex justify-end gap-4">
-                                    <a href="https://github.com/xeocast/xeocast-heavy-compute-service" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://hc-api.xeocast.com/doc/ui" target="_blank" class="text-orange-500 hover:text-white transition-colors">API Docs</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- XeoCast Project 3 -->
-                        <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-1 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
-                            <Image src={xeocastProject} alt="XeoCast (video-service)" class="w-full h-48 object-cover" width={720} height={393} loading="lazy" quality={90} />
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">xeocast-video-service</h3>
-                                <p class="text-slate-400 mb-4 text-sm">Video processing service for the XeoCast project. Generate the video podcast episodes.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Python</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">FastAPI</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Cloudflare</span>
+                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Gemini</span>
                                     <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">FFmpeg</span>
-                                    <span class="bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Docker</span>
                                 </div>
                                 <div class="flex justify-end gap-4">
-                                    <a href="https://github.com/xeocast/xeocast-video-service" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
-                                    <a href="https://video-srv.xeocast.com/docs" target="_blank" class="text-orange-500 hover:text-white transition-colors">API Docs</a>
+                                    <a href="https://xeocast.com" target="_blank" class="text-orange-500 hover:text-white transition-colors">Website</a>
+                                    <a href="https://github.com/orgs/xeocast/repositories" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
                                 </div>
                             </div>
                         </div>
@@ -351,23 +338,6 @@ import goMiniProject from "../assets/mini-projects/go.jpg";
                                     <a href="https://github.com/fabiankaraben/golang-mini-projects" target="_blank" class="text-orange-500 hover:text-white transition-colors">GitHub</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Certifications Section -->
-                <section id="certifications" class="py-24">
-                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-12">Certifications</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Certification Card Example -->
-                        <div class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-orange-500/50">
-                            <div class="skill-icon w-26 h-32 pt-10 mb-4 transition-transform duration-300 group-hover:scale-110">
-                                <Icon name="aws" class="text-5xl mx-auto" />
-                            </div>
-                            <h3 class="font-semibold text-lg">AWS Certified Cloud Practitioner</h3>
-                            <p class="text-sm text-slate-400 mt-1">Amazon Web Services</p>
-                            <p class="text-sm text-slate-400 mt-1">Issued Oct 2024 · Expires Oct 2027</p>
-                            <a href="https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url" target="_blank" class="text-orange-400 hover:text-white transition-colors font-semibold mt-4 text-sm">Verify &rarr;</a>
                         </div>
                     </div>
                 </section>
