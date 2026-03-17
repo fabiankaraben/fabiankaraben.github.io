@@ -2,6 +2,7 @@
 title: 'Deprecated Java Features and Their Modern Alternatives'
 description: 'Java has evolved significantly over the years. Uncover the legacy features you should retire and the modern alternatives to upgrade your code.'
 pubDate: '2026-02-27'
+featured: true
 ---
 
 Java's incredible backwards compatibility is one of its greatest strengths, allowing decades-old applications to run on modern JVMs with virtually no changes. However, this same strength means that the standard library is littered with legacy classes and patterns that have been long superseded by safer, more efficient alternatives.

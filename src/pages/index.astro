@@ -12,6 +12,11 @@ import wordsusProject from "../assets/projects/wordsus.webp";
 import goMiniProject from "../assets/mini-projects/go.jpg";
 import coreBankingApiProject from "../assets/projects/core-banking-api.webp";
 import coreBankingPlatformProject from "../assets/projects/core-banking-platform.webp";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const allPosts = await getCollection("blog");
+const featuredPosts = allPosts.filter(post => post.data.featured).sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!DOCTYPE html>
@@ -405,6 +410,31 @@ import coreBankingPlatformProject from "../assets/projects/core-banking-platform
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                <!-- Featured Blog Articles -->
+                <section id="blog" class="py-24">
+                    <h2 class="text-3xl font-bold relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-[50px] after:h-[3px] after:bg-orange-500 after:rounded-[2px] after:shadow-[0_0_8px_rgba(249,115,22,0.5)] mb-12">Featured Blog Articles</h2>
+                    <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {
+                            featuredPosts.map((post) => (
+                                <li class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-6 flex flex-col transition-all duration-300 hover:border-orange-500/50">
+                                    <a href={`/blog/${post.id}/`} class="flex-grow flex flex-col">
+                                        <h4 class="text-xl font-bold mb-2 text-gray-100 group-hover:text-orange-500 transition-colors">{post.data.title}</h4>
+                                        <p class="text-sm text-slate-300 mb-4 font-mono">
+                                            <FormattedDate date={post.data.pubDate as any} />
+                                        </p>
+                                        <p class="text-slate-400 leading-relaxed text-sm line-clamp-3">{post.data.description}</p>
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <div class="mt-12 text-center">
+                        <a href="/blog" class="inline-block bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg px-6 py-3 font-semibold hover:border-orange-500/50 hover:text-orange-500 transition-all duration-300">
+                            See all articles &rarr;
+                        </a>
                     </div>
                 </section>
 

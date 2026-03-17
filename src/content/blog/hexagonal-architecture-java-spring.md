@@ -2,6 +2,7 @@
 title: 'Hexagonal Architecture in Java and Spring: A Comprehensive Guide'
 description: 'Master Hexagonal Architecture (Ports and Adapters) in Java and Spring Boot. Learn its benefits, how to implement it, and its role in microservices and modular monoliths.'
 pubDate: '2026-03-01'
+featured: true
 ---
 
 Hexagonal Architecture, also known as the **Ports and Adapters** pattern, was introduced by Alistair Cockburn to solve a common problem in software development: the entanglement of business logic with infrastructure, user interfaces, and external systems. 
