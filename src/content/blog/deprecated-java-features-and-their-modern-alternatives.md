@@ -2,7 +2,6 @@
 title: 'Deprecated Java Features and Their Modern Alternatives'
 description: 'Java has evolved significantly over the years. Uncover the legacy features you should retire and the modern alternatives to upgrade your code.'
 pubDate: '2026-02-27'
-featured: true
 ---
 
 Java's incredible backwards compatibility is one of its greatest strengths, allowing decades-old applications to run on modern JVMs with virtually no changes. However, this same strength means that the standard library is littered with legacy classes and patterns that have been long superseded by safer, more efficient alternatives.
@@ -114,14 +113,25 @@ thread.start();
 Use an `ExecutorService` to manage thread pools, and `CompletableFuture` for composing asynchronous, non-blocking operations. With the introduction of Virtual Threads in Java 21, creating millions of lightweight threads is now possible!
 
 ```java
-// Using Virtual Threads (Java 21+)
+// Non-blocking async composition with CompletableFuture
+CompletableFuture<String> future = CompletableFuture
+    .supplyAsync(() -> "Hello from async!")
+    .thenApply(String::toUpperCase)
+    .exceptionally(ex -> "Fallback value");
+
+System.out.println("Doing other work while task runs...");
+System.out.println(future.join()); // "HELLO FROM ASYNC!"
+```
+
+```java
+// Using Virtual Threads (Java 21+) for high-throughput I/O workloads
 try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
     Future<String> future = executor.submit(() -> {
-        // Simulating a blocking call
-        Thread.sleep(1000); 
+        // Simulating a blocking I/O call
+        Thread.sleep(1000);
         return "Result from Virtual Thread";
     });
-    
+
     System.out.println(future.get());
 }
 ```
@@ -316,19 +326,38 @@ public class ResourceHandler {
 
 ### ✅ The Modern Way (`AutoCloseable` or `Cleaner`)
 
-The best way to manage resources tied to object lifecycles is simply using `try-with-resources` interface. If you absolutely need a background cleanup mechanism triggered by the Garbage Collector, use `java.lang.ref.Cleaner` (introduced in Java 9).
+The best way to manage resources is to implement the `AutoCloseable` interface and use `try-with-resources`, which guarantees deterministic cleanup regardless of exceptions. If you need a safety-net cleanup mechanism triggered by the Garbage Collector for objects wrapping native resources, use `java.lang.ref.Cleaner` (introduced in Java 9).
 
 ```java
-// The standard deterministic way
-try (FileInputStream fis = new FileInputStream("file.txt")) {
-    // Use resource...
-} catch (IOException e) {
-    // Handle error
+// The standard deterministic way: implement AutoCloseable
+public class ManagedResource implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        System.out.println("Resource released deterministically");
+    }
 }
 
-// Advanced background cleanup
-Cleaner cleaner = Cleaner.create();
-// Register object state to be cleaned up
+try (var resource = new ManagedResource()) {
+    // Use resource; close() is called automatically, even on exception
+}
+```
+
+```java
+// Safety-net background cleanup with Cleaner (for native resource wrappers)
+public class NativeResource implements AutoCloseable {
+    private static final Cleaner cleaner = Cleaner.create();
+    private final Cleaner.Cleanable cleanable;
+
+    public NativeResource() {
+        // The cleanup action must NOT hold a reference to 'this' to avoid preventing GC
+        this.cleanable = cleaner.register(this, () -> System.out.println("Native memory freed"));
+    }
+
+    @Override
+    public void close() {
+        cleanable.clean(); // Deterministic cleanup via try-with-resources
+    }
+}
 ```
 
 ## 12. Object Serialization: `java.io.Serializable`
@@ -391,6 +420,81 @@ byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
 List<String> lines = Files.readAllLines(Path.of("file.txt"), StandardCharsets.UTF_8);
 ```
 
+## 14. Raw Types: Collections Without Generics
+
+Before generics were introduced in Java 5, all collections were untyped — they stored `Object` references and required manual casting to retrieve elements. Raw types (collections or other generic classes used without a type parameter) are still valid Java today, but they silently bypass the entire type system, trading compile-time safety for runtime `ClassCastException` errors.
+
+### ❌ The Legacy Way
+
+```java
+// Raw types — no type parameter, no safety
+List items = new ArrayList();
+items.add("Hello");
+items.add(42); // No compiler error!
+
+// Compiles fine, but blows up at runtime with ClassCastException
+String first = (String) items.get(1);
+```
+
+### ✅ The Modern Way (Generics)
+
+Always parameterize your generic types. Generics are erased at runtime so there is zero performance cost; you only gain compile-time correctness.
+
+```java
+List<String> items = new ArrayList<>();
+items.add("Hello");
+// items.add(42); // Compiler error: incompatible types — caught at compile time
+
+String first = items.get(0); // No cast needed, fully type-safe
+```
+
+## 15. Type Checking and Casting: Old-Style `instanceof`
+
+The classic pattern of checking a type with `instanceof` and then immediately casting to it is both verbose and fragile. If you forget the check and cast directly, or later change the type name in the check but not the cast, you get a silent `ClassCastException` at runtime.
+
+### ❌ The Legacy Way
+
+```java
+Object shape = getShape();
+
+if (shape instanceof Circle) {
+    Circle c = (Circle) shape; // Redundant cast — the check already proved the type
+    System.out.println("Area: " + c.getArea());
+} else if (shape instanceof Rectangle) {
+    Rectangle r = (Rectangle) shape; // Another redundant cast
+    System.out.println("Area: " + r.getArea());
+}
+```
+
+### ✅ The Modern Way (Pattern Matching for `instanceof`, Java 16+)
+
+Pattern matching for `instanceof` combines the type check and the binding variable declaration into a single expression, eliminating the redundant cast entirely.
+
+```java
+// Pattern Matching for instanceof (Java 16+)
+Object shape = getShape();
+
+if (shape instanceof Circle c) {
+    System.out.println("Area: " + c.getArea());
+} else if (shape instanceof Rectangle r) {
+    System.out.println("Area: " + r.getArea());
+}
+```
+
+For exhaustive type dispatching, switch pattern matching (Java 21+) is even more expressive:
+
+```java
+// Switch Pattern Matching (Java 21+)
+String describe(Object shape) {
+    return switch (shape) {
+        case Circle c    -> "Circle with area " + c.getArea();
+        case Rectangle r -> "Rectangle with area " + r.getArea();
+        case null        -> "No shape provided";
+        default          -> "Unknown shape";
+    };
+}
+```
+
 ## Conclusion
 
-Java's standard library is vast, and knowing what *not* to use is just as important as mastering the new features. By retiring legacy classes like `Date`, `Vector`, `Stack`, and completely avoiding flaws like Java Serialization, you will automatically eliminate entire categories of subtle bugs, security vulnerabilities, and performance bottlenecks from your production codebase. Happy coding!
+Java's standard library is vast, and knowing what *not* to use is just as important as mastering the new features. By retiring legacy classes like `Date`, `Vector`, `Stack`, abandoning raw types, and completely avoiding the Java serialization mechanism, you will automatically eliminate entire categories of subtle bugs, security vulnerabilities, and performance bottlenecks from your production codebase. Modern Java features like pattern matching, virtual threads, and the `java.time` API are not merely syntactic conveniences — they represent fundamentally better solutions to long-standing problems. Happy coding!

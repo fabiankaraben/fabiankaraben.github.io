@@ -168,6 +168,80 @@ public class DomainConfiguration {
 }
 ```
 
+### 5. Recommended Package Structure
+
+The package layout should make the architectural boundaries visible at a glance. A widely adopted convention is to mirror the three layers directly in the package names:
+
+```
+com/example/bankaccount/
+├── domain/
+│   └── model/
+│       └── BankAccount.java
+├── application/
+│   ├── port/
+│   │   ├── in/
+│   │   │   └── DepositMoneyUseCase.java
+│   │   └── out/
+│   │       └── BankAccountRepositoryPort.java
+│   └── service/
+│       └── DepositMoneyService.java
+└── infrastructure/
+    ├── adapter/
+    │   ├── in/
+    │   │   └── rest/
+    │   │       └── BankAccountController.java
+    │   └── out/
+    │       └── persistence/
+    │           ├── JpaBankAccountAdapter.java
+    │           ├── BankAccountEntity.java
+    │           └── SpringDataBankAccountRepository.java
+    └── config/
+        └── DomainConfiguration.java
+```
+
+The dependency rule in one sentence: `domain` knows nothing, `application` knows only `domain`, and `infrastructure` knows everything but is depended on by nothing.
+
+## Testing in Isolation: The Main Payoff
+
+Testability is the most immediate, concrete benefit of this architecture. Because `DepositMoneyService` depends only on the `BankAccountRepositoryPort` interface — not on Spring Data, JPA, or any database driver — you can test your entire business logic with a plain JUnit 5 test and a Mockito mock. No `@SpringBootTest`, no embedded database, no network. The test runs in milliseconds.
+
+```java
+class DepositMoneyServiceTest {
+
+    private BankAccountRepositoryPort repositoryPort;
+    private DepositMoneyService service;
+
+    @BeforeEach
+    void setUp() {
+        repositoryPort = mock(BankAccountRepositoryPort.class);
+        service = new DepositMoneyService(repositoryPort);
+    }
+
+    @Test
+    void shouldDepositMoneySuccessfully() {
+        BankAccount account = new BankAccount(1L, new BigDecimal("100.00"));
+        when(repositoryPort.findById(1L)).thenReturn(Optional.of(account));
+        when(repositoryPort.save(any())).thenAnswer(inv -> inv.getArgument(0));
+
+        service.execute(1L, new BigDecimal("50.00"));
+
+        ArgumentCaptor<BankAccount> captor = ArgumentCaptor.forClass(BankAccount.class);
+        verify(repositoryPort).save(captor.capture());
+        assertEquals(new BigDecimal("150.00"), captor.getValue().getBalance());
+    }
+
+    @Test
+    void shouldThrowWhenAccountNotFound() {
+        when(repositoryPort.findById(anyLong())).thenReturn(Optional.empty());
+
+        assertThrows(IllegalArgumentException.class,
+            () -> service.execute(999L, new BigDecimal("50.00")));
+    }
+}
+```
+
+This test is fast, deterministic, and tests exactly the business rule in complete isolation. The JPA adapter, the REST controller, and the Spring context are completely irrelevant to verifying that `deposit()` adds the correct amount.
+
 ## Hexagonal Architecture in Microservices
 
 Hexagonal architecture is incredibly well-suited for Microservices. In a distributed environment, services communicate via various protocols (REST, gRPC, RabbitMQ, Kafka). 
@@ -179,9 +253,29 @@ With Hexagonal Architecture:
 - You can easily mount multiple **Primary Adapters** to the same **Inbound Port** (e.g., both a REST API adapter and a Kafka Listener adapter invoking `DepositMoneyUseCase`).
 - **Testability skyrockets.** You can test your core microservice logic by injecting mock Outbound Ports, completely avoiding the need to spin up test databases or mock HTTP servers during unit tests.
 
+The following example illustrates how effortlessly you can add a Kafka consumer as a second primary adapter. The domain and the application service are completely unchanged:
+
+```java
+@Component
+public class KafkaDepositAdapter {
+    private final DepositMoneyUseCase depositMoneyUseCase;
+
+    public KafkaDepositAdapter(DepositMoneyUseCase depositMoneyUseCase) {
+        this.depositMoneyUseCase = depositMoneyUseCase;
+    }
+
+    @KafkaListener(topics = "deposit-requests", groupId = "bank-service")
+    public void onDepositRequest(DepositRequestEvent event) {
+        depositMoneyUseCase.execute(event.getAccountId(), event.getAmount());
+    }
+}
+```
+
+`DepositMoneyService` does not know — or care — whether the trigger came from an HTTP call or a Kafka event. You can add a gRPC adapter, a CLI runner, or a scheduled job the same way, with zero impact on the domain or its tests.
+
 ## A Powerful Strategy for the Modular Monolith
 
-While Microservices solve organizational sealing, they introduce significant operational complexity (distributed transactions, network latency, complex deployments). A modern alternative is the **Modular Monolith**.
+While Microservices solve organizational scalability challenges, they introduce significant operational complexity (distributed transactions, network latency, complex deployments). A modern alternative is the **Modular Monolith**.
 
 A Modular Monolith is a single deployable application divided into strictly encapsulated business modules (e.g., `Billing`, `Inventory`, `Shipping`). 
 
@@ -194,6 +288,8 @@ Hexagonal Architecture is the secret weapon for preventing a Modular Monolith fr
 
 ## Conclusion
 
-Hexagonal Architecture requires a bit more boilerplate code initially—you need to map between Domain objects and JPA entities, and define port interfaces even for simple CRUD operations. However, this upfront investment pays off massively in the long run.
+Hexagonal Architecture requires more upfront structure than a classic layered approach: you define port interfaces, write mappers between domain objects and JPA entities, and wire beans manually. For a simple CRUD endpoint this can feel verbose.
 
-By keeping your core business logic pure and isolating all infrastructure concerns in adapters, you build software that is robust, independently testable, framework-agnostic, and perfectly positioned to scale—whether you deploy it as a tight Modular Monolith or a fleet of independent Microservices.
+The payoff becomes clear the moment you face a real change: swapping the database means only replacing one adapter; adding a Kafka entry point means writing one new class; testing business logic means writing a plain JUnit test with no application context. These are not hypothetical benefits — the code examples in this guide demonstrate all three.
+
+By keeping your core business logic pure and isolating all infrastructure concerns behind adapters, you build software that is robust, independently testable, and framework-agnostic — whether it lives in a tight Modular Monolith today or gets extracted into an independent Microservice tomorrow.

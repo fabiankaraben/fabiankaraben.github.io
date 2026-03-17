@@ -16,7 +16,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 
 const allPosts = await getCollection("blog");
-const featuredPosts = allPosts.filter(post => post.data.featured).sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featuredPosts = allPosts.filter((post) => post.data.featured).sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!DOCTYPE html>
@@ -420,7 +420,7 @@ const featuredPosts = allPosts.filter(post => post.data.featured).sort((a: any, 
                         {
                             featuredPosts.map((post) => (
                                 <li class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg p-6 flex flex-col transition-all duration-300 hover:border-orange-500/50">
-                                    <a href={`/blog/${post.id}/`} class="flex-grow flex flex-col">
+                                    <a href={`/blog/${post.id}/`} class="grow flex flex-col">
                                         <h4 class="text-xl font-bold mb-2 text-gray-100 group-hover:text-orange-500 transition-colors">{post.data.title}</h4>
                                         <p class="text-sm text-slate-300 mb-4 font-mono">
                                             <FormattedDate date={post.data.pubDate as any} />
@@ -432,9 +432,7 @@ const featuredPosts = allPosts.filter(post => post.data.featured).sort((a: any, 
                         }
                     </ul>
                     <div class="mt-12 text-center">
-                        <a href="/blog" class="inline-block bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg px-6 py-3 font-semibold hover:border-orange-500/50 hover:text-orange-500 transition-all duration-300">
-                            See all articles &rarr;
-                        </a>
+                        <a href="/blog" class="inline-block bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-lg px-6 py-3 font-semibold hover:border-orange-500/50 hover:text-orange-500 transition-all duration-300"> See all articles &rarr;</a>
                     </div>
                 </section>
 

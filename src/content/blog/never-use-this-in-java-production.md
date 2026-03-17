@@ -2,6 +2,7 @@
 title: 'Never Use This in Java Production'
 description: 'A look at Java methods, classes, and patterns that are great for quick scripts or tests but disastrous in a production environment.'
 pubDate: '2026-02-28'
+featured: true
 ---
 
 Java is an incredible ecosystem, offering a vast standard library that has evolved over three decades. But this rich history comes with a catch: not everything available in the JDK is suitable for a high-performance backend system. Certain legacy classes, naive patterns, and convenient shortcuts can quickly turn into crippling bottlenecks, bugs, or even `OutOfMemoryError` incidents when deployed at scale.
@@ -71,7 +72,7 @@ public class DateUtils {
 Java makes it incredibly easy to append strings using the `+` operator.
 
 ### Why it's a problem:
-Strings in Java are immutable. When you concatenate strings inside a loop using `+`, you aren't just joining text; you are instantiating a new `String` object on every iteration, throwing the old one away to be garbage collected. This leads to massive CPU overhead and memory churn (an $O(N^2)$ operation).
+Strings in Java are immutable. When you concatenate strings inside a loop using `+`, you aren't just joining text; you are instantiating a new `String` object on every iteration, throwing the old one away to be garbage collected. This leads to massive CPU overhead and memory churn (an O(n²) operation).
 
 ### The Correct Way:
 Use `StringBuilder` to accumulate characters dynamically without throwing away intermediate objects.
@@ -118,12 +119,28 @@ Use `ThreadLocalRandom`, which maintains a separate seed for each thread, elimin
 ```java
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SecurityTokenGenerator {
-    
+public class RandomPinGenerator {
+
     public String generatePin() {
-        // No thread contention, blazing fast
         int pin = ThreadLocalRandom.current().nextInt(1000, 10000);
         return String.valueOf(pin);
+    }
+}
+```
+
+**Critical caveat:** `ThreadLocalRandom` is optimized for speed, not cryptographic unpredictability. For anything security-sensitive — session tokens, password-reset links, API keys — use `java.security.SecureRandom`, which draws entropy from the OS's cryptographically strong random source.
+
+```java
+import java.security.SecureRandom;
+import java.util.Base64;
+
+public class SecurityTokenGenerator {
+    private static final SecureRandom SECURE_RANDOM = new SecureRandom();
+
+    public String generateToken() {
+        byte[] tokenBytes = new byte[32];
+        SECURE_RANDOM.nextBytes(tokenBytes);
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(tokenBytes);
     }
 }
 ```
@@ -244,8 +261,90 @@ public class FinancialTransaction {
 }
 ```
 
+## 9. Swallowing or Ignoring Exceptions
+
+Silencing exceptions — with an empty `catch` block, a bare `e.printStackTrace()`, or by catching and not re-throwing — is one of the most destructive habits in production Java code.
+
+### Why it's a problem:
+- **Silent corruption:** An empty `catch` block hides failures completely. Your system enters a broken, inconsistent state while every health-check metric shows green.
+- **Lost context:** Printing the stack trace and continuing execution means the calling code has no idea the operation failed, allowing the error to propagate in unpredictable ways.
+- **`InterruptedException` is special:** Catching `InterruptedException` and doing nothing permanently clears the thread's interrupt flag, silently disabling the cooperative-interruption mechanism that frameworks rely on for orderly shutdown.
+
+### The Correct Way:
+
+```java
+// BAD: Failure silently swallowed
+try {
+    connection = dataSource.getConnection();
+} catch (SQLException e) {}
+
+// BAD: Logged but execution blindly continues in a broken state
+try {
+    processPayment(order);
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
+
+```java
+// GOOD: Log with full context and re-throw as a typed domain exception
+try {
+    processPayment(order);
+} catch (PaymentGatewayException e) {
+    log.error("Payment failed for order {}", order.getId(), e);
+    throw new PaymentProcessingException("Payment failed for order " + order.getId(), e);
+}
+
+// GOOD: Restore the interrupt flag when catching InterruptedException
+try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt(); // Preserve the interrupt status for callers
+    throw new RuntimeException("Thread interrupted", e);
+}
+```
+
+## 10. Using a Plain `HashMap` as an In-Memory Cache
+
+Caching computed results in a `HashMap` is a natural reflex. But a raw `HashMap` has no concept of eviction, expiration, or size limits — making it a production time bomb.
+
+### Why it's a problem:
+Every entry added stays forever. Under normal load, the map grows without bound: every unique user ID, product SKU, or request parameter that passes through adds another entry. The result is an invisible memory leak that eventually terminates the JVM with an `OutOfMemoryError` — typically during a traffic spike, at the worst possible moment.
+
+### The Correct Way:
+For production in-process caches, use **Caffeine** — the standard choice for in-JVM caching. It provides bounded size, time-based eviction, and access statistics with negligible overhead.
+
+```java
+// BAD: Unbounded map grows forever under real traffic
+private final Map<String, Product> cache = new HashMap<>();
+
+public Product getProduct(String id) {
+    return cache.computeIfAbsent(id, this::loadFromDatabase);
+}
+```
+
+```java
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+
+// GOOD: Bounded cache with automatic eviction
+private final Cache<String, Product> cache = Caffeine.newBuilder()
+    .maximumSize(10_000)
+    .expireAfterWrite(30, TimeUnit.MINUTES)
+    .recordStats()
+    .build();
+
+public Product getProduct(String id) {
+    return cache.get(id, this::loadFromDatabase);
+}
+```
+
+If adding a dependency is not an option, overriding `removeEldestEntry` on a `LinkedHashMap` provides basic LRU eviction as a lightweight fallback.
+
 ## Final Thoughts
 
-Building resilient enterprise Java applications requires understanding not just what the language can do, but what it does under the hood. The JDK prioritizes backward compatibility, meaning legacy classes and naive implementations from 1995 still sit side-by-side with modern, performant APIs.
+Building resilient enterprise Java applications requires understanding not just what the language can do, but what it does under the hood. The JDK prioritizes backward compatibility, meaning legacy classes and naive implementations from the late 1990s still sit side-by-side with modern, performant APIs.
 
-Before shipping your backend to production, make sure you aren't inadvertently injecting single-thread blockers, memory leaks, or context-losing anti-patterns into your stack.
+The patterns in this guide share a common root cause: they work perfectly in isolation during development but fail under production load or at the edges. A single `System.out.println`, a swallowed exception, or an unbounded cache is invisible in a unit test — but each one is a liability waiting for the right conditions to surface.
+
+Before shipping your backend, review your codebase with this list in hand. The fixes are almost always a one-line change; the cost of skipping them can be measured in production incidents.
