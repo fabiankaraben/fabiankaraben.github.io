@@ -25,15 +25,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <div class="tech-grid-background"></div>
 
         <!-- Main Container -->
-        <div class="relative z-10 min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 max-w-screen-xl mx-auto">
+        <div class="relative z-10 min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 max-w-7xl mx-auto">
             <Header />
             <main class="w-full max-w-full m-0">
                 <article class="py-8 sm:py-12 md:py-16">
                     <div class="w-full px-2 sm:px-4">
-                        {heroImage && <Image width={720} height={360} src={heroImage} alt="" class="block mx-auto rounded-xl shadow-[var(--box-shadow)]" />}
+                        {heroImage && <Image width={720} height={360} src={heroImage} alt="" class="block mx-auto rounded-xl shadow-(--box-shadow)" />}
                     </div>
                     <div class="w-full max-w-[900px] mx-auto px-4 sm:px-6 md:px-8 text-[rgb(var(--gray-light))]">
-                        <div class="mb-6 sm:mb-8 py-4 text-center leading-none">
+                        <div class="mb-6 sm:mb-8 py-4 text-center">
                             <div class="mb-3 sm:mb-4 text-sm sm:text-base text-[rgb(var(--gray))]">
                                 <FormattedDate date={pubDate} />
                                 {
@@ -52,191 +52,387 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             </main>
             <Footer />
         </div>
+        <style is:inline>
+            /* Futuristic and Modern Styles for Blog Posts */
+
+            /* General Body and Font styles */
+            body {
+                font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /* Headings with glow and modern look */
+            article h1,
+            article h2,
+            article h3,
+            article h4,
+            article h5,
+            article h6 {
+                margin: 2rem 0 1.5rem 0;
+                color: #e0e0e0; /* Lighter gray for better contrast on dark backgrounds */
+                line-height: 1.3;
+                font-weight: 700;
+                text-shadow: 0 0 5px rgba(249, 115, 22, 0.3), 0 0 10px rgba(15, 23, 42, 0.5);
+            }
+
+            article h1 {
+                font-size: 2.8em;
+            }
+            article h2 {
+                font-size: 2.2em;
+            }
+            article h3 {
+                font-size: 1.8em;
+            }
+            article h4 {
+                font-size: 1.5em;
+            }
+            article h5 {
+                font-size: 1.25em;
+            }
+            article h6 {
+                font-size: 1.1em;
+            }
+
+            /* Reduce top margin when a heading immediately follows another */
+            article h1 + h2,
+            article h1 + h3,
+            article h2 + h3,
+            article h2 + h4,
+            article h3 + h4,
+            article h3 + h5,
+            article h4 + h5,
+            article h4 + h6 {
+                margin-top: 0.5rem;
+            }
+
+            /* Links with a futuristic hover effect */
+            article a {
+                color: #f97316;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                text-shadow: 0 0 3px rgba(249, 115, 22, 0.5);
+            }
+            article a:hover {
+                color: #fbd38d;
+                text-shadow: 0 0 5px rgba(249, 115, 22, 0.8);
+            }
+
+            /* Paragraphs with better readability */
+            article p {
+                margin-bottom: 1.5em;
+                line-height: 1.85;
+                color: #b0b0b0; /* Softer gray for body text */
+            }
+
+            /* Lists with proper spacing and markers */
+            article ul,
+            article ol {
+                padding-left: 1.75em;
+                margin: 0.5rem 0 1.5rem 0;
+            }
+            article ul {
+                list-style-type: disc;
+            }
+            article ol {
+                list-style-type: decimal;
+            }
+            article li {
+                margin-bottom: 0.55em;
+                line-height: 1.75;
+                color: #b0b0b0;
+            }
+            article li::marker {
+                color: #f97316;
+            }
+            article li > ul,
+            article li > ol {
+                margin: 0.4em 0 0.25em 0;
+            }
+            article li > p {
+                margin-bottom: 0.5em;
+            }
+
+            /* Strong and emphasis */
+            article strong {
+                color: #e0e0e0;
+                font-weight: 600;
+            }
+            article em {
+                color: #c8c8c8;
+            }
+
+            /* Inline code */
+            article code {
+                padding: 3px 6px;
+                background-color: #1a1a1a;
+                color: #f97316;
+                border-radius: 5px;
+                font-family: "Fira Code", "Courier New", monospace;
+                font-size: 0.9em;
+            }
+
+            /* Code blocks — Mac-style window design */
+            article pre {
+                position: relative;
+                padding: 1.5em;
+                padding-top: 3.75em;
+                border-radius: 12px;
+                background-color: #07090f !important;
+                border: 1px solid #1c1c1c;
+                color: #e0e0e0;
+                overflow-x: auto;
+                margin: 2rem 0;
+                scrollbar-width: thin;
+                scrollbar-color: #2e2e2e transparent;
+            }
+
+            /* Dark horizontal scrollbar (WebKit) */
+            article pre::-webkit-scrollbar {
+                height: 5px;
+            }
+            article pre::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            article pre::-webkit-scrollbar-thumb {
+                background: #2e2e2e;
+                border-radius: 10px;
+            }
+            article pre::-webkit-scrollbar-thumb:hover {
+                background: #444;
+            }
+
+            /* Traffic light dots */
+            article pre::before {
+                content: "";
+                position: absolute;
+                top: calc(1.05em - 6px);
+                left: 1.1em;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #ff5f57;
+                box-shadow: 20px 0 0 #febc2e, 40px 0 0 #28c840;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            /* Title bar with language label */
+            article pre::after {
+                content: attr(data-language);
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3em;
+                background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+                border-radius: 12px 12px 0 0;
+                border-bottom: 1px solid #242424;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+                font-size: 0.7em;
+                font-weight: 500;
+                color: #555;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            article pre > code {
+                all: unset;
+                font-family: "Fira Code", "Courier New", monospace;
+                line-height: 1.75;
+                font-size: 0.9em;
+            }
+
+            /* Blockquotes with a futuristic design */
+            article blockquote {
+                border-left: 3px solid;
+                border-image: linear-gradient(to bottom, #f97316, #fbd38d) 1;
+                padding: 1em 1.5em;
+                margin: 2rem 0;
+                font-style: italic;
+                color: #c0c0c0;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 0 8px 8px 0;
+            }
+
+            /* Tables */
+            article table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 2rem 0;
+                font-size: 0.95em;
+                border: 1px solid #2a2a2a;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            article thead {
+                background-color: rgba(249, 115, 22, 0.08);
+            }
+            article th {
+                color: #e0e0e0;
+                font-weight: 600;
+                text-align: left;
+                padding: 0.75em 1.25em;
+                border-bottom: 1px solid #2a2a2a;
+                font-size: 0.875em;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+            article td {
+                padding: 0.65em 1.25em;
+                border-bottom: 1px solid #1f1f1f;
+                color: #b0b0b0;
+                vertical-align: top;
+            }
+            article tr:last-child td {
+                border-bottom: none;
+            }
+            article tbody tr:hover {
+                background-color: rgba(255, 255, 255, 0.02);
+            }
+
+            /* Horizontal rule with a gradient */
+            article hr {
+                border: none;
+                height: 2px;
+                background-image: linear-gradient(to right, transparent, #f97316, #fbd38d, transparent);
+                margin: 3rem 0;
+            }
+
+            /* Image styles */
+            article img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 12px;
+                margin: 2rem auto;
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.2), 0 0 30px rgba(15, 23, 42, 0.3);
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                article h1 {
+                    font-size: 2.4em;
+                }
+                article h2 {
+                    font-size: 2em;
+                }
+                article h3 {
+                    font-size: 1.6em;
+                }
+                article p {
+                    line-height: 1.6;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    font-size: 16px;
+                }
+                article h1 {
+                    font-size: 2em;
+                }
+                article h2 {
+                    font-size: 1.7em;
+                }
+                article h3 {
+                    font-size: 1.4em;
+                }
+                article pre {
+                    padding: 0.75em;
+                    padding-top: 3.5em;
+                }
+                article blockquote {
+                    padding: 1em;
+                }
+            }
+
+            /* Copy code button */
+            .copy-code-btn {
+                position: absolute;
+                top: calc(1.5em - 0.9em);
+                right: 0.75em;
+                z-index: 3;
+                padding: 0.28em 0.65em;
+                background: #202020;
+                border: 1px solid #303030;
+                border-radius: 5px;
+                color: #606060;
+                font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+                font-size: 0.65em;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                cursor: pointer;
+                transition: background 0.15s, color 0.15s, border-color 0.15s;
+                line-height: 1;
+                user-select: none;
+            }
+            .copy-code-btn:hover {
+                background: #2a2a2a;
+                border-color: #404040;
+                color: #999;
+            }
+            .copy-code-btn.copied {
+                color: #28c840;
+                border-color: #28c840;
+            }
+
+            .sr-only {
+                border: 0;
+                padding: 0;
+                margin: 0;
+                position: absolute !important;
+                height: 1px;
+                width: 1px;
+                overflow: hidden;
+                /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+                clip: rect(1px 1px 1px 1px);
+                /* maybe deprecated but we need to support legacy browsers */
+                clip: rect(1px, 1px, 1px, 1px);
+                /* modern browsers, clip-path works inwards from each corner */
+                clip-path: inset(50%);
+                /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+                white-space: nowrap;
+            }
+        </style>
+
+        <script>
+            const setupCopyButtons = () => {
+                document.querySelectorAll("article pre").forEach((pre) => {
+                    if (pre.querySelector(".copy-code-btn")) return;
+                    const btn = document.createElement("button");
+                    btn.className = "copy-code-btn";
+                    btn.setAttribute("aria-label", "Copy code");
+                    btn.textContent = "Copy";
+                    btn.addEventListener("click", async () => {
+                        const code = pre.querySelector("code") as HTMLElement | null;
+                        const text = code ? code.innerText : (pre as HTMLElement).innerText;
+                        try {
+                            await navigator.clipboard.writeText(text);
+                            btn.textContent = "Copied!";
+                            btn.classList.add("copied");
+                            setTimeout(() => {
+                                btn.textContent = "Copy";
+                                btn.classList.remove("copied");
+                            }, 2000);
+                        } catch {
+                            btn.textContent = "Failed";
+                            setTimeout(() => {
+                                btn.textContent = "Copy";
+                            }, 2000);
+                        }
+                    });
+                    pre.appendChild(btn);
+                });
+            };
+
+            setupCopyButtons();
+            document.addEventListener("astro:page-load", setupCopyButtons);
+        </script>
     </body>
 </html>
-
-<style is:inline>
-    /* Futuristic and Modern Styles for Blog Posts */
-
-    /* General Body and Font styles */
-    body {
-        font-family:
-            "Inter",
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            Roboto,
-            "Helvetica Neue",
-            Arial,
-            sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Headings with glow and modern look */
-    article h1,
-    article h2,
-    article h3,
-    article h4,
-    article h5,
-    article h6 {
-        margin: 2rem 0 1.5rem 0;
-        color: #e0e0e0; /* Lighter gray for better contrast on dark backgrounds */
-        line-height: 1.3;
-        font-weight: 700;
-        text-shadow:
-            0 0 5px rgba(249, 115, 22, 0.3),
-            0 0 10px rgba(15, 23, 42, 0.5);
-    }
-
-    article h1 {
-        font-size: 2.8em;
-    }
-    article h2 {
-        font-size: 2.2em;
-    }
-    article h3 {
-        font-size: 1.8em;
-    }
-    article h4 {
-        font-size: 1.5em;
-    }
-    article h5 {
-        font-size: 1.25em;
-    }
-    article h6 {
-        font-size: 1.1em;
-    }
-
-    /* Links with a futuristic hover effect */
-    article a {
-        color: #f97316;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        text-shadow: 0 0 3px rgba(249, 115, 22, 0.5);
-    }
-    article a:hover {
-        color: #fbd38d;
-        text-shadow: 0 0 5px rgba(249, 115, 22, 0.8);
-    }
-
-    /* Paragraphs with better readability */
-    article p {
-        margin-bottom: 1.5em;
-        line-height: 1.7;
-        color: #b0b0b0; /* Softer gray for body text */
-    }
-
-    /* Code blocks with a modern, dark theme */
-    article code {
-        padding: 3px 6px;
-        background-color: #1a1a1a;
-        color: #f97316;
-        border-radius: 5px;
-        font-family: "Fira Code", "Courier New", monospace;
-        font-size: 0.95em;
-    }
-
-    article pre {
-        padding: 1.5em;
-        border-radius: 10px;
-        background-color: #121212;
-        border: 1px solid #2a2a2a;
-        color: #e0e0e0;
-        overflow-x: auto;
-        margin: 2rem 0;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    article pre > code {
-        all: unset;
-        font-family: "Fira Code", "Courier New", monospace;
-        line-height: 1.5;
-    }
-
-    /* Blockquotes with a futuristic design */
-    article blockquote {
-        border-left: 3px solid;
-        border-image: linear-gradient(to bottom, #f97316, #fbd38d) 1;
-        padding: 1em 1.5em;
-        margin: 2rem 0;
-        font-style: italic;
-        color: #c0c0c0;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 0 8px 8px 0;
-    }
-
-    /* Horizontal rule with a gradient */
-    article hr {
-        border: none;
-        height: 2px;
-        background-image: linear-gradient(to right, transparent, #f97316, #fbd38d, transparent);
-        margin: 3rem 0;
-    }
-
-    /* Image styles */
-    article img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 12px;
-        margin: 2rem auto;
-        box-shadow:
-            0 0 20px rgba(249, 115, 22, 0.2),
-            0 0 30px rgba(15, 23, 42, 0.3);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        article h1 {
-            font-size: 2.4em;
-        }
-        article h2 {
-            font-size: 2em;
-        }
-        article h3 {
-            font-size: 1.6em;
-        }
-        article p {
-            line-height: 1.6;
-        }
-    }
-
-    @media (max-width: 480px) {
-        body {
-            font-size: 16px;
-        }
-        article h1 {
-            font-size: 2em;
-        }
-        article h2 {
-            font-size: 1.7em;
-        }
-        article h3 {
-            font-size: 1.4em;
-        }
-        article pre {
-            padding: 1em;
-        }
-        article blockquote {
-            padding: 1em;
-        }
-    }
-
-    .sr-only {
-        border: 0;
-        padding: 0;
-        margin: 0;
-        position: absolute !important;
-        height: 1px;
-        width: 1px;
-        overflow: hidden;
-        /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-        clip: rect(1px 1px 1px 1px);
-        /* maybe deprecated but we need to support legacy browsers */
-        clip: rect(1px, 1px, 1px, 1px);
-        /* modern browsers, clip-path works inwards from each corner */
-        clip-path: inset(50%);
-        /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-        white-space: nowrap;
-    }
-</style>
