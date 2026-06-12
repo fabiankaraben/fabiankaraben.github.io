@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
       <TechGridBackground />
       <Header lang={lang} />
 
-      <main className="relative z-10 flex-grow max-w-4xl mx-auto px-4 sm:px-6 w-full pt-32 pb-20">
+      <main className="relative z-10 grow max-w-4xl mx-auto px-4 sm:px-6 w-full pt-32 pb-20">
         <article className="py-12">
           {/* Back button */}
           <div className="mb-8">

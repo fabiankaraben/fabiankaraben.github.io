@@ -60,7 +60,7 @@ export default async function BackendHome() {
       <TechGridBackground />
       <Header lang={lang} />
 
-      <main className="relative z-10 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <main className="relative z-10 grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Hero Section */}
         <section id="home" className="pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36 flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-900 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md text-xs font-mono text-slate-500 dark:text-slate-400 mb-6">
@@ -70,7 +70,7 @@ export default async function BackendHome() {
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
             Fabián Karaben
-            <span className="block mt-3 bg-gradient-to-r from-brand-orange to-amber-500 bg-clip-text text-transparent">
+            <span className="block mt-3 bg-linear-to-r from-brand-orange to-amber-500 bg-clip-text text-transparent">
               {t.backendTitle}
             </span>
           </h1>

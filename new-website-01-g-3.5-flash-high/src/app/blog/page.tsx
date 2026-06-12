@@ -28,7 +28,7 @@ export default async function BlogIndex() {
       <TechGridBackground />
       <Header lang={lang} />
 
-      <main className="relative z-10 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-20">
+      <main className="relative z-10 grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-20">
         <section className="py-12">
           {/* Breadcrumb / Back Link */}
           <div className="mb-8">
