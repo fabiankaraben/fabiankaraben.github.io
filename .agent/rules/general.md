@@ -2,4 +2,8 @@
 trigger: always_on
 ---
 
-- Always write the code, comments and documentation in English, even when the prompt is not in English.
+Code:
+
+- Always write the code in English, as well as the comments, even when the prompt is not in English.
+- Always use pnpm instead of npm.
+- Never use the git command, do not perform `commit`, and much less `push`.
