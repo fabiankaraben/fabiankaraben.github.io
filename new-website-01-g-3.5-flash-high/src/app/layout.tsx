@@ -18,16 +18,25 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
-export default function RootLayout({
+import { cookies } from "next/headers";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("lang")?.value || "en";
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${outfit.variable} ${jetbrainsMono.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
     >
@@ -37,6 +46,7 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
+                  // 1. Theme detection
                   var storedTheme = localStorage.getItem('theme');
                   var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
                   if (storedTheme === 'dark' || (!storedTheme && supportDarkMode)) {
@@ -45,6 +55,21 @@ export default function RootLayout({
                   } else {
                     document.documentElement.classList.remove('dark');
                     document.documentElement.style.colorScheme = 'light';
+                  }
+
+                  // 2. Language detection
+                  var storedLang = localStorage.getItem('lang');
+                  var systemLang = navigator.language.startsWith('es') ? 'es' : 'en';
+                  var activeLang = storedLang || systemLang;
+                  document.documentElement.setAttribute('lang', activeLang);
+
+                  // Sync to cookie for server-side rendering
+                  var match = document.cookie.match(new RegExp('(^| )lang=([^;]+)'));
+                  var cookieLang = match ? match[2] : null;
+
+                  if (cookieLang !== activeLang) {
+                    document.cookie = 'lang=' + activeLang + '; path=/; max-age=31536000; SameSite=Lax';
+                    window.location.reload();
                   }
                 } catch (e) {}
               })();

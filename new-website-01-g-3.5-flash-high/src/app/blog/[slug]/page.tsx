@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
 import { CopyButtonInitializer } from "./CopyButtonInitializer";
+import { cookies } from "next/headers";
+import { translations } from "@/lib/translations";
 
 interface Props {
   params: Promise<{
@@ -25,22 +27,35 @@ export async function generateStaticParams() {
 // Generate dynamic metadata
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+  const post = getPostBySlug(slug, lang);
   if (!post) {
     return {
       title: "Post Not Found",
+      robots: {
+        index: false,
+        follow: true,
+      },
     };
   }
 
   return {
     title: `${post.title} | Fabián Karaben`,
     description: post.description,
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+  const t = translations[lang];
+  const post = getPostBySlug(slug, lang);
 
   if (!post) {
     notFound();
@@ -52,7 +67,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="relative min-h-screen flex flex-col selection:bg-brand-orange/30 selection:text-white">
       <TechGridBackground />
-      <Header />
+      <Header lang={lang} />
 
       <main className="relative z-10 flex-grow max-w-4xl mx-auto px-4 sm:px-6 w-full pt-32 pb-20">
         <article className="py-12">
@@ -63,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
               className="inline-flex items-center gap-1.5 text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-brand-orange transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>back_to_blog</span>
+              <span>{t.backToBlog}</span>
             </Link>
           </div>
 
@@ -89,7 +104,7 @@ export default async function BlogPostPage({ params }: Props) {
         </article>
       </main>
 
-      <Footer />
+      <Footer role={t.javaTitle} />
       <CopyButtonInitializer />
     </div>
   );

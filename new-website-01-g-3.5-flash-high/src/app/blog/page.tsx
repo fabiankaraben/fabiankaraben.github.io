@@ -5,18 +5,28 @@ import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
 import { getAllPosts } from "@/lib/blog";
 
+import { cookies } from "next/headers";
+import { translations } from "@/lib/translations";
+
 export const metadata = {
   title: "Blog | Fabián Karaben",
   description: "Read technical articles on Java, Spring Boot, microservices, hexagonal architecture, and backend systems design.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
-export default function BlogIndex() {
-  const posts = getAllPosts();
+export default async function BlogIndex() {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+  const t = translations[lang];
+  const posts = getAllPosts(lang);
 
   return (
     <div className="relative min-h-screen flex flex-col selection:bg-brand-orange/30 selection:text-white">
       <TechGridBackground />
-      <Header />
+      <Header lang={lang} />
 
       <main className="relative z-10 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-20">
         <section className="py-12">
@@ -27,19 +37,21 @@ export default function BlogIndex() {
               className="inline-flex items-center gap-1.5 text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-brand-orange transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>back_to_home</span>
+              <span>{t.backToHome}</span>
             </Link>
           </div>
 
           <div className="flex items-center gap-3 mb-12">
-            <span className="font-mono text-sm text-brand-orange">// ARTICLES</span>
+            <span className="font-mono text-sm text-brand-orange">
+              {lang === "es" ? "// ARTÍCULOS" : "// ARTICLES"}
+            </span>
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
-              Tech Blog
+              {t.techBlog}
             </h1>
           </div>
 
           {posts.length === 0 ? (
-            <p className="text-slate-600 dark:text-slate-400 font-mono">no_articles_found</p>
+            <p className="text-slate-600 dark:text-slate-400 font-mono">{t.noArticles}</p>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
@@ -56,7 +68,7 @@ export default function BlogIndex() {
                       {post.description}
                     </p>
                     <span className="mt-auto text-brand-orange group-hover:text-white transition-colors text-sm font-semibold flex items-center gap-1">
-                      Read article &rarr;
+                      {t.readArticle} &rarr;
                     </span>
                   </Link>
                 </div>
@@ -66,7 +78,7 @@ export default function BlogIndex() {
         </section>
       </main>
 
-      <Footer />
+      <Footer role={t.javaTitle} />
     </div>
   );
 }

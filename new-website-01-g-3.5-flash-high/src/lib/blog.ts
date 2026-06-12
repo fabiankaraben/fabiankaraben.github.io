@@ -13,37 +13,59 @@ export interface BlogPost {
   content: string;
 }
 
-export function getAllPosts(): BlogPost[] {
+export function getAllPosts(lang: string = "en"): BlogPost[] {
   if (!fs.existsSync(blogDirectory)) {
     return [];
   }
-  
-  const fileNames = fs.readdirSync(blogDirectory);
-  const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith(".md"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(blogDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
 
-      return {
-        slug,
-        title: data.title || "",
-        description: data.description || "",
-        pubDate: data.pubDate ? new Date(data.pubDate).toISOString().split("T")[0] : "",
-        featured: !!data.featured,
-        content,
-      };
-    });
+  const fileNames = fs.readdirSync(blogDirectory);
+  // Get unique base slugs (removing any .es.md or .md suffix)
+  const uniqueSlugs = Array.from(
+    new Set(
+      fileNames
+        .filter((fileName) => fileName.endsWith(".md"))
+        .map((fileName) => fileName.replace(/\.es\.md$/, "").replace(/\.md$/, ""))
+    )
+  );
+
+  const allPostsData = uniqueSlugs.map((slug) => {
+    let fileName = `${slug}.md`;
+    if (lang === "es") {
+      const esPath = path.join(blogDirectory, `${slug}.es.md`);
+      if (fs.existsSync(esPath)) {
+        fileName = `${slug}.es.md`;
+      }
+    }
+
+    const fullPath = path.join(blogDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    return {
+      slug,
+      title: data.title || "",
+      description: data.description || "",
+      pubDate: data.pubDate ? new Date(data.pubDate).toISOString().split("T")[0] : "",
+      featured: !!data.featured,
+      content,
+    };
+  });
 
   // Sort posts by date descending
   return allPostsData.sort((a, b) => (a.pubDate < b.pubDate ? 1 : -1));
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
+export function getPostBySlug(slug: string, lang: string = "en"): BlogPost | null {
   try {
-    const fullPath = path.join(blogDirectory, `${slug}.md`);
+    let fileName = `${slug}.md`;
+    if (lang === "es") {
+      const esPath = path.join(blogDirectory, `${slug}.es.md`);
+      if (fs.existsSync(esPath)) {
+        fileName = `${slug}.es.md`;
+      }
+    }
+
+    const fullPath = path.join(blogDirectory, fileName);
     if (!fs.existsSync(fullPath)) {
       return null;
     }

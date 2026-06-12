@@ -5,8 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Terminal } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 
-export default function Header() {
+interface HeaderProps {
+  lang?: "en" | "es";
+}
+
+export default function Header({ lang = "en" }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,13 +40,26 @@ export default function Header() {
     return `/${hash}`;
   };
 
+  const getNavLabel = (key: string) => {
+    const labels: Record<string, { en: string; es: string }> = {
+      about: { en: "About", es: "Sobre Mí" },
+      certifications: { en: "Certifications", es: "Certificaciones" },
+      skills: { en: "Skills", es: "Habilidades" },
+      projects: { en: "Projects", es: "Proyectos" },
+      blog: { en: "Blog", es: "Blog" },
+      contact: { en: "Contact", es: "Contacto" },
+      hireMe: { en: "Hire Me", es: "Contrátame" },
+    };
+    return labels[key]?.[lang] || key;
+  };
+
   const navLinks = [
-    { name: "About", href: getLinkHref("#about") },
-    { name: "Certifications", href: getLinkHref("#certifications") },
-    { name: "Skills", href: getLinkHref("#skills") },
-    { name: "Projects", href: getLinkHref("#projects") },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: getLinkHref("#contact") },
+    { name: getNavLabel("about"), href: getLinkHref("#about") },
+    { name: getNavLabel("certifications"), href: getLinkHref("#certifications") },
+    { name: getNavLabel("skills"), href: getLinkHref("#skills") },
+    { name: getNavLabel("projects"), href: getLinkHref("#projects") },
+    { name: getNavLabel("blog"), href: "/blog" },
+    { name: getNavLabel("contact"), href: getLinkHref("#contact") },
   ];
 
   return (
@@ -80,17 +98,19 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
             <Link
               href={getLinkHref("#contact")}
               className="inline-flex items-center justify-center px-4 py-2 border border-brand-orange/40 text-sm font-medium rounded-lg text-brand-orange bg-brand-orange/5 hover:bg-brand-orange hover:text-white transition-all duration-300 shadow-md shadow-brand-orange/10 hover:shadow-brand-orange/20"
             >
-              Hire Me
+              {getNavLabel("hireMe")}
             </Link>
+            <LanguageToggle />
+            <ThemeToggle />
           </div>
 
           {/* Mobile Hamburger Button */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={toggleMenu}
@@ -127,7 +147,7 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
             className="block text-center w-full px-5 py-3 mt-4 text-base font-medium text-white bg-brand-orange hover:bg-brand-orange-hover rounded-lg shadow-lg shadow-brand-orange/20 transition-all duration-300"
           >
-            Hire Me
+            {getNavLabel("hireMe")}
           </Link>
         </nav>
       </div>

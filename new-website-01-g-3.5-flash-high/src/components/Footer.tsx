@@ -1,14 +1,18 @@
 import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
-export default function Footer() {
+interface FooterProps {
+  role?: string;
+}
+
+export default function Footer({ role = "Java Backend Developer" }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="w-full border-t border-slate-200 dark:border-slate-900 bg-slate-100/40 dark:bg-slate-950/40 py-8 mt-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="text-sm text-slate-500 dark:text-slate-500 font-mono">
-          &copy; {currentYear} Fabián Karaben <span className="text-brand-orange">|</span> Java Backend Developer
+          &copy; {currentYear} Fabián Karaben <span className="text-brand-orange">|</span> {role}
         </div>
         <div className="flex gap-4">
           <Link

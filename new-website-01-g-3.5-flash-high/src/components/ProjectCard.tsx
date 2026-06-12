@@ -30,15 +30,15 @@ export default function ProjectCard({
           sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
           quality={75}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-6 flex flex-col grow">
         <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-orange transition-colors font-sans mb-2">
           {title}
         </h3>
-        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-5 flex-grow font-sans">
+        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-5 grow font-sans">
           {description}
         </p>
 
