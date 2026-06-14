@@ -24,15 +24,12 @@ export const metadata: Metadata = {
   },
 };
 
-import { cookies } from "next/headers";
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const lang = cookieStore.get("lang")?.value || "en";
+  const lang = "en";
 
   return (
     <html
@@ -63,14 +60,6 @@ export default async function RootLayout({
                   var activeLang = storedLang || systemLang;
                   document.documentElement.setAttribute('lang', activeLang);
 
-                  // Sync to cookie for server-side rendering
-                  var match = document.cookie.match(new RegExp('(^| )lang=([^;]+)'));
-                  var cookieLang = match ? match[2] : null;
-
-                  if (cookieLang !== activeLang) {
-                    document.cookie = 'lang=' + activeLang + '; path=/; max-age=31536000; SameSite=Lax';
-                    window.location.reload();
-                  }
                 } catch (e) {}
               })();
             `,

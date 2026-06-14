@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
 
 export default function LanguageToggle() {
   const [lang, setLang] = useState<"en" | "es">("en");
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const htmlLang = (document.documentElement.getAttribute("lang") as "en" | "es") || "en";
@@ -14,11 +17,19 @@ export default function LanguageToggle() {
   const handleToggle = () => {
     const nextLang = lang === "en" ? "es" : "en";
     setLang(nextLang);
-
     localStorage.setItem("lang", nextLang);
-    document.cookie = `lang=${nextLang}; path=/; max-age=31536000; SameSite=Lax`;
 
-    window.location.reload();
+    if (pathname) {
+      const parts = pathname.split('/');
+      if (parts[1] === 'en' || parts[1] === 'es') {
+        parts[1] = nextLang;
+        router.push(parts.join('/'));
+      } else {
+        router.push(`/${nextLang}`);
+      }
+    } else {
+      router.push(`/${nextLang}`);
+    }
   };
 
   return (

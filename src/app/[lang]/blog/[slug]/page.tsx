@@ -7,11 +7,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
 import { CopyButtonInitializer } from "./CopyButtonInitializer";
-import { cookies } from "next/headers";
+
 import { translations } from "@/lib/translations";
 
 interface Props {
   params: Promise<{
+    lang: string;
     slug: string;
   }>;
 }
@@ -26,9 +27,8 @@ export async function generateStaticParams() {
 
 // Generate dynamic metadata
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  const cookieStore = await cookies();
-  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+  const { slug, lang: langParam } = await params;
+  const lang = (langParam || "en") as "en" | "es";
   const post = getPostBySlug(slug, lang);
   if (!post) {
     return {
@@ -51,9 +51,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
-  const cookieStore = await cookies();
-  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+  const { slug, lang: langParam } = await params;
+  const lang = (langParam || "en") as "en" | "es";
   const t = translations[lang];
   const post = getPostBySlug(slug, lang);
 
@@ -104,7 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
         </article>
       </main>
 
-      <Footer role={t.javaTitle} />
+      <Footer role={t.javaTitle} lang={lang} />
       <CopyButtonInitializer />
     </div>
   );

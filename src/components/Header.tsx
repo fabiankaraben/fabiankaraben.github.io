@@ -31,13 +31,13 @@ export default function Header({ lang = "en" }: HeaderProps) {
   const pathname = usePathname();
 
   const getLinkHref = (hash: string) => {
-    if (pathname.startsWith("/blog")) {
-      return `/${hash}`;
+    if (pathname.includes("/blog")) {
+      return `/${lang}${hash}`;
     }
-    if (pathname === "/backend") {
+    if (pathname.includes("/backend") || pathname.includes("/devops-sysadmin") || pathname.includes("/flutter")) {
       return `${pathname}${hash}`;
     }
-    return `/${hash}`;
+    return `/${lang}${hash}`;
   };
 
   const getNavLabel = (key: string) => {
@@ -58,7 +58,7 @@ export default function Header({ lang = "en" }: HeaderProps) {
     { name: getNavLabel("certifications"), href: getLinkHref("#certifications") },
     { name: getNavLabel("skills"), href: getLinkHref("#skills") },
     { name: getNavLabel("projects"), href: getLinkHref("#projects") },
-    { name: getNavLabel("blog"), href: "/blog" },
+    { name: getNavLabel("blog"), href: `/${lang}/blog` },
     { name: getNavLabel("contact"), href: getLinkHref("#contact") },
   ];
 
@@ -75,7 +75,7 @@ export default function Header({ lang = "en" }: HeaderProps) {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Link
-              href="/"
+              href={`/${lang}`}
               className="group flex items-center gap-1.5 font-mono text-xl font-bold tracking-wider text-slate-900 dark:text-slate-100"
             >
               <Terminal className="w-5 h-5 text-brand-orange group-hover:rotate-6 transition-transform" />

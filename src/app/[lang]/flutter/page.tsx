@@ -11,7 +11,7 @@ import CoreTechSection from "@/components/sections/CoreTechSection";
 import FeaturedArticlesSection from "@/components/sections/FeaturedArticlesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { GithubIcon } from "@/components/Icons";
-import { cookies } from "next/headers";
+
 import { translations } from "@/lib/translations";
 
 // Static image imports
@@ -29,9 +29,9 @@ export const metadata = {
   },
 };
 
-export default async function FlutterHome() {
-  const cookieStore = await cookies();
-  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+export default async function FlutterHome({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langParam } = await params;
+  const lang = (langParam || "en") as "en" | "es";
   const t = translations[lang];
 
   return (
@@ -135,7 +135,7 @@ export default async function FlutterHome() {
         <ContactSection lang={lang} />
       </main>
 
-      <Footer role={t.flutterTitle} />
+      <Footer role={t.flutterTitle} lang={lang} />
     </div>
   );
 }

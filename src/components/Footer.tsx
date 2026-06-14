@@ -3,9 +3,10 @@ import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 interface FooterProps {
   role?: string;
+  lang?: "en" | "es";
 }
 
-export default function Footer({ role = "Java Backend Developer" }: FooterProps) {
+export default function Footer({ role = "Java Backend Developer", lang = "en" }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,19 +18,19 @@ export default function Footer({ role = "Java Backend Developer" }: FooterProps)
               Specialized Roles
             </span>
             <nav className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
-              <Link href="/" className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
+              <Link href={`/${lang}`} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
                 Full Stack Developer
               </Link>
               <span className="text-slate-300 dark:text-slate-700 text-sm">|</span>
-              <Link href="/backend" className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
+              <Link href={`/${lang}/backend`} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
                 Backend Developer
               </Link>
               <span className="text-slate-300 dark:text-slate-700 text-sm">|</span>
-              <Link href="/devops-sysadmin" className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
+              <Link href={`/${lang}/devops-sysadmin`} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
                 DevOps & SysAdmin
               </Link>
               <span className="text-slate-300 dark:text-slate-700 text-sm">|</span>
-              <Link href="/flutter" className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
+              <Link href={`/${lang}/flutter`} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
                 Flutter Developer
               </Link>
             </nav>

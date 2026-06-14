@@ -11,7 +11,7 @@ import CoreTechSection from "@/components/sections/CoreTechSection";
 import FeaturedArticlesSection from "@/components/sections/FeaturedArticlesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { GithubIcon } from "@/components/Icons";
-import { cookies } from "next/headers";
+
 import { translations } from "@/lib/translations";
 
 // Static image imports
@@ -24,17 +24,17 @@ import xeoCast from "@/assets/projects/xeocast.jpg";
 import goMiniProject from "@/assets/mini-projects/go.jpg";
 
 export const metadata = {
-  title: "Fabián Karaben | Backend Engineer",
-  description: "Portfolio of Fabián Karaben, a Backend Engineer specializing in Java, Spring Boot, Go, Node.js, AWS, and distributed backend architectures.",
+  title: "Fabián Karaben | Full Stack Developer",
+  description: "Portfolio of Fabián Karaben, a Full Stack Developer specializing in Next.js, React, TypeScript, Go, Java, and AWS cloud solutions.",
   robots: {
     index: false,
     follow: true,
   },
 };
 
-export default async function BackendHome() {
-  const cookieStore = await cookies();
-  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+export default async function FullStackHome({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langParam } = await params;
+  const lang = (langParam || "en") as "en" | "es";
   const t = translations[lang];
 
   return (
@@ -45,9 +45,9 @@ export default async function BackendHome() {
       <main className="relative z-10 grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Hero Section */}
         <HeroSection
-          status={t.statusBackend}
-          title={t.backendTitle}
-          description={t.backendDesc}
+          status={t.statusFullStack}
+          title={t.fullStackTitle}
+          description={t.fullStackDesc}
         />
 
         {/* About Section */}
@@ -73,8 +73,8 @@ export default async function BackendHome() {
               </div>
             </div>
             <div className="md:col-span-4 space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-              <p>{t.aboutBeP1}</p>
-              <p>{t.aboutBeP2}</p>
+              <p>{t.aboutFsP1}</p>
+              <p>{t.aboutFsP2}</p>
             </div>
           </div>
         </section>
@@ -89,7 +89,7 @@ export default async function BackendHome() {
           </div>
 
           <div className="space-y-16">
-            {/* VeoBible Showcase (Backend Focus) */}
+            {/* VeoBible Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
               <div className="absolute inset-0 bg-linear-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -97,19 +97,19 @@ export default async function BackendHome() {
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-mono font-semibold">
-                      Featured Backend Architecture
+                      Featured Full-Stack Project
                     </div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      VeoBible API
+                      VeoBible
                     </h3>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                       {lang === "es"
-                        ? "Arquitectura Edge sin servidor para sincronización en tiempo real y almacenamiento distribuido globalmente."
-                        : "Serverless Edge architecture for real-time synchronization and globally distributed storage."}
+                        ? "Una Aplicación Web Progresiva (PWA) moderna para leer la Biblia. Generada estáticamente, completamente funcional sin conexión y desplegada en el edge."
+                        : "A modern Progressive Web App for reading the Bible. Statically generated, fully offline-capable, and deployable to the edge."}
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {["Cloudflare Workers", "Hono", "TypeScript", "D1 (SQLite)", "Supabase Auth", "REST API"].map((tech) => (
+                      {["Next.js 14", "TypeScript", "Tailwind CSS", "Cloudflare Workers", "Hono", "D1 (SQLite)", "Supabase Auth", "PWA"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
                           {tech}
                         </span>
@@ -137,15 +137,16 @@ export default async function BackendHome() {
                   </div>
 
                   <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Feature cards */}
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
                         <Terminal className="w-5 h-5 text-emerald-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Edge REST API</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Frontend PWA</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "API ultrarrápida construida con Hono y desplegada en V8 Isolates vía Cloudflare Workers."
-                          : "Lightning-fast API built with Hono and deployed on V8 Isolates via Cloudflare Workers."}
+                          ? "UI bilingüe, marcadores de texto, sesiones de lectura optimistas y ~2,400 páginas pre-renderizadas por SSG."
+                          : "Bilingual UI, text bookmarks, optimistic reading sessions, and ~2,400 SSG pre-rendered pages."}
                       </p>
                     </div>
 
@@ -153,11 +154,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                         <Server className="w-5 h-5 text-blue-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Cloud Database D1</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Edge Backend</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Base de datos SQLite distribuida globalmente (D1) para persistencia centralizada."
-                          : "Globally distributed SQLite database (D1) for centralized persistence."}
+                          ? "API REST para sincronización construida en Cloudflare Workers con Hono y D1 (SQLite en el edge)."
+                          : "REST API for sync built on Cloudflare Workers with Hono and D1 (SQLite at the edge)."}
                       </p>
                     </div>
 
@@ -165,11 +166,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
                         <Layers className="w-5 h-5 text-purple-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Service Worker Sync</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Offline-First</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Lógica de sincronización offline-first con Background Sync y resolución de conflictos de estado."
-                          : "Offline-first synchronization logic with Background Sync and state conflict resolution."}
+                          ? "Service Worker con Cache API. Soporte completo sin conexión para leer versiones descargadas."
+                          : "Service Worker with Cache API. Full offline support for reading downloaded versions."}
                       </p>
                     </div>
 
@@ -180,8 +181,8 @@ export default async function BackendHome() {
                       <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Supabase Auth</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Autenticación segura en la API mediante verificación JWT y políticas RLS estrictas."
-                          : "Secure API authentication through JWT verification and strict RLS policies."}
+                          ? "Autenticación segura con verificación de JWTs para acceder a los datos sincronizados en la nube."
+                          : "Secure authentication with JWT verification to access cloud-synced user data."}
                       </p>
                     </div>
                   </div>
@@ -189,27 +190,27 @@ export default async function BackendHome() {
               </div>
             </div>
 
-            {/* Wordsus Showcase (Backend Focus) */}
-            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/5">
+            {/* Wordsus Showcase */}
+            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
               <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row-reverse gap-10">
                   <div className="lg:w-1/2 space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-mono font-semibold">
-                      Featured Backend Architecture
+                      Featured Full-Stack Project
                     </div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      Wordsus API
+                      Wordsus
                     </h3>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                       {lang === "es"
-                        ? "Plataforma educativa potenciada por un backend Cloudflare Workers que sincroniza el progreso y datos del usuario de manera eficiente."
-                        : "Educational platform powered by a Cloudflare Workers backend that efficiently synchronizes user progress and data."}
+                        ? "Plataforma de lectura online gratuita para libros y cursos educativos. Construida con Next.js exportado estáticamente y una API REST sincronizada en la nube."
+                        : "Free online reading platform for educational books and courses. Built with statically exported Next.js and a cloud-synced REST API."}
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {["Cloudflare Workers", "Hono", "TypeScript", "D1 (SQLite)", "Supabase Auth", "REST API"].map((tech) => (
+                      {["Next.js 16", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "Cloudflare Workers", "Hono", "D1 (SQLite)", "Supabase Auth"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
                           {tech}
                         </span>
@@ -228,7 +229,7 @@ export default async function BackendHome() {
                       <Link
                         href="https://github.com/wordsus/wordsus-static-site"
                         target="_blank"
-                        className="inline-flex items-center justify-center px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-semibold hover:border-blue-500/40 hover:text-blue-500 transition-colors"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-semibold hover:border-brand-orange/40 hover:text-brand-orange transition-colors"
                       >
                         <GithubIcon className="w-4 h-4 mr-2" />
                         GitHub
@@ -237,15 +238,16 @@ export default async function BackendHome() {
                   </div>
 
                   <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Feature cards */}
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
                         <Terminal className="w-5 h-5 text-indigo-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Serverless API</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Static Frontend</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "API REST sin servidor desplegada en V8 isolates para máximo rendimiento."
-                          : "Serverless REST API deployed on V8 isolates for maximum performance."}
+                          ? "Aplicación Next.js 16 con App Router exportada estáticamente hacia Cloudflare Pages para máximo rendimiento."
+                          : "Next.js 16 App Router application statically exported to Cloudflare Pages for maximum performance."}
                       </p>
                     </div>
 
@@ -253,11 +255,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center mb-4">
                         <Server className="w-5 h-5 text-sky-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Edge Compute</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Workers Backend</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Procesamiento de datos y lógica de negocio ejecutándose cerca del usuario con Cloudflare."
-                          : "Data processing and business logic executing close to the user with Cloudflare."}
+                          ? "API REST ultrarrápida usando Hono desplegada en V8 isolates en el edge a través de Cloudflare Workers."
+                          : "Lightning-fast REST API using Hono deployed on V8 isolates at the edge via Cloudflare Workers."}
                       </p>
                     </div>
 
@@ -265,11 +267,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
                         <Layers className="w-5 h-5 text-teal-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">D1 Sync Storage</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Cloud Sync & D1</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Almacenamiento del progreso de lectura sincronizado entre dispositivos usando SQLite en el edge."
-                          : "Reading progress storage synced across devices using SQLite at the edge."}
+                          ? "Sincronización multi-dispositivo del progreso y favoritos usando base de datos D1 (SQLite en el edge)."
+                          : "Cross-device synchronization of progress and favorites using D1 database (SQLite at the edge)."}
                       </p>
                     </div>
 
@@ -277,11 +279,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
                         <Cpu className="w-5 h-5 text-orange-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">JWT Sessions</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Rich Features</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Gestión de sesiones e identidades validando tokens JWT en el middleware de Hono."
-                          : "Session and identity management validating JWT tokens in the Hono middleware."}
+                          ? "Soporte i18n, búsqueda full-text, temas claros/oscuros, seguimiento de lectura y soporte para audio/video."
+                          : "i18n support, full-text search, dark/light themes, reading tracking, and audio/video support."}
                       </p>
                     </div>
                   </div>
@@ -289,7 +291,7 @@ export default async function BackendHome() {
               </div>
             </div>
 
-            {/* Staticl10n Showcase (Backend Focus) */}
+            {/* Staticl10n Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/5">
               <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -297,19 +299,19 @@ export default async function BackendHome() {
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold">
-                      Featured Backend Tooling
+                      Featured Full-Stack Project
                     </div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      Staticl10n Engine
+                      Staticl10n CLI
                     </h3>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                       {lang === "es"
-                        ? "Un motor backend impulsado por IA para procesamiento intensivo de sitios estáticos, abstracción de crawling y orquestación de LLMs."
-                        : "An AI-powered backend engine for intensive processing of static sites, crawling abstraction, and LLM orchestration."}
+                        ? "Herramienta CLI para la traducción automática de sitios web estáticos. Captura, procesa y traduce sitios web completos de extremo a extremo utilizando LLMs locales (Ollama)."
+                        : "CLI tool for automated static website translation. Captures, processes, and translates complete websites end-to-end using local LLMs (Ollama)."}
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {["Node.js", "TypeScript", "SQLite", "Playwright", "Cheerio", "Ollama API"].map((tech) => (
+                      {["Node.js", "TypeScript", "SQLite", "Playwright", "Cheerio", "Ollama", "Next.js Support"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
                           {tech}
                         </span>
@@ -329,15 +331,16 @@ export default async function BackendHome() {
                   </div>
 
                   <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Feature cards */}
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
                         <Terminal className="w-5 h-5 text-teal-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">CLI Architecture</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Interactive CLI</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Arquitectura modular en Node.js para flujos de trabajo en pipeline y procesamiento intensivo."
-                          : "Modular Node.js architecture for pipeline workflows and intensive processing."}
+                          ? "Interfaz CLI interactiva construida con Inquirer y Chalk para gestionar flujos de trabajo multi-etapa y configuración."
+                          : "Interactive CLI interface built with Inquirer and Chalk to manage multi-stage workflows and configuration."}
                       </p>
                     </div>
 
@@ -348,8 +351,8 @@ export default async function BackendHome() {
                       <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Playwright Crawler</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Automatización profunda para rastreo headless, abstracción de DOM y manipulación de AST."
-                          : "Deep automation for headless crawling, DOM abstraction, and AST manipulation."}
+                          ? "Descubrimiento profundo de URLs, rastreo y exportación estática de sitios modernos con un crawler headless."
+                          : "Deep URL discovery, crawling, and static export of modern websites using a headless Playwright crawler."}
                       </p>
                     </div>
 
@@ -357,11 +360,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                         <Server className="w-5 h-5 text-blue-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Local LLM Orchestration</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Local LLM AI</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Integración de API de Ollama para procesamiento semántico conservando perfectamente el DOM."
-                          : "Ollama API integration for semantic processing perfectly preserving the DOM."}
+                          ? "Traducciones semánticas de HTML que mantienen intacta la estructura del DOM utilizando modelos locales vía Ollama."
+                          : "Semantic HTML translations that preserve DOM structure perfectly using local LLM models via Ollama."}
                       </p>
                     </div>
 
@@ -369,11 +372,11 @@ export default async function BackendHome() {
                       <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
                         <Layers className="w-5 h-5 text-purple-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">SQLite Persistance</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">SQLite State DB</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Capa de datos con better-sqlite3 para estado persistente y sistema de caché de memoria transaccional."
-                          : "Data layer with better-sqlite3 for persistent state and transactional memory cache system."}
+                          ? "Rastreo robusto de estado con better-sqlite3 y sistema de caché de memoria de traducción."
+                          : "Robust state tracking with better-sqlite3 and a translation memory cache system."}
                       </p>
                     </div>
                   </div>
@@ -426,7 +429,7 @@ export default async function BackendHome() {
         <ContactSection lang={lang} />
       </main>
 
-      <Footer role={t.backendTitle} />
+      <Footer role={t.fullStackTitle} lang={lang} />
     </div>
   );
 }

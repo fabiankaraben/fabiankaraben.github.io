@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
 import { getAllPosts } from "@/lib/blog";
 
-import { cookies } from "next/headers";
+
 import { translations } from "@/lib/translations";
 
 export const metadata = {
@@ -17,9 +17,9 @@ export const metadata = {
   },
 };
 
-export default async function BlogIndex() {
-  const cookieStore = await cookies();
-  const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
+export default async function BlogIndex({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langParam } = await params;
+  const lang = (langParam || "en") as "en" | "es";
   const t = translations[lang];
   const posts = getAllPosts(lang);
 
@@ -78,7 +78,7 @@ export default async function BlogIndex() {
         </section>
       </main>
 
-      <Footer role={t.javaTitle} />
+      <Footer role={t.javaTitle} lang={lang} />
     </div>
   );
 }
