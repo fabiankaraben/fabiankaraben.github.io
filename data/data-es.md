@@ -13,9 +13,9 @@
 - **Descripción corta:** Diseñando arquitecturas robustas y escalables. Construyo la columna vertebral digital de las aplicaciones web modernas, enfocándome en el rendimiento, la seguridad y la confiabilidad.
 - **Sobre Mí:** Soy un desarrollador backend con una sólida base en infraestructura (DevOps), Node.js y Go, actualmente enfocado en el ecosistema de Java y Spring Boot. Busco unirme a un equipo como Desarrollador Backend Java donde pueda aportar mi experiencia en arquitectura y mi habilidad para implementar sistemas robustos y eficientes. Cuento con una certificación de AWS y estoy buscando activamente certificaciones adicionales para mejorar mi competencia en proveedores de servicios en la nube.
 
-### Perfil: Ingeniero Full Stack
+### Perfil: Full Stack Developer
 
-- **Título:** Ingeniero Full Stack
+- **Título:** Full Stack Developer
 - **Estado del Sistema:** `ENTORNO_FULL_STACK: ESTABLE // DESPLEGADO`
 - **Descripción corta:** Construyendo arquitecturas web de extremo a extremo, desde interfaces fluidas y de alto rendimiento hasta APIs backend y bases de datos escalables y resilientes.
 - **Sobre Mí:** Soy un ingeniero full-stack con una sólida base en arquitecturas backend (Java, Spring Boot, Go, Node.js) combinada con experiencia en frontend en React, Next.js y TypeScript. Me especializo en entregar sistemas digitales de extremo a extremo, traduciendo servicios backend distribuidos y complejos en experiencias de usuario responsivas y altamente interactivas. Cuento con una certificación de AWS y conecto la infraestructura (DevOps) con el desarrollo robusto de aplicaciones para garantizar una entrega impecable del ciclo de vida del software.

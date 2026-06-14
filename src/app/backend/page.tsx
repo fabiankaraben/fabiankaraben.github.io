@@ -5,9 +5,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
 import ProjectCard from "@/components/ProjectCard";
-import CertificationCard from "@/components/CertificationCard";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
-import { getAllPosts } from "@/lib/blog";
+import HeroSection from "@/components/sections/HeroSection";
+import CertificationsSection from "@/components/sections/CertificationsSection";
+import CoreTechSection from "@/components/sections/CoreTechSection";
+import FeaturedArticlesSection from "@/components/sections/FeaturedArticlesSection";
+import ContactSection from "@/components/sections/ContactSection";
+import { GithubIcon } from "@/components/Icons";
 import { cookies } from "next/headers";
 import { translations } from "@/lib/translations";
 
@@ -34,27 +37,6 @@ export default async function BackendHome() {
   const lang = (cookieStore.get("lang")?.value || "en") as "en" | "es";
   const t = translations[lang];
 
-  const allPosts = getAllPosts(lang);
-  const featuredPosts = allPosts.filter((post) => post.featured).slice(0, 3);
-
-  const skills = [
-    { name: "Java", desc: lang === "es" ? "Empresarial, Robustez, POO, Banca" : "Enterprise, Robustness, OOP, Banking", icon: "java" },
-    { name: "Go", desc: lang === "es" ? "Gin, Echo, WebSockets, Concurrencia" : "Gin, Echo, WebSockets, Concurrency", icon: "golang" },
-    { name: "TypeScript", desc: lang === "es" ? "Node.js, Express, Hono, Capa de APIs" : "Node.js, Express, Hono, API Layering", icon: "typescript" },
-    { name: "Spring Boot", desc: lang === "es" ? "Framework, Inyección de Dependencias, APIs REST" : "Framework, Dependency Injection, REST APIs", icon: "spring" },
-    { name: "Docker", desc: lang === "es" ? "Contenedores, Portabilidad" : "Containerization, Portability", icon: "docker" },
-    { name: "PostgreSQL", desc: lang === "es" ? "Extensibilidad, Transacciones ACID" : "Extensibility, ACID Transactions", icon: "postgresql" },
-    { name: "Redis", desc: lang === "es" ? "Caché en Memoria, Rendimiento" : "In-Memory Caching, Performance", icon: "redis" },
-    { name: "AWS", desc: "EC2, S3, RDS, Lambda", icon: "aws" },
-    { name: "Kubernetes", desc: lang === "es" ? "Escalado, Orquestación de Servicios" : "Scaling, Service Orchestration", icon: "kubernetes" },
-    { name: "Cloudflare", desc: lang === "es" ? "Workers, KV, D1, Edge Computing" : "Workers, KV, D1, Edge Computing", icon: "cloudflare" },
-    { name: "MongoDB", desc: lang === "es" ? "BD de Documentos NoSQL, Gran Escala" : "NoSQL Document DB, High Scale", icon: "mongodb" },
-    { name: "SQLite", desc: lang === "es" ? "D1, Bases de Datos sin Servidor, Turso" : "D1, Serverless databases, Turso", icon: "sqlite" },
-    { name: "Maven", desc: lang === "es" ? "Gestión de Construcción y Dependencias" : "Build & Dependency Management", icon: "maven" },
-    { name: "Hibernate", desc: lang === "es" ? "ORM JPA, Vinculación de Datos" : "JPA ORM, Data Binding", icon: "hibernate" },
-    { name: "Python", desc: lang === "es" ? "FastAPI, Django, Scripting" : "FastAPI, Django, Scripting", icon: "python" },
-  ];
-
   return (
     <div className="relative min-h-screen flex flex-col selection:bg-brand-orange/30 selection:text-white">
       <TechGridBackground />
@@ -62,47 +44,16 @@ export default async function BackendHome() {
 
       <main className="relative z-10 grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Hero Section */}
-        <section id="home" className="pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36 flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-900 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md text-xs font-mono text-slate-500 dark:text-slate-400 mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>{t.statusBackend}</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
-            Fabián Karaben
-            <span className="block mt-3 bg-linear-to-r from-brand-orange to-amber-500 bg-clip-text text-transparent">
-              {t.backendTitle}
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
-            {t.backendDesc}
-          </p>
-
-          <div className="mt-10 flex gap-4">
-            <Link
-              href="https://github.com/fabiankaraben"
-              target="_blank"
-              className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
-              aria-label="GitHub Profile"
-            >
-              <GithubIcon className="w-6 h-6" />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/fabiankaraben"
-              target="_blank"
-              className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
-              aria-label="LinkedIn Profile"
-            >
-              <LinkedinIcon className="w-6 h-6" />
-            </Link>
-          </div>
-        </section>
+        <HeroSection
+          status={t.statusBackend}
+          title={t.backendTitle}
+          description={t.backendDesc}
+        />
 
         {/* About Section */}
         <section id="about" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60">
           <div className="flex items-center gap-3 mb-12">
-            <span className="font-mono text-sm text-brand-orange">// 01.</span>
+            <span className="font-mono text-sm text-brand-orange">{"// 01."}</span>
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
               {t.aboutTitle}
             </h2>
@@ -128,152 +79,305 @@ export default async function BackendHome() {
           </div>
         </section>
 
-        {/* Certifications Section */}
-        <section id="certifications" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60">
-          <div className="flex items-center gap-3 mb-12">
-            <span className="font-mono text-sm text-brand-orange">// 02.</span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
-              {t.certificationsTitle}
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <CertificationCard
-              title="AWS Certified Cloud Practitioner"
-              issuer="Amazon Web Services"
-              dateInfo={lang === "es" ? "Emitido Oct 2024 · Expora Oct 2027" : "Issued Oct 2024 · Expires Oct 2027"}
-              iconName="aws"
-              verifyUrl="https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url"
-            />
-            <CertificationCard
-              title="Oracle Java SE 21 Developer Professional: 1Z0-830"
-              issuer="Udemy"
-              dateInfo={lang === "es" ? "Emitido Feb 2026" : "Issued Feb 2026"}
-              iconName="udemy"
-              verifyUrl="https://www.udemy.com/certificate/UC-a0a247a5-02c1-4ef2-ac9b-d74c751f5eff/"
-            />
-            <CertificationCard
-              title="Spring Certified Professional"
-              issuer="Udemy"
-              dateInfo={lang === "es" ? "Emitido Mar 2026" : "Issued Mar 2026"}
-              iconName="udemy"
-              verifyUrl="https://www.udemy.com/certificate/UC-5c3103ab-4a9e-4cf0-8ee6-f5c2ad966072/"
-            />
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        <section id="skills" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60">
-          <div className="flex items-center gap-3 mb-12">
-            <span className="font-mono text-sm text-brand-orange">// 03.</span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
-              {t.coreTechTitle}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {skills.map((skill) => (
-              <div
-                key={skill.name}
-                className="group bg-white/40 dark:bg-slate-900/20 backdrop-blur-sm border border-slate-200 dark:border-slate-900/80 rounded-xl p-5 flex flex-col items-center text-center transition-all duration-300 hover:border-brand-orange/30 hover:bg-slate-200/50 dark:hover:bg-slate-900/40"
-              >
-                <div className="w-12 h-12 flex items-center justify-center mb-3 relative">
-                  <Image
-                    src={`/icons/${skill.icon}.svg`}
-                    alt={skill.name}
-                    width={40}
-                    height={40}
-                    className="object-contain transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-                <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{skill.name}</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1 font-sans">{skill.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Projects Section */}
         <section id="projects" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60">
           <div className="flex items-center gap-3 mb-12">
-            <span className="font-mono text-sm text-brand-orange">// 04.</span>
+            <span className="font-mono text-sm text-brand-orange">{"// 02."}</span>
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
               {t.featuredProjects}
             </h2>
           </div>
 
           <div className="space-y-16">
-            {/* Monolith & EDA Banking Section First */}
-            <div>
-              <h3 className="text-lg font-mono text-slate-500 dark:text-slate-400 mb-6 flex items-center gap-2">
-                <Server className="w-4 h-4 text-brand-orange" />
-                <span>{t.enterpriseDistributed}</span>
-              </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <ProjectCard
-                  title="Core Banking Platform"
-                  description={lang === "es"
-                    ? "Un sistema empresarial distribuido y altamente escalable que utiliza una Arquitectura Orientada a Eventos (EDA). Implementa transacciones distribuidas y Base de Datos por Servicio."
-                    : "A highly scalable, distributed enterprise system using an Event-Driven Architecture (EDA). Implements distributed transactions and Database-per-Service."}
-                  image={coreBankingPlatform}
-                  tags={["Java 21", "Spring Boot 3.3", "Apache Kafka", "Saga Pattern", "Microservices"]}
-                  links={[{ label: "GitHub", href: "https://github.com/fabiankaraben/core-banking-platform" }]}
-                />
-                <ProjectCard
-                  title="Core Banking API"
-                  description={lang === "es"
-                    ? "Un backend bancario monolítico construido con Java 21, Spring Boot y Arquitectura Hexagonal. Cuenta con transacciones ACID robustas e idempotencia controlada con Redis."
-                    : "A monolithic banking backend built with Java 21, Spring Boot, and Hexagonal Architecture. Features robust ACID transactions and idempotency controlled with Redis."}
-                  image={coreBankingApi}
-                  tags={["Java 21", "Spring Boot 3", "RabbitMQ", "Hexagonal", "PostgreSQL", "Redis"]}
-                  links={[{ label: "GitHub", href: "https://github.com/fabiankaraben/core-banking-api" }]}
-                />
+            {/* VeoBible Showcase (Backend Focus) */}
+            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative p-8 sm:p-10">
+                <div className="flex flex-col lg:flex-row gap-10">
+                  <div className="lg:w-1/2 space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-mono font-semibold">
+                      Featured Backend Architecture
+                    </div>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
+                      VeoBible API
+                    </h3>
+                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                      {lang === "es"
+                        ? "Arquitectura Edge sin servidor para sincronización en tiempo real y almacenamiento distribuido globalmente."
+                        : "Serverless Edge architecture for real-time synchronization and globally distributed storage."}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {["Cloudflare Workers", "Hono", "TypeScript", "D1 (SQLite)", "Supabase Auth", "REST API"].map((tech) => (
+                        <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-4 pt-4">
+                      <Link
+                        href="https://veobible.com"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-orange text-white rounded-lg font-semibold hover:bg-brand-orange-hover transition-colors shadow-lg shadow-brand-orange/20"
+                      >
+                        <Globe className="w-4 h-4 mr-2" />
+                        {lang === "es" ? "Visitar Web" : "Visit Website"}
+                      </Link>
+                      <Link
+                        href="https://github.com/xeost/veobible-app"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-semibold hover:border-brand-orange/40 hover:text-brand-orange transition-colors"
+                      >
+                        <GithubIcon className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
+                        <Terminal className="w-5 h-5 text-emerald-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Edge REST API</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "API ultrarrápida construida con Hono y desplegada en V8 Isolates vía Cloudflare Workers."
+                          : "Lightning-fast API built with Hono and deployed on V8 Isolates via Cloudflare Workers."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                        <Server className="w-5 h-5 text-blue-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Cloud Database D1</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Base de datos SQLite distribuida globalmente (D1) para persistencia centralizada."
+                          : "Globally distributed SQLite database (D1) for centralized persistence."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+                        <Layers className="w-5 h-5 text-purple-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Service Worker Sync</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Lógica de sincronización offline-first con Background Sync y resolución de conflictos de estado."
+                          : "Offline-first synchronization logic with Background Sync and state conflict resolution."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
+                        <Cpu className="w-5 h-5 text-brand-orange" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Supabase Auth</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Autenticación segura en la API mediante verificación JWT y políticas RLS estrictas."
+                          : "Secure API authentication through JWT verification and strict RLS policies."}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Real World Projects */}
-            <div>
-              <h3 className="text-lg font-mono text-slate-500 dark:text-slate-400 mb-6 flex items-center gap-2">
-                <Globe className="w-4 h-4 text-brand-orange" />
-                <span>{t.realWorldBackend}</span>
-              </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <ProjectCard
-                  title="Wordsus"
-                  description={lang === "es"
-                    ? "Tu biblioteca en la nube personal. Un lector en el navegador unificado para PDFs y EPUBs con rendimiento nativo. Potenciado por un backend altamente eficiente en Go."
-                    : "Your Personal Cloud Library. A unified, browser-based reader for PDFs and EPUBs with native-like performance. Powered by a high-efficiency Go backend."}
-                  image={wordsus}
-                  tags={["PWA", "WebSockets", "Canvas", "Go", "PDF Reader", "EPUB Reader"]}
-                  links={[
-                    { label: "Website", href: "https://wordsus.com" },
-                    { label: "GitHub", href: "https://github.com/orgs/wordsus/repositories" },
-                  ]}
-                />
-                <ProjectCard
-                  title="XeoCast"
-                  description={lang === "es"
-                    ? "Un sistema para generar episodios de podcast con IA. Cuenta con una API basada en Cloudflare y procesamiento automático de video con Python/FFmpeg."
-                    : "A system to generate podcast episodes with AI. Features a Cloudflare-based API and automated video processing with Python/FFmpeg."}
-                  image={xeoCast}
-                  tags={["TypeScript", "Hono", "Python", "Cloudflare", "Gemini", "FFmpeg"]}
-                  links={[
-                    { label: "Website", href: "https://xeocast.com" },
-                    { label: "GitHub", href: "https://github.com/orgs/xeocast/repositories" },
-                  ]}
-                />
-                <ProjectCard
-                  title="XeoContext"
-                  description={lang === "es"
-                    ? "La fuente de verdad para el diseño de sistemas. Visor unificado para definiciones Markdown, OpenAPI y AsyncAPI."
-                    : "The Source of Truth for System Design. Unified viewer for Markdown, OpenAPI, and AsyncAPI definitions."}
-                  image={xeoContext}
-                  tags={["Docker", "Markdown", "OpenAPI", "AsyncAPI", "Next.js"]}
-                  links={[
-                    { label: "Website", href: "https://xeocontext.com" },
-                    { label: "GitHub", href: "https://github.com/xeost/xeocontext" },
-                  ]}
-                />
+            {/* Wordsus Showcase (Backend Focus) */}
+            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/5">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative p-8 sm:p-10">
+                <div className="flex flex-col lg:flex-row-reverse gap-10">
+                  <div className="lg:w-1/2 space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-mono font-semibold">
+                      Featured Backend Architecture
+                    </div>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
+                      Wordsus API
+                    </h3>
+                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                      {lang === "es"
+                        ? "Plataforma educativa potenciada por un backend Cloudflare Workers que sincroniza el progreso y datos del usuario de manera eficiente."
+                        : "Educational platform powered by a Cloudflare Workers backend that efficiently synchronizes user progress and data."}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {["Cloudflare Workers", "Hono", "TypeScript", "D1 (SQLite)", "Supabase Auth", "REST API"].map((tech) => (
+                        <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-4 pt-4">
+                      <Link
+                        href="https://wordsus.com"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
+                      >
+                        <Globe className="w-4 h-4 mr-2" />
+                        {lang === "es" ? "Visitar Web" : "Visit Website"}
+                      </Link>
+                      <Link
+                        href="https://github.com/wordsus/wordsus-static-site"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-semibold hover:border-blue-500/40 hover:text-blue-500 transition-colors"
+                      >
+                        <GithubIcon className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
+                        <Terminal className="w-5 h-5 text-indigo-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Serverless API</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "API REST sin servidor desplegada en V8 isolates para máximo rendimiento."
+                          : "Serverless REST API deployed on V8 isolates for maximum performance."}
+                      </p>
+                    </div>
+                    
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center mb-4">
+                        <Server className="w-5 h-5 text-sky-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Edge Compute</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Procesamiento de datos y lógica de negocio ejecutándose cerca del usuario con Cloudflare."
+                          : "Data processing and business logic executing close to the user with Cloudflare."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
+                        <Layers className="w-5 h-5 text-teal-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">D1 Sync Storage</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Almacenamiento del progreso de lectura sincronizado entre dispositivos usando SQLite en el edge."
+                          : "Reading progress storage synced across devices using SQLite at the edge."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+                        <Cpu className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">JWT Sessions</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Gestión de sesiones e identidades validando tokens JWT en el middleware de Hono."
+                          : "Session and identity management validating JWT tokens in the Hono middleware."}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Staticl10n Showcase (Backend Focus) */}
+            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/5">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative p-8 sm:p-10">
+                <div className="flex flex-col lg:flex-row gap-10">
+                  <div className="lg:w-1/2 space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold">
+                      Featured Backend Tooling
+                    </div>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
+                      Staticl10n Engine
+                    </h3>
+                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                      {lang === "es"
+                        ? "Un motor backend impulsado por IA para procesamiento intensivo de sitios estáticos, abstracción de crawling y orquestación de LLMs."
+                        : "An AI-powered backend engine for intensive processing of static sites, crawling abstraction, and LLM orchestration."}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {["Node.js", "TypeScript", "SQLite", "Playwright", "Cheerio", "Ollama API"].map((tech) => (
+                        <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-4 pt-4">
+                      <Link
+                        href="https://github.com/xeost/staticl10n-cli"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-500/20"
+                      >
+                        <GithubIcon className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
+                        <Terminal className="w-5 h-5 text-teal-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">CLI Architecture</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es" 
+                          ? "Arquitectura modular en Node.js para flujos de trabajo en pipeline y procesamiento intensivo." 
+                          : "Modular Node.js architecture for pipeline workflows and intensive processing."}
+                      </p>
+                    </div>
+                    
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
+                        <Globe className="w-5 h-5 text-emerald-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Playwright Crawler</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Automatización profunda para rastreo headless, abstracción de DOM y manipulación de AST."
+                          : "Deep automation for headless crawling, DOM abstraction, and AST manipulation."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                        <Server className="w-5 h-5 text-blue-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Local LLM Orchestration</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Integración de API de Ollama para procesamiento semántico conservando perfectamente el DOM."
+                          : "Ollama API integration for semantic processing perfectly preserving the DOM."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+                        <Layers className="w-5 h-5 text-purple-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">SQLite Persistance</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Capa de datos con better-sqlite3 para estado persistente y sistema de caché de memoria transaccional."
+                          : "Data layer with better-sqlite3 for persistent state and transactional memory cache system."}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -316,71 +420,10 @@ export default async function BackendHome() {
           </div>
         </section>
 
-        {/* Featured Blog Articles Section */}
-        {featuredPosts.length > 0 && (
-          <section id="blog" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60">
-            <div className="flex items-center gap-3 mb-12">
-              <span className="font-mono text-sm text-brand-orange">// 05.</span>
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
-                {t.featuredArticles}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredPosts.map((post) => (
-                <div
-                  key={post.slug}
-                  className="group bg-white/40 dark:bg-slate-900/30 backdrop-blur-md border border-slate-200 dark:border-slate-900 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-slate-200/50 hover:dark:shadow-brand-orange/5"
-                >
-                  <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
-                    <span className="font-mono text-xs text-slate-500 mb-2">{post.pubDate}</span>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-orange transition-colors duration-300 mb-3">
-                      {post.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-sans">
-                      {post.description}
-                    </p>
-                    <span className="mt-auto text-brand-orange group-hover:text-white transition-colors text-sm font-semibold flex items-center gap-1">
-                      {t.readArticle} &rarr;
-                    </span>
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <Link
-                href="/blog"
-                className="inline-flex items-center justify-center px-6 py-3 border border-slate-200 dark:border-slate-900 hover:border-brand-orange/40 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md rounded-lg text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
-              >
-                {t.seeAllArticles} &rarr;
-              </Link>
-            </div>
-          </section>
-        )}
-
-        {/* Contact Section */}
-        <section id="contact" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60 text-center max-w-3xl mx-auto">
-          <div className="flex justify-center items-center gap-3 mb-6">
-            <span className="font-mono text-sm text-brand-orange">// 06.</span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
-              {t.getInTouch}
-            </h2>
-          </div>
-
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-sans mb-10">
-            {t.contactBeDesc}
-          </p>
-
-          <Link
-            href="https://linkedin.com/in/fabiankaraben"
-            target="_blank"
-            className="inline-flex items-center gap-2 px-6 py-4.5 border border-brand-orange/40 text-base font-semibold rounded-xl text-white bg-brand-orange hover:bg-brand-orange-hover transition-all duration-300 shadow-lg shadow-brand-orange/20"
-          >
-            <LinkedinIcon className="w-5 h-5" />
-            {t.connectLinkedin}
-          </Link>
-        </section>
+        <CertificationsSection lang={lang} />
+        <CoreTechSection lang={lang} />
+        <FeaturedArticlesSection lang={lang} />
+        <ContactSection lang={lang} />
       </main>
 
       <Footer role={t.backendTitle} />

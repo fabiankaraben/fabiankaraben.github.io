@@ -34,7 +34,7 @@ export default function Header({ lang = "en" }: HeaderProps) {
     if (pathname.startsWith("/blog")) {
       return `/${hash}`;
     }
-    if (pathname === "/full-stack" || pathname === "/backend") {
+    if (pathname === "/backend") {
       return `${pathname}${hash}`;
     }
     return `/${hash}`;
