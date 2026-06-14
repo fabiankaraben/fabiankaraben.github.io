@@ -91,7 +91,7 @@ export default async function FullStackHome() {
           <div className="space-y-16">
             {/* VeoBible Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row gap-10">
@@ -192,7 +192,7 @@ export default async function FullStackHome() {
 
             {/* Wordsus Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row-reverse gap-10">
@@ -293,8 +293,8 @@ export default async function FullStackHome() {
 
             {/* Staticl10n Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+              <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
@@ -309,7 +309,7 @@ export default async function FullStackHome() {
                         ? "Herramienta CLI para la traducción automática de sitios web estáticos. Captura, procesa y traduce sitios web completos de extremo a extremo utilizando LLMs locales (Ollama)."
                         : "CLI tool for automated static website translation. Captures, processes, and translates complete websites end-to-end using local LLMs (Ollama)."}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-2 pt-2">
                       {["Node.js", "TypeScript", "SQLite", "Playwright", "Cheerio", "Ollama", "Next.js Support"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
@@ -338,12 +338,12 @@ export default async function FullStackHome() {
                       </div>
                       <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Interactive CLI</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
-                        {lang === "es" 
-                          ? "Interfaz CLI interactiva construida con Inquirer y Chalk para gestionar flujos de trabajo multi-etapa y configuración." 
+                        {lang === "es"
+                          ? "Interfaz CLI interactiva construida con Inquirer y Chalk para gestionar flujos de trabajo multi-etapa y configuración."
                           : "Interactive CLI interface built with Inquirer and Chalk to manage multi-stage workflows and configuration."}
                       </p>
                     </div>
-                    
+
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
                         <Globe className="w-5 h-5 text-emerald-500" />

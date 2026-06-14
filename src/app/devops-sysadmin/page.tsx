@@ -85,8 +85,8 @@ export default async function DevOpsHome() {
           <div className="space-y-16">
             {/* Kubernetes Showcase (Placeholder) */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+              <div className="absolute inset-0 bg-linear-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
@@ -101,7 +101,7 @@ export default async function DevOpsHome() {
                         ? "[Placerholder] Orquestación de contenedores a gran escala con alta disponibilidad."
                         : "[Placeholder] Large-scale container orchestration with high availability."}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-2 pt-2">
                       {["Kubernetes", "Helm", "Istio", "Prometheus", "Grafana"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
@@ -142,8 +142,8 @@ export default async function DevOpsHome() {
 
             {/* CI/CD Showcase (Placeholder) */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+              <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row-reverse gap-10">
                   <div className="lg:w-1/2 space-y-6">
@@ -158,7 +158,7 @@ export default async function DevOpsHome() {
                         ? "[Placeholder] Pipelines de integración y despliegue continuo altamente optimizados."
                         : "[Placeholder] Highly optimized continuous integration and deployment pipelines."}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-2 pt-2">
                       {["GitHub Actions", "GitLab CI", "Jenkins", "ArgoCD"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
@@ -180,7 +180,7 @@ export default async function DevOpsHome() {
                           : "[Placeholder] Automated unit and integration testing."}
                       </p>
                     </div>
-                    
+
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center mb-4">
                         <Server className="w-5 h-5 text-sky-500" />
@@ -199,8 +199,8 @@ export default async function DevOpsHome() {
 
             {/* Infrastructure as Code (Placeholder) */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+              <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
@@ -215,7 +215,7 @@ export default async function DevOpsHome() {
                         ? "[Placeholder] Definición y provisión de infraestructura a través de código."
                         : "[Placeholder] Infrastructure definition and provisioning through code."}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-2 pt-2">
                       {["Terraform", "Ansible", "AWS", "Linux"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
@@ -232,12 +232,12 @@ export default async function DevOpsHome() {
                       </div>
                       <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Terraform Modules</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
-                        {lang === "es" 
-                          ? "[Placeholder] Módulos reutilizables para aprovisionamiento AWS." 
+                        {lang === "es"
+                          ? "[Placeholder] Módulos reutilizables para aprovisionamiento AWS."
                           : "[Placeholder] Reusable modules for AWS provisioning."}
                       </p>
                     </div>
-                    
+
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
                         <Globe className="w-5 h-5 text-emerald-500" />
