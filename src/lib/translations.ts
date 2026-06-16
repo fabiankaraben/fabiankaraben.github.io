@@ -109,7 +109,7 @@ export const translations = {
 
     // Hero titles
     javaTitle: "Desarrollador Backend Java",
-    fullStackTitle: "Full Stack Developer",
+    fullStackTitle: "Desarrollador Full Stack",
     backendTitle: "Desarrollador Backend",
     devopsTitle: "DevOps y SysAdmin",
     flutterTitle: "Desarrollador Flutter",

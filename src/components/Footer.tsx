@@ -15,7 +15,7 @@ export default function Footer({ role = "Java Backend Developer", lang = "en" }:
         <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center sm:items-start gap-6">
           <div className="flex flex-col items-center sm:items-start gap-3">
             <span className="text-xs font-bold text-slate-400 dark:text-slate-500 font-mono tracking-wider uppercase">
-              Specialized Roles
+              {lang === "es" ? "Mis Roles Especializados" : "My Specialized Roles"}
             </span>
             <nav className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
               <Link href={`/${lang}`} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-orange transition-colors">
