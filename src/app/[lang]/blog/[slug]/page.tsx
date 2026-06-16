@@ -20,15 +20,18 @@ interface Props {
 // Generate static params for static generation (SSG)
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  const params: { lang: string; slug: string }[] = [];
+  for (const post of posts) {
+    params.push({ lang: "en", slug: post.slug });
+    params.push({ lang: "es", slug: post.slug });
+  }
+  return params;
 }
 
 // Generate dynamic metadata
 export async function generateMetadata({ params }: Props) {
   const { slug, lang: langParam } = await params;
-  const lang = (langParam || "en") as "en" | "es";
+  const lang = langParam === "es" ? "es" : "en";
   const post = getPostBySlug(slug, lang);
   if (!post) {
     return {
@@ -52,7 +55,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug, lang: langParam } = await params;
-  const lang = (langParam || "en") as "en" | "es";
+  const lang = langParam === "es" ? "es" : "en";
   const t = translations[lang];
   const post = getPostBySlug(slug, lang);
 

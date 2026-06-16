@@ -34,7 +34,7 @@ export const metadata = {
 
 export default async function BackendHome({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: langParam } = await params;
-  const lang = (langParam || "en") as "en" | "es";
+  const lang = langParam === "es" ? "es" : "en";
   const t = translations[lang];
 
   return (
