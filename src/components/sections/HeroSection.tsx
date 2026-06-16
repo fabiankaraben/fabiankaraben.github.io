@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
-import { FileText } from "lucide-react";
+import { FileBadge } from "lucide-react";
 
 interface HeroSectionProps {
   status: string;
@@ -32,26 +32,35 @@ export default function HeroSection({ status, title, description, resumeLink }: 
         <Link
           href="https://github.com/fabiankaraben"
           target="_blank"
-          className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
+          className="group relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
           aria-label="GitHub Profile"
         >
           <GithubIcon className="w-6 h-6" />
+          <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-slate-900 px-2 py-1 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100 dark:bg-slate-100 dark:text-slate-900">
+            GitHub
+          </span>
         </Link>
         <Link
           href="https://linkedin.com/in/fabiankaraben"
           target="_blank"
-          className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
+          className="group relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
           aria-label="LinkedIn Profile"
         >
           <LinkedinIcon className="w-6 h-6" />
+          <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-slate-900 px-2 py-1 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100 dark:bg-slate-100 dark:text-slate-900">
+            LinkedIn
+          </span>
         </Link>
         {resumeLink && (
           <Link
             href={resumeLink}
-            className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
+            className="group relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-lg p-3 hover:border-brand-orange/50 text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
             aria-label="Resume / CV"
           >
-            <FileText className="w-6 h-6" />
+            <FileBadge className="w-6 h-6" />
+            <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-slate-900 px-2 py-1 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100 dark:bg-slate-100 dark:text-slate-900">
+              View Resume
+            </span>
           </Link>
         )}
       </div>

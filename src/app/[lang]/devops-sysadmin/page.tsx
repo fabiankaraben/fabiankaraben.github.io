@@ -42,6 +42,7 @@ export default async function DevOpsHome({ params }: { params: Promise<{ lang: s
           status={t.statusDevops}
           title={t.devopsTitle}
           description={t.devopsDesc}
+          resumeLink={`/${lang}/resume/devops-sysadmin`}
         />
 
         {/* About Section */}

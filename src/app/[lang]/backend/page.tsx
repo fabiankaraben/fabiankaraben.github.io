@@ -48,6 +48,7 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
           status={t.statusBackend}
           title={t.backendTitle}
           description={t.backendDesc}
+          resumeLink={`/${lang}/resume/backend`}
         />
 
         {/* About Section */}

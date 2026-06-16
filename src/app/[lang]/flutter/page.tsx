@@ -45,6 +45,7 @@ export default async function FlutterHome({ params }: { params: Promise<{ lang: 
           status={t.statusFlutter}
           title={t.flutterTitle}
           description={t.flutterDesc}
+          resumeLink={`/${lang}/resume/flutter`}
         />
 
         {/* About Section */}

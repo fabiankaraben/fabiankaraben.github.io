@@ -67,6 +67,7 @@ export default async function ResumePage({ params }: { params: Promise<{ lang: s
           />
 
           <ResumeCoreTech 
+            lang={lang}
             title={t.coreTechTitle} 
           />
 
