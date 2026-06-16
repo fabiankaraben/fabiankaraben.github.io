@@ -24,8 +24,8 @@ import xeoCast from "@/assets/projects/xeocast.jpg";
 import goMiniProject from "@/assets/mini-projects/go.jpg";
 
 export const metadata = {
-  title: "Fabián Karaben | Backend Engineer",
-  description: "Portfolio of Fabián Karaben, a Backend Engineer specializing in Java, Spring Boot, Go, Node.js, AWS, and distributed backend architectures.",
+  title: "Fabián Karaben | Backend Developer",
+  description: "Portfolio of Fabián Karaben, a Backend Developer specializing in Java, Spring Boot, Go, Node.js, AWS, and distributed backend architectures.",
   robots: {
     index: false,
     follow: true,

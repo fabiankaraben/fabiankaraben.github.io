@@ -21,8 +21,8 @@ export const translations = {
     // Hero titles
     javaTitle: "Java Backend Developer",
     fullStackTitle: "Full Stack Developer",
-    backendTitle: "Backend Engineer",
-    devopsTitle: "DevOps Engineer & SysAdmin",
+    backendTitle: "Backend Developer",
+    devopsTitle: "DevOps & SysAdmin",
     flutterTitle: "Flutter Developer",
 
     // Hero descriptions
@@ -52,15 +52,15 @@ export const translations = {
     aboutJavaP2: "I hold an AWS certification and am actively pursuing additional certifications to enhance my proficiency in cloud service providers.",
 
     // About me content (Full-Stack)
-    aboutFsP1: "I'm a full-stack engineer with a strong foundation in backend architectures (Java, Spring Boot, Go, Node.js) combined with frontend expertise in React, Next.js, and TypeScript. I specialize in delivering end-to-end digital systems, translating complex, distributed backend services into responsive, highly interactive user experiences.",
+    aboutFsP1: "I'm a full-stack developer with a strong foundation in backend architectures (Java, Spring Boot, Go, Node.js) combined with frontend expertise in React, Next.js, and TypeScript. I specialize in delivering end-to-end digital systems, translating complex, distributed backend services into responsive, highly interactive user experiences.",
     aboutFsP2: "I hold an AWS certification and bridge infrastructure (DevOps) with robust application development to guarantee seamless application lifecycle delivery.",
 
     // About me content (Backend)
-    aboutBeP1: "I'm a backend engineer with extensive experience building the digital backbone of modern web applications. I specialize in designing robust, scalable, and transaction-safe architectures using Go (for concurrent, high-throughput microservices), Java/Spring Boot (for transactional enterprise platforms), and Node.js (for fast, asynchronous API gateway routing).",
+    aboutBeP1: "I'm a backend developer with extensive experience building the digital backbone of modern web applications. I specialize in designing robust, scalable, and transaction-safe architectures using Go (for concurrent, high-throughput microservices), Java/Spring Boot (for transactional enterprise platforms), and Node.js (for fast, asynchronous API gateway routing).",
     aboutBeP2: "I hold an AWS certification and possess a strong background in containerized orchestration (Docker, Kubernetes) and serverless edge technologies (Cloudflare Workers).",
 
     // About me content (DevOps)
-    aboutDevopsP1: "I am a DevOps Engineer and former SysAdmin with a passion for automation, infrastructure as code, and creating reliable deployment pipelines. I bridge the gap between development and operations to ensure seamless, scalable application delivery.",
+    aboutDevopsP1: "I am a DevOps and former SysAdmin with a passion for automation, infrastructure as code, and creating reliable deployment pipelines. I bridge the gap between development and operations to ensure seamless, scalable application delivery.",
     aboutDevopsP2: "With a strong foundation in Linux system administration, networking, and security, I combine traditional ops experience with modern cloud orchestration tools like Kubernetes, Docker, and Terraform.",
 
     // About me content (Flutter)
@@ -104,8 +104,8 @@ export const translations = {
     // Hero titles
     javaTitle: "Desarrollador Backend Java",
     fullStackTitle: "Full Stack Developer",
-    backendTitle: "Ingeniero Backend",
-    devopsTitle: "Ingeniero DevOps y SysAdmin",
+    backendTitle: "Desarrollador Backend",
+    devopsTitle: "DevOps y SysAdmin",
     flutterTitle: "Desarrollador Flutter",
 
     // Hero descriptions
@@ -135,15 +135,15 @@ export const translations = {
     aboutJavaP2: "Cuento con una certificación de AWS y estoy buscando activamente certificaciones adicionales para mejorar mi competencia en proveedores de servicios en la nube.",
 
     // About me content (Full-Stack)
-    aboutFsP1: "Soy un ingeniero full-stack con una sólida base en arquitecturas backend (Java, Spring Boot, Go, Node.js) combinada con experiencia en frontend en React, Next.js y TypeScript. Me especializo en entregar sistemas digitales de extremo a extremo, traduciendo servicios backend distribuidos y complejos en experiencias de usuario responsivas y altamente interactivas.",
+    aboutFsP1: "Soy un desarrollador full-stack con una sólida base en arquitecturas backend (Java, Spring Boot, Go, Node.js) combinada con experiencia en frontend en React, Next.js y TypeScript. Me especializo en entregar sistemas digitales de extremo a extremo, traduciendo servicios backend distribuidos y complejos en experiencias de usuario responsivas y altamente interactivas.",
     aboutFsP2: "Cuento con una certificación de AWS y conecto la infraestructura (DevOps) con el desarrollo robusto de aplicaciones para garantizar una entrega impecable del ciclo de vida del software.",
 
     // About me content (Backend)
-    aboutBeP1: "Soy un ingeniero backend con amplia experiencia construyendo la columna vertebral digital de aplicaciones web modernas. Me especializo en el diseño de arquitecturas robustas, escalables y seguras para transacciones utilizando Go (para microservicios concurrentes de alto rendimiento), Java/Spring Boot (para plataformas empresariales transaccionales) y Node.js (para enrutamiento rápido y asíncrono en API gateways).",
+    aboutBeP1: "Soy un desarrollador backend con amplia experiencia construyendo la columna vertebral digital de aplicaciones web modernas. Me especializo en el diseño de arquitecturas robustas, escalables y seguras para transacciones utilizando Go (para microservicios concurrentes de alto rendimiento), Java/Spring Boot (para plataformas empresariales transaccionales) y Node.js (para enrutamiento rápido y asíncrono en API gateways).",
     aboutBeP2: "Cuento con una certificación de AWS y poseo una sólida base en orquestación de contenedores (Docker, Kubernetes) y tecnologías serverless en el edge (Cloudflare Workers).",
 
     // About me content (DevOps)
-    aboutDevopsP1: "Soy Ingeniero DevOps y ex SysAdmin con pasión por la automatización, la infraestructura como código y la creación de pipelines de despliegue confiables. Acorto la brecha entre desarrollo y operaciones para garantizar entregas fluidas y escalables.",
+    aboutDevopsP1: "Soy DevOps y ex SysAdmin con pasión por la automatización, la infraestructura como código y la creación de pipelines de despliegue confiables. Acorto la brecha entre desarrollo y operaciones para garantizar entregas fluidas y escalables.",
     aboutDevopsP2: "Cuento con una base sólida en administración de sistemas Linux, redes y seguridad, combinando mi experiencia en operaciones tradicionales con herramientas modernas de orquestación en la nube como Kubernetes, Docker y Terraform.",
 
     // About me content (Flutter)
