@@ -9,7 +9,7 @@ export const translations = {
     projects: "Projects",
     blog: "Blog",
     contact: "Contact",
-    hireMe: "Hire Me",
+    hireMe: "Contact Me",
 
     // Status tags
     statusActive: "SYSTEM_STATUS: ACTIVE // REGION: AWS-EAST-1",
@@ -98,7 +98,7 @@ export const translations = {
     projects: "Proyectos",
     blog: "Blog",
     contact: "Contacto",
-    hireMe: "Contrátame",
+    hireMe: "Contáctame",
 
     // Status tags
     statusActive: "ESTADO_DEL_SISTEMA: ACTIVO // REGIÓN: AWS-EAST-1",

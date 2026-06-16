@@ -48,18 +48,17 @@ export default function Header({ lang = "en" }: HeaderProps) {
       projects: { en: "Projects", es: "Proyectos" },
       blog: { en: "Blog", es: "Blog" },
       contact: { en: "Contact", es: "Contacto" },
-      hireMe: { en: "Hire Me", es: "Contrátame" },
+      hireMe: { en: "Contact Me", es: "Contáctame" },
     };
     return labels[key]?.[lang] || key;
   };
 
   const navLinks = [
     { name: getNavLabel("about"), href: getLinkHref("#about") },
+    { name: getNavLabel("projects"), href: getLinkHref("#projects") },
     { name: getNavLabel("certifications"), href: getLinkHref("#certifications") },
     { name: getNavLabel("skills"), href: getLinkHref("#skills") },
-    { name: getNavLabel("projects"), href: getLinkHref("#projects") },
     { name: getNavLabel("blog"), href: `/${lang}/blog` },
-    { name: getNavLabel("contact"), href: getLinkHref("#contact") },
   ];
 
   return (
