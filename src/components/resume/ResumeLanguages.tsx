@@ -5,7 +5,7 @@ interface ResumeLanguagesProps {
 
 export default function ResumeLanguages({ lang, title }: ResumeLanguagesProps) {
   return (
-    <section>
+    <section className="print:break-inside-avoid">
       <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider mb-4 print:text-black">
         {title}
       </h2>

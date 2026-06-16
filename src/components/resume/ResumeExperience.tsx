@@ -11,7 +11,7 @@ export default function ResumeExperience({ lang, title }: ResumeExperienceProps)
       </h2>
       <div className="space-y-8 text-slate-600 dark:text-slate-300 print:text-gray-800">
         
-        <div>
+        <div className="print:break-inside-avoid">
           <div className="flex flex-row justify-between items-baseline mb-2">
             <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100 print:text-black">Freelance Full Stack Developer</h3>
             <span className="text-sm font-medium text-brand-orange">Feb 2024 - {lang === "es" ? "Presente" : "Present"} | Remote</span>
@@ -31,7 +31,7 @@ export default function ResumeExperience({ lang, title }: ResumeExperienceProps)
           </ul>
         </div>
 
-        <div>
+        <div className="print:break-inside-avoid">
           <div className="flex flex-row justify-between items-baseline mb-2">
             <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100 print:text-black">SysAdmin / DevOps</h3>
             <span className="text-sm font-medium text-brand-orange">May 2018 - Oct 2020 | Universidad Nacional de Misiones, Arg.</span>
@@ -45,7 +45,7 @@ export default function ResumeExperience({ lang, title }: ResumeExperienceProps)
           </ul>
         </div>
 
-        <div>
+        <div className="print:break-inside-avoid">
           <div className="flex flex-row justify-between items-baseline mb-2">
             <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100 print:text-black">Full Stack Developer</h3>
             <span className="text-sm font-medium text-brand-orange">Jun 2013 - Jun 2014 | Eventdoo (CABA, Arg.)</span>
@@ -59,7 +59,7 @@ export default function ResumeExperience({ lang, title }: ResumeExperienceProps)
           </ul>
         </div>
 
-        <div>
+        <div className="print:break-inside-avoid">
           <div className="flex flex-row justify-between items-baseline mb-2">
             <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100 print:text-black">Full Stack Developer & SysAdmin</h3>
             <span className="text-sm font-medium text-brand-orange">Feb 2009 - Dec 2017 | HostSiete (Personal Entrepreneurship)</span>

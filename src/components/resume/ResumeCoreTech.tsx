@@ -5,7 +5,7 @@ interface ResumeCoreTechProps {
 
 export default function ResumeCoreTech({ lang, title }: ResumeCoreTechProps) {
   return (
-    <section className="mb-10">
+    <section className="mb-10 print:break-inside-avoid">
       <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider mb-4 print:text-black">
         {title}
       </h2>

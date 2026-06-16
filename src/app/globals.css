@@ -233,4 +233,12 @@ body {
   @page {
     margin: 0;
   }
+
+  /* Hack to maintain top/bottom padding across page breaks when @page margin is 0 */
+  .print-container {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-top: 1.5cm !important;
+    padding-bottom: 1.5cm !important;
+  }
 }
