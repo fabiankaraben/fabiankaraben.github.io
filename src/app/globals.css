@@ -229,3 +229,8 @@ body {
   border-color: #10b981;
 }
 
+@media print {
+  @page {
+    margin: 0;
+  }
+}

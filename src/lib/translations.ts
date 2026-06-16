@@ -81,6 +81,12 @@ export const translations = {
     contactDevopsDesc: "Looking to optimize your deployment pipelines or scale your infrastructure? Feel free to reach out!",
     contactFlutterDesc: "Have a mobile app idea or need to build a cross-platform product? Feel free to reach out!",
 
+    // Resume
+    resumeTitle: "Resume",
+    printResume: "Print",
+    educationTitle: "Education",
+    experienceTitle: "Experience",
+
     // Copyright
     copyright: "Fabián Karaben. All rights reserved.",
   },
@@ -163,6 +169,12 @@ export const translations = {
     contactBeDesc: "¿Tienes un proyecto en mente o simplemente quieres charlar? ¡No dudes en contactarme! Siempre estoy abierto a nuevas oportunidades y colaboraciones en arquitecturas backend y APIs en la nube.",
     contactDevopsDesc: "¿Buscas optimizar tus pipelines de despliegue o escalar tu infraestructura? ¡No dudes en contactarme!",
     contactFlutterDesc: "¿Tienes una idea para una app móvil o necesitas construir un producto multiplataforma? ¡No dudes en contactarme!",
+
+    // Resume
+    resumeTitle: "Currículum Vitae",
+    printResume: "Imprimir",
+    educationTitle: "Educación",
+    experienceTitle: "Experiencia",
 
     // Copyright
     copyright: "Fabián Karaben. Todos los derechos reservados.",

@@ -48,6 +48,7 @@ export default async function FullStackHome({ params }: { params: Promise<{ lang
           status={t.statusFullStack}
           title={t.fullStackTitle}
           description={t.fullStackDesc}
+          resumeLink={`/${lang}/resume`}
         />
 
         {/* About Section */}
