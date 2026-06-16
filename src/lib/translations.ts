@@ -85,7 +85,7 @@ export const translations = {
     resumeTitle: "Resume",
     printResume: "Print",
     educationTitle: "Education",
-    experienceTitle: "Experience",
+    experienceTitle: "Selected Experience",
 
     // Copyright
     copyright: "Fabián Karaben. All rights reserved.",
@@ -174,7 +174,7 @@ export const translations = {
     resumeTitle: "Currículum Vitae",
     printResume: "Imprimir",
     educationTitle: "Educación",
-    experienceTitle: "Experiencia",
+    experienceTitle: "Experiencia seleccionada",
 
     // Copyright
     copyright: "Fabián Karaben. Todos los derechos reservados.",
