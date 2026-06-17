@@ -8,7 +8,7 @@ export default function ContactSection({ lang }: { lang: Language }) {
   return (
     <section id="contact" className="py-20 border-t border-slate-200/80 dark:border-slate-900/60 text-center max-w-3xl mx-auto">
       <div className="flex justify-center items-center gap-3 mb-6">
-        <span className="font-mono text-sm text-brand-orange">{"// 06."}</span>
+        <span className="font-mono text-sm text-brand-orange">{"// 07."}</span>
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-6px] after:w-10 after:h-[2px] after:bg-brand-orange">
           {t.getInTouch}
         </h2>

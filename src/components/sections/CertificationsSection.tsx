@@ -13,27 +13,34 @@ export default function CertificationsSection({ lang }: { lang: Language }) {
         </h2>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         <CertificationCard
           title="AWS Certified Cloud Practitioner"
           issuer="Amazon Web Services"
-          dateInfo={lang === "es" ? "Emitido Oct 2024 · Expora Oct 2027" : "Issued Oct 2024 · Expires Oct 2027"}
+          dateInfo={lang === "es" ? "Emitido Oct 2024 · Expira Oct 2027" : "Issued Oct 2024 · Expires Oct 2027"}
           iconName="aws"
           verifyUrl="https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url"
         />
         <CertificationCard
-          title="Oracle Java SE 21 Developer Professional: 1Z0-830"
+          title="AWS Certified Solutions Architect Associate"
           issuer="Udemy"
-          dateInfo={lang === "es" ? "Emitido Feb 2026" : "Issued Feb 2026"}
+          dateInfo={lang === "es" ? "Emitido May 2024" : "Issued May 2024"}
           iconName="udemy"
-          verifyUrl="https://www.udemy.com/certificate/UC-a0a247a5-02c1-4ef2-ac9b-d74c751f5eff/"
+          verifyUrl="https://www.udemy.com/certificate/UC-96b48f71-6433-4750-8172-a3e3f7349f4e/"
         />
         <CertificationCard
-          title="Spring Certified Professional"
+          title="AWS Certified Developer Associate"
           issuer="Udemy"
-          dateInfo={lang === "es" ? "Emitido Mar 2026" : "Issued Mar 2026"}
+          dateInfo={lang === "es" ? "Emitido Sep 2024" : "Issued Sep 2024"}
           iconName="udemy"
-          verifyUrl="https://www.udemy.com/certificate/UC-5c3103ab-4a9e-4cf0-8ee6-f5c2ad966072/"
+          verifyUrl="https://www.udemy.com/certificate/UC-ce8d7e79-36d1-43f3-af5f-c448912f6f84/"
+        />
+        <CertificationCard
+          title="Certified Kubernetes Administrator (CKA)"
+          issuer="Udemy"
+          dateInfo={lang === "es" ? "Emitido Jul 2024" : "Issued Jul 2024"}
+          iconName="udemy"
+          verifyUrl="https://www.udemy.com/certificate/UC-a342a993-bd55-45f8-8fbc-77537ee44657/"
         />
       </div>
     </section>

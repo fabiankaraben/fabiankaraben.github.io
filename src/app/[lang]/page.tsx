@@ -8,6 +8,7 @@ import ProjectCard from "@/components/ProjectCard";
 import HeroSection from "@/components/sections/HeroSection";
 import CertificationsSection from "@/components/sections/CertificationsSection";
 import CoreTechSection from "@/components/sections/CoreTechSection";
+import TrajectorySection from "@/components/sections/TrajectorySection";
 import FeaturedArticlesSection from "@/components/sections/FeaturedArticlesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { GithubIcon } from "@/components/Icons";
@@ -426,6 +427,7 @@ export default async function FullStackHome({ params }: { params: Promise<{ lang
 
         <CertificationsSection lang={lang} />
         <CoreTechSection lang={lang} />
+        <TrajectorySection lang={lang} />
         <FeaturedArticlesSection lang={lang} />
         <ContactSection lang={lang} />
       </main>

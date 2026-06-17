@@ -8,6 +8,7 @@ import ProjectCard from "@/components/ProjectCard";
 import HeroSection from "@/components/sections/HeroSection";
 import CertificationsSection from "@/components/sections/CertificationsSection";
 import CoreTechSection from "@/components/sections/CoreTechSection";
+import TrajectorySection from "@/components/sections/TrajectorySection";
 import FeaturedArticlesSection from "@/components/sections/FeaturedArticlesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { GithubIcon } from "@/components/Icons";
@@ -290,7 +291,7 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
               </div>
             </div>
 
-            {/* Staticl10n Showcase (Backend Focus) */}
+            {/* Staticl10n Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/5">
               <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -298,19 +299,19 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold">
-                      Featured Backend Tooling
+                      Featured Full-Stack Project
                     </div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      Staticl10n Engine
+                      Staticl10n CLI
                     </h3>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                       {lang === "es"
-                        ? "Un motor backend impulsado por IA para procesamiento intensivo de sitios estáticos, abstracción de crawling y orquestación de LLMs."
-                        : "An AI-powered backend engine for intensive processing of static sites, crawling abstraction, and LLM orchestration."}
+                        ? "Herramienta CLI para la traducción automática de sitios web estáticos. Captura, procesa y traduce sitios web completos de extremo a extremo utilizando LLMs locales (Ollama)."
+                        : "CLI tool for automated static website translation. Captures, processes, and translates complete websites end-to-end using local LLMs (Ollama)."}
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {["Node.js", "TypeScript", "SQLite", "Playwright", "Cheerio", "Ollama API"].map((tech) => (
+                      {["Node.js", "TypeScript", "SQLite", "Playwright", "Cheerio", "Ollama", "Next.js Support"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
                           {tech}
                         </span>
@@ -330,15 +331,16 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
                   </div>
 
                   <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Feature cards */}
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
                         <Terminal className="w-5 h-5 text-teal-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">CLI Architecture</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Interactive CLI</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Arquitectura modular en Node.js para flujos de trabajo en pipeline y procesamiento intensivo."
-                          : "Modular Node.js architecture for pipeline workflows and intensive processing."}
+                          ? "Interfaz CLI interactiva construida con Inquirer y Chalk para gestionar flujos de trabajo multi-etapa y configuración."
+                          : "Interactive CLI interface built with Inquirer and Chalk to manage multi-stage workflows and configuration."}
                       </p>
                     </div>
 
@@ -349,8 +351,8 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
                       <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Playwright Crawler</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Automatización profunda para rastreo headless, abstracción de DOM y manipulación de AST."
-                          : "Deep automation for headless crawling, DOM abstraction, and AST manipulation."}
+                          ? "Descubrimiento profundo de URLs, rastreo y exportación estática de sitios modernos con un crawler headless."
+                          : "Deep URL discovery, crawling, and static export of modern websites using a headless Playwright crawler."}
                       </p>
                     </div>
 
@@ -358,11 +360,11 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
                       <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                         <Server className="w-5 h-5 text-blue-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Local LLM Orchestration</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Local LLM AI</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Integración de API de Ollama para procesamiento semántico conservando perfectamente el DOM."
-                          : "Ollama API integration for semantic processing perfectly preserving the DOM."}
+                          ? "Traducciones semánticas de HTML que mantienen intacta la estructura del DOM utilizando modelos locales vía Ollama."
+                          : "Semantic HTML translations that preserve DOM structure perfectly using local LLM models via Ollama."}
                       </p>
                     </div>
 
@@ -370,11 +372,11 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
                       <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
                         <Layers className="w-5 h-5 text-purple-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">SQLite Persistance</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">SQLite State DB</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "Capa de datos con better-sqlite3 para estado persistente y sistema de caché de memoria transaccional."
-                          : "Data layer with better-sqlite3 for persistent state and transactional memory cache system."}
+                          ? "Rastreo robusto de estado con better-sqlite3 y sistema de caché de memoria de traducción."
+                          : "Robust state tracking with better-sqlite3 and a translation memory cache system."}
                       </p>
                     </div>
                   </div>
@@ -423,6 +425,7 @@ export default async function BackendHome({ params }: { params: Promise<{ lang: 
 
         <CertificationsSection lang={lang} />
         <CoreTechSection lang={lang} />
+        <TrajectorySection lang={lang} />
         <FeaturedArticlesSection lang={lang} />
         <ContactSection lang={lang} />
       </main>

@@ -49,7 +49,7 @@ export default function CertificationCard({
       <Link
         href={verifyUrl}
         target="_blank"
-        className="inline-flex items-center gap-1.5 text-brand-orange hover:text-white transition-colors font-semibold mt-5 text-sm"
+        className="inline-flex items-center gap-1.5 text-brand-orange hover:text-slate-900 dark:hover:text-white transition-colors font-semibold mt-5 text-sm"
       >
         <Award className="w-4 h-4" />
         Verify Certification &rarr;
