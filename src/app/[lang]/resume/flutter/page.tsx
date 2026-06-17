@@ -72,7 +72,7 @@ export default async function FlutterResumePage({ params }: { params: Promise<{ 
       </main>
 
       <div className="print:hidden mt-auto">
-        <Footer />
+        <Footer role={t.flutterTitle} lang={lang} />
       </div>
     </div>
   );

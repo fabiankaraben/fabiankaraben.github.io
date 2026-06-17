@@ -72,7 +72,7 @@ export default async function BackendResumePage({ params }: { params: Promise<{ 
       </main>
 
       <div className="print:hidden mt-auto">
-        <Footer />
+        <Footer role={t.backendTitle} lang={lang} />
       </div>
     </div>
   );

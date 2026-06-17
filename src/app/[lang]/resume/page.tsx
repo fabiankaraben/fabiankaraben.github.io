@@ -87,7 +87,7 @@ export default async function ResumePage({ params }: { params: Promise<{ lang: s
 
       {/* Footer (Hidden on print) */}
       <div className="print:hidden mt-auto">
-        <Footer />
+        <Footer role={t.fullStackTitle} lang={lang} />
       </div>
     </div>
   );

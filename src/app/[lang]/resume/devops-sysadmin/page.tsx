@@ -72,7 +72,7 @@ export default async function DevopsResumePage({ params }: { params: Promise<{ l
       </main>
 
       <div className="print:hidden mt-auto">
-        <Footer />
+        <Footer role={t.devopsTitle} lang={lang} />
       </div>
     </div>
   );
