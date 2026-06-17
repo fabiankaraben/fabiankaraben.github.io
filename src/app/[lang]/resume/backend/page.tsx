@@ -58,7 +58,11 @@ export default async function BackendResumePage({ params }: { params: Promise<{ 
               portfolioDisplayUrl="fabiankaraben.github.io"
             />
 
-            <ResumeExperience lang={lang} title={t.experienceTitle || "Experience"} />
+            <ResumeExperience 
+              lang={lang} 
+              title={t.experienceTitle || "Experience"} 
+              includeItems={["freelance-fs-devops", "sysadmin-unam", "fs-eventdoo", "fs-hostsiete"]}
+            />
             <ResumeCoreTech lang={lang} title={t.coreTechTitle} />
             <ResumeCertifications lang={lang} title={t.certificationsTitle} />
             <ResumeLanguages lang={lang} title={lang === "es" ? "Idiomas" : "Languages"} />
