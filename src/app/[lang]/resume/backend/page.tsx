@@ -61,7 +61,7 @@ export default async function BackendResumePage({ params }: { params: Promise<{ 
             <ResumeExperience 
               lang={lang} 
               title={t.experienceTitle || "Experience"} 
-              includeItems={["freelance-fs-devops", "sysadmin-unam", "fs-eventdoo", "fs-hostsiete"]}
+              includeItems={["freelance-fs-devops", "freelance-flutter", "sysadmin-unam", "fs-eventdoo", "fs-hostsiete", "freelance-web"]}
             />
             <ResumeCoreTech lang={lang} title={t.coreTechTitle} />
             <ResumeCertifications lang={lang} title={t.certificationsTitle} />

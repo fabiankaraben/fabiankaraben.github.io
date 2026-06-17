@@ -61,7 +61,7 @@ export default async function FlutterResumePage({ params }: { params: Promise<{ 
             <ResumeExperience 
               lang={lang} 
               title={t.experienceTitle || "Experience"} 
-              includeItems={["freelance-fs-devops", "sr-flutter", "freelance-flutter", "freelance-web"]}
+              includeItems={["sr-flutter", "freelance-flutter", "fs-eventdoo", "freelance-web"]}
             />
             <ResumeCoreTech lang={lang} title={t.coreTechTitle} />
             <ResumeCertifications lang={lang} title={t.certificationsTitle} />
