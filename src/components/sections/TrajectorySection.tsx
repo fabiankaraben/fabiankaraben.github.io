@@ -180,7 +180,7 @@ export default function TrajectorySection({ lang }: TrajectorySectionProps) {
 
               return (
                 <div key={item.id} className="relative flex flex-col md:flex-row items-start md:items-center group">
-                  
+
                   {/* Timeline Dot & Icon */}
                   <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full border-4 border-slate-50 dark:border-slate-950 bg-white dark:bg-slate-900 shadow-sm transition-all duration-300 group-hover:border-brand-orange/20 group-hover:shadow-brand-orange/20 z-10">
                     <Icon className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-brand-orange transition-colors duration-300" />
@@ -231,16 +231,16 @@ export default function TrajectorySection({ lang }: TrajectorySectionProps) {
 
       {/* Modal rendered via Portal to break out of stacking context */}
       {mounted && isModalOpen && createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6 md:p-12">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm transition-opacity"
             onClick={() => setIsModalOpen(false)}
           />
-          
+
           {/* Modal Content */}
           <div className="relative w-full max-w-3xl max-h-full bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
-            
+
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800">
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
@@ -264,18 +264,18 @@ export default function TrajectorySection({ lang }: TrajectorySectionProps) {
                     <div className="absolute left-0 top-1 transform -translate-x-1/2 bg-white dark:bg-slate-900 rounded-full border-4 border-white dark:border-slate-900">
                       <div className="w-3 h-3 bg-brand-orange rounded-full" />
                     </div>
-                    
+
                     <div className="flex items-center gap-2 mb-2">
                       <Icon className="w-4 h-4 text-brand-orange" />
                       <span className="text-xs font-mono font-bold text-brand-orange">
                         {item.year}
                       </span>
                     </div>
-                    
+
                     <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-3">
                       {item.title[lang]}
                     </h4>
-                    
+
                     <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-sans text-[15px]">
                       {item.fullDescription[lang]}
                     </p>
@@ -283,7 +283,7 @@ export default function TrajectorySection({ lang }: TrajectorySectionProps) {
                 );
               })}
             </div>
-            
+
           </div>
         </div>,
         document.body

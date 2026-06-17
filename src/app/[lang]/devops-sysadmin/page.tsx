@@ -85,7 +85,8 @@ export default async function DevOpsHome({ params }: { params: Promise<{ lang: s
           </div>
 
           <div className="space-y-16">
-            {/* Kubernetes Showcase (Placeholder) */}
+            
+            {/* Wordsus Showcase */}
             <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-brand-orange/50 hover:shadow-2xl hover:shadow-brand-orange/5">
               <div className="absolute inset-0 bg-linear-to-br from-brand-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -93,48 +94,100 @@ export default async function DevOpsHome({ params }: { params: Promise<{ lang: s
                 <div className="flex flex-col lg:flex-row gap-10">
                   <div className="lg:w-1/2 space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-mono font-semibold">
-                      Featured Infrastructure
+                      Featured Cloud Infrastructure
                     </div>
                     <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      Kubernetes Orchestration
+                      Wordsus Platform
                     </h3>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                       {lang === "es"
-                        ? "[Placerholder] Orquestación de contenedores a gran escala con alta disponibilidad."
-                        : "[Placeholder] Large-scale container orchestration with high availability."}
+                        ? "Plataforma multi-capa construida con arquitectura Modular Monolith en Go, aprovisionada remotamente con Ansible y desplegada continuamente a Kubernetes (K3s) mediante flujos de trabajo GitOps con Argo CD."
+                        : "Multi-layer platform built with a Modular Monolith architecture in Go, provisioned remotely with Ansible, and continuously deployed to Kubernetes (K3s) via GitOps workflows using Argo CD."}
                     </p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {["Kubernetes", "Helm", "Istio", "Prometheus", "Grafana"].map((tech) => (
+                      {["Ansible", "Kubernetes", "Argo CD", "Kustomize", "Sealed Secrets", "Go", "Tilt"].map((tech) => (
                         <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
                           {tech}
                         </span>
                       ))}
                     </div>
+
+                    <div className="flex flex-wrap gap-4 pt-4">
+                      <Link
+                        href="https://github.com/wordsus/wordsus-infra"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-orange text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-brand-orange/20"
+                      >
+                        <GithubIcon className="w-4 h-4 mr-2" />
+                        Infra
+                      </Link>
+                      <Link
+                        href="https://github.com/wordsus/wordsus-gitops"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-orange text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-brand-orange/20"
+                      >
+                        <GithubIcon className="w-4 h-4 mr-2" />
+                        GitOps
+                      </Link>
+                      <Link
+                        href="https://github.com/wordsus/wordsus-backend"
+                        target="_blank"
+                        className="inline-flex items-center justify-center px-5 py-2.5 bg-brand-orange text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-brand-orange/20"
+                      >
+                        <GithubIcon className="w-4 h-4 mr-2" />
+                        Backend
+                      </Link>
+                    </div>
                   </div>
 
                   <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Feature cards */}
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
                         <Terminal className="w-5 h-5 text-emerald-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Cluster Management</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Ansible Automation</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "[Placeholder] Gestión de múltiples clusters en entornos híbridos."
-                          : "[Placeholder] Multi-cluster management in hybrid environments."}
+                          ? "Aprovisionamiento automatizado de servidores remotos con instancias de K3s y Argo CD."
+                          : "Automated provisioning of remote servers with K3s and Argo CD instances."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
+                        <Globe className="w-5 h-5 text-teal-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">GitOps CD Workflow</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Despliegue continuo declarativo gestionado por Argo CD sincronizando directamente con Git."
+                          : "Declarative continuous delivery managed by Argo CD syncing directly from Git."}
+                      </p>
+                    </div>
+
+                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+                        <Layers className="w-5 h-5 text-purple-500" />
+                      </div>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Kustomize Overlays</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                        {lang === "es"
+                          ? "Gestión de manifiestos y entornos (local, staging, prod) y seguridad con Sealed Secrets."
+                          : "Manifest and environment management (local, staging, prod) and security with Sealed Secrets."}
                       </p>
                     </div>
 
                     <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
                       <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
-                        <Server className="w-5 h-5 text-blue-500" />
+                        <Cpu className="w-5 h-5 text-blue-500" />
                       </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Service Mesh</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Modular Monolith</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
                         {lang === "es"
-                          ? "[Placeholder] Implementación de Istio para seguridad y observabilidad."
-                          : "[Placeholder] Istio implementation for security and observability."}
+                          ? "Backend Go escalable, con Tilt para desarrollo local ágil sobre Kubernetes."
+                          : "Scalable Go backend, featuring Tilt for agile local development on Kubernetes."}
                       </p>
                     </div>
                   </div>
@@ -142,119 +195,7 @@ export default async function DevOpsHome({ params }: { params: Promise<{ lang: s
               </div>
             </div>
 
-            {/* CI/CD Showcase (Placeholder) */}
-            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/5">
-              <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative p-8 sm:p-10">
-                <div className="flex flex-col lg:flex-row-reverse gap-10">
-                  <div className="lg:w-1/2 space-y-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-mono font-semibold">
-                      Featured Pipeline
-                    </div>
-                    <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      CI/CD Automation
-                    </h3>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                      {lang === "es"
-                        ? "[Placeholder] Pipelines de integración y despliegue continuo altamente optimizados."
-                        : "[Placeholder] Highly optimized continuous integration and deployment pipelines."}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {["GitHub Actions", "GitLab CI", "Jenkins", "ArgoCD"].map((tech) => (
-                        <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                      <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
-                        <Terminal className="w-5 h-5 text-indigo-500" />
-                      </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Automated Testing</h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
-                        {lang === "es"
-                          ? "[Placeholder] Pruebas unitarias y de integración automatizadas."
-                          : "[Placeholder] Automated unit and integration testing."}
-                      </p>
-                    </div>
-
-                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                      <div className="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center mb-4">
-                        <Server className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">GitOps</h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
-                        {lang === "es"
-                          ? "[Placeholder] Gestión de despliegues basados en Git con ArgoCD."
-                          : "[Placeholder] Git-based deployment management with ArgoCD."}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Infrastructure as Code (Placeholder) */}
-            <div className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/5">
-              <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative p-8 sm:p-10">
-                <div className="flex flex-col lg:flex-row gap-10">
-                  <div className="lg:w-1/2 space-y-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold">
-                      Featured Tooling
-                    </div>
-                    <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                      Infrastructure as Code
-                    </h3>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                      {lang === "es"
-                        ? "[Placeholder] Definición y provisión de infraestructura a través de código."
-                        : "[Placeholder] Infrastructure definition and provisioning through code."}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {["Terraform", "Ansible", "AWS", "Linux"].map((tech) => (
-                        <span key={tech} className="px-3 py-1 text-xs font-medium rounded-md bg-white dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50 shadow-sm">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
-                        <Terminal className="w-5 h-5 text-teal-500" />
-                      </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Terraform Modules</h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
-                        {lang === "es"
-                          ? "[Placeholder] Módulos reutilizables para aprovisionamiento AWS."
-                          : "[Placeholder] Reusable modules for AWS provisioning."}
-                      </p>
-                    </div>
-
-                    <div className="p-5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                      <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
-                        <Globe className="w-5 h-5 text-emerald-500" />
-                      </div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">Ansible Roles</h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
-                        {lang === "es"
-                          ? "[Placeholder] Automatización de configuración de servidores Linux."
-                          : "[Placeholder] Linux server configuration automation."}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </div>
         </section>
