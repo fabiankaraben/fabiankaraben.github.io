@@ -34,7 +34,7 @@ export default async function FlutterResumePage({ params }: { params: Promise<{ 
             <Link href={`/${lang}/flutter`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
               ← {t.backToHome || "Back to Home"}
             </Link>
-            <PrintButton label={t.printResume} />
+            <PrintButton label={t.printResume} documentTitle={`Fabian-Karaben-Resume-${new Date().getFullYear()}-Flutter-${lang.toUpperCase()}`} />
           </div>
 
           <div className="bg-white dark:bg-slate-900/50 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-16 print:shadow-none print:border-none print-container print:bg-white print:dark:bg-white">

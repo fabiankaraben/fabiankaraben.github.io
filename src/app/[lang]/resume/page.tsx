@@ -39,7 +39,7 @@ export default async function ResumePage({ params }: { params: Promise<{ lang: s
             <Link href={`/${lang}`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
               ← {t.backToHome || "Back to Home"}
             </Link>
-            <PrintButton label={t.printResume} />
+            <PrintButton label={t.printResume} documentTitle={`Fabian-Karaben-Resume-${new Date().getFullYear()}-Full-Stack-${lang.toUpperCase()}`} />
           </div>
 
           {/* Paper/Document Container */}
