@@ -12,11 +12,10 @@ export const translations = {
     hireMe: "Contact Me",
 
     // Status tags
-    statusActive: "SYSTEM_STATUS: ACTIVE // REGION: AWS-EAST-1",
-    statusFullStack: "FRONTEND: HYDRATED // BACKEND: SCALING",
-    statusBackend: "BACKEND_CORE: RUNNING // MULTI_LANGUAGE_RUNTIME",
-    statusDevops: "INFRASTRUCTURE: AUTOMATED // SERVERS: PROVISIONED",
-    statusFlutter: "MOBILE: COMPILED // STATE: REACTIVE",
+    statusFullStack: "DESIGN → (BACKEND/FRONTEND + DEVOPS) → CLOUD",
+    statusBackend: "DESIGN → (BACKEND + DEVOPS) → CLOUD",
+    statusDevops: "PLANNING → IaC → CI/CD → MONITORING",
+    statusFlutter: "DESIGN → FLUTTER APP → BUILD/RELEASE → STORES",
 
     // Hero titles
     javaTitle: "Java Backend Developer",
@@ -104,11 +103,10 @@ export const translations = {
     hireMe: "Contáctame",
 
     // Status tags
-    statusActive: "ESTADO_DEL_SISTEMA: ACTIVO // REGIÓN: AWS-EAST-1",
-    statusFullStack: "FRONTEND: HYDRATED // BACKEND: SCALING",
-    statusBackend: "NÚCLEO_BACKEND: EJECUTÁNDOSE // TIEMPO_DE_EJECUCIÓN_MULTILENGUAJE",
-    statusDevops: "INFRAESTRUCTURA: AUTOMATIZADA // SERVIDORES: APROVISIONADOS",
-    statusFlutter: "MÓVIL: COMPILADO // ESTADO: REACTIVO",
+    statusFullStack: "DESIGN → (BACKEND/FRONTEND + DEVOPS) → CLOUD",
+    statusBackend: "DESIGN → (BACKEND + DEVOPS) → CLOUD",
+    statusDevops: "PLANNING → IaC → CI/CD → MONITORING",
+    statusFlutter: "DESIGN → FLUTTER APP → BUILD/RELEASE → STORES",
 
     // Hero titles
     javaTitle: "Desarrollador Backend Java",
