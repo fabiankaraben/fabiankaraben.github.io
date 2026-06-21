@@ -24,7 +24,7 @@ export default function FeaturedArticlesSection({ lang }: { lang: Language }) {
             key={post.slug}
             className="group bg-white/40 dark:bg-slate-900/30 backdrop-blur-md border border-slate-200 dark:border-slate-900 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-brand-orange/40 hover:shadow-xl hover:shadow-slate-200/50 hover:dark:shadow-brand-orange/5"
           >
-            <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
+            <Link href={`/${lang}/blog/${post.slug}`} className="flex flex-col h-full">
               <span className="font-mono text-xs text-slate-500 mb-2">{post.pubDate}</span>
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-orange transition-colors duration-300 mb-3">
                 {post.title}
@@ -42,7 +42,7 @@ export default function FeaturedArticlesSection({ lang }: { lang: Language }) {
 
       <div className="mt-12 text-center">
         <Link
-          href="/blog"
+          href={`/${lang}/blog`}
           className="inline-flex items-center justify-center px-6 py-3 border border-slate-200 dark:border-slate-900 hover:border-brand-orange/40 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md rounded-lg text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-orange transition-all duration-300"
         >
           {t.seeAllArticles} &rarr;

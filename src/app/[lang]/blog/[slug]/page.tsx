@@ -2,7 +2,8 @@ import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import { marked } from "marked";
 import Link from "next/link";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
+import BackButton from "@/components/BackButton";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
@@ -75,13 +76,9 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="py-12">
           {/* Back button */}
           <div className="mb-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-brand-orange transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>{t.backToBlog}</span>
-            </Link>
+            <BackButton fallbackHref={`/${lang}/blog`}>
+              {t.backToBlog}
+            </BackButton>
           </div>
 
           {/* Header info */}

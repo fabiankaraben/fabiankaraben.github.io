@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import BackButton from "@/components/BackButton";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TechGridBackground from "@/components/TechGridBackground";
@@ -32,13 +32,9 @@ export default async function BlogIndex({ params }: { params: Promise<{ lang: st
         <section className="py-12">
           {/* Breadcrumb / Back Link */}
           <div className="mb-8">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-brand-orange transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>{t.backToHome}</span>
-            </Link>
+            <BackButton fallbackHref={`/${lang}`}>
+              {t.backToHome}
+            </BackButton>
           </div>
 
           <div className="flex items-center gap-3 mb-12">
@@ -59,7 +55,7 @@ export default async function BlogIndex({ params }: { params: Promise<{ lang: st
                   key={post.slug}
                   className="group bg-white/40 dark:bg-slate-900/30 backdrop-blur-md border border-slate-200 dark:border-slate-900 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-brand-orange/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50 hover:dark:shadow-brand-orange/5"
                 >
-                  <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
+                  <Link href={`/${lang}/blog/${post.slug}`} className="flex flex-col h-full">
                     <span className="font-mono text-xs text-slate-500 mb-2">{post.pubDate}</span>
                     <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-orange transition-colors duration-300 mb-3">
                       {post.title}
