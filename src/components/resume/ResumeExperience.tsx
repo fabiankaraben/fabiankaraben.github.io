@@ -50,7 +50,7 @@ const experiencesData = [
         "Integrated backends using Go, TypeScript, GCP, and Firebase, handling authentication, real-time data sync, and push notifications."
       ],
       es: [
-        "Construí aplicaciones móviles multiplataforma con Flutter para clientes en Freelancer.com y Workana siendo un early adopter del framework.",
+        "Construí aplicaciones móviles multiplataforma con Flutter para clientes en Freelancer.com y Workana siendo un early adopter del framework, destacando una aplicación para un cliente de India que permite a los usuarios registrar puntos de carga para automóviles eléctricos y a otros usuarios encontrar esos puntos de carga calculando el recorrido más corto para llegar a ellos.",
         "Integré backends utilizando Go, TypeScript, GCP y Firebase, manejando autenticación, sincronización de datos en tiempo real y notificaciones push."
       ]
     }
@@ -114,7 +114,7 @@ const experiencesData = [
         "Delivered full-stack solutions using PHP, HTML, CSS, jQuery, Bootstrap, and WordPress on shared hosting environments."
       ],
       es: [
-        "Comencé mi carrera construyendo sitios web para clientes locales, creciendo orgánicamente a través de recomendaciones de boca en boca.",
+        "Comencé mi carrera construyendo sitios web para clientes locales, creciendo orgánicamente a través de recomendaciones de boca en boca, a partir de un primer sitio web realizado para el negocio de autopartes de un amigo.",
         "Entregué soluciones full-stack utilizando PHP, HTML, CSS, jQuery, Bootstrap y WordPress en entornos de alojamiento compartido."
       ]
     }
@@ -122,8 +122,8 @@ const experiencesData = [
 ];
 
 export default function ResumeExperience({ lang, title, includeItems }: ResumeExperienceProps) {
-  const visibleExperiences = includeItems 
-    ? experiencesData.filter(exp => includeItems.includes(exp.id)) 
+  const visibleExperiences = includeItems
+    ? experiencesData.filter(exp => includeItems.includes(exp.id))
     : experiencesData;
 
   return (
@@ -132,7 +132,7 @@ export default function ResumeExperience({ lang, title, includeItems }: ResumeEx
         {title}
       </h2>
       <div className="space-y-8 text-slate-600 dark:text-slate-300 print:text-gray-800">
-        
+
         {visibleExperiences.map((exp) => (
           <div key={exp.id} className="print:break-inside-avoid">
             <div className="flex flex-row justify-between items-baseline mb-2">
