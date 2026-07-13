@@ -50,7 +50,7 @@ const experiencesData = [
         "Integrated backends using Go, TypeScript, GCP, and Firebase, handling authentication, real-time data sync, and push notifications."
       ],
       es: [
-        "Construí aplicaciones móviles multiplataforma con Flutter para clientes en Freelancer.com y Workana siendo un early adopter del framework, destacando una aplicación para un cliente de India que permite a los usuarios registrar puntos de carga para automóviles eléctricos y a otros usuarios encontrar esos puntos de carga calculando el recorrido más corto para llegar a ellos.",
+        "Construí aplicaciones móviles multiplataforma con Flutter para clientes en Freelancer.com y Workana siendo un early adopter del framework.",
         "Integré backends utilizando Go, TypeScript, GCP y Firebase, manejando autenticación, sincronización de datos en tiempo real y notificaciones push."
       ]
     }
@@ -114,7 +114,7 @@ const experiencesData = [
         "Delivered full-stack solutions using PHP, HTML, CSS, jQuery, Bootstrap, and WordPress on shared hosting environments."
       ],
       es: [
-        "Comencé mi carrera construyendo sitios web para clientes locales, creciendo orgánicamente a través de recomendaciones de boca en boca, a partir de un primer sitio web realizado para el negocio de autopartes de un amigo.",
+        "Comencé mi carrera construyendo sitios web para clientes locales, creciendo orgánicamente a través de recomendaciones de boca en boca.",
         "Entregué soluciones full-stack utilizando PHP, HTML, CSS, jQuery, Bootstrap y WordPress en entornos de alojamiento compartido."
       ]
     }
