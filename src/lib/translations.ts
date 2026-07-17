@@ -91,6 +91,24 @@ export const translations = {
 
     // Copyright
     copyright: "Fabián Karaben. All rights reserved.",
+
+    // Contact Form
+    contactFormName: "Name",
+    contactFormNamePlaceholder: "Your name",
+    contactFormEmail: "Email",
+    contactFormEmailPlaceholder: "your.email@example.com",
+    contactFormMessage: "Message",
+    contactFormMessagePlaceholder: "Brief description of your project or inquiry...",
+    contactFormSubmit: "Send Message",
+    contactFormSubmitting: "Sending...",
+    contactFormSuccess: "Message sent successfully!",
+    contactFormSuccessDesc: "Thank you for reaching out. I'll get back to you as soon as possible.",
+    contactFormError: "Failed to send message.",
+    contactFormErrorDesc: "Please check your network and try again. If the issue persists, feel free to contact me via LinkedIn.",
+    invalidEmail: "Please enter a valid email address.",
+    nameTooShort: "Name must be at least 2 characters.",
+    messageTooShort: "Message must be at least 10 characters.",
+    sendAnother: "Send another message",
   },
   es: {
     // Navigation / Header
@@ -182,5 +200,23 @@ export const translations = {
 
     // Copyright
     copyright: "Fabián Karaben. Todos los derechos reservados.",
+
+    // Contact Form
+    contactFormName: "Nombre",
+    contactFormNamePlaceholder: "Tu nombre",
+    contactFormEmail: "Correo electrónico",
+    contactFormEmailPlaceholder: "tu.correo@ejemplo.com",
+    contactFormMessage: "Mensaje",
+    contactFormMessagePlaceholder: "Breve descripción de tu proyecto o consulta...",
+    contactFormSubmit: "Enviar Mensaje",
+    contactFormSubmitting: "Enviando...",
+    contactFormSuccess: "¡Mensaje enviado con éxito!",
+    contactFormSuccessDesc: "Gracias por contactarme. Me pondré en contacto contigo lo antes posible.",
+    contactFormError: "No se pudo enviar el mensaje.",
+    contactFormErrorDesc: "Por favor, verifica tu conexión e inténtalo de nuevo. Si el problema persiste, contáctame a través de LinkedIn.",
+    invalidEmail: "Por favor, introduce un correo electrónico válido.",
+    nameTooShort: "El nombre debe tener al menos 2 caracteres.",
+    messageTooShort: "El mensaje debe tener al menos 10 caracteres.",
+    sendAnother: "Enviar otro mensaje",
   }
 };
