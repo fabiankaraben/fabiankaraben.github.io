@@ -31,7 +31,7 @@ export default async function DevopsResumePage({ params }: { params: Promise<{ l
         <div className="mx-auto w-[850px] px-4 print:w-auto print:px-0">
           
           <div className="flex justify-between items-center mb-8 print:hidden">
-            <Link href={`/${lang}/devops-sysadmin`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
+            <Link href={`/${lang}`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
               ← {t.backToHome || "Back to Home"}
             </Link>
             <PrintButton label={t.printResume} documentTitle={`Fabian-Karaben-Resume-${new Date().getFullYear()}-DevOps-SysAdmin-${lang.toUpperCase()}`} />
@@ -42,7 +42,7 @@ export default async function DevopsResumePage({ params }: { params: Promise<{ l
             <ResumeHeader 
               title="Fabián Karaben"
               subtitle={t.devopsTitle}
-              portfolioUrl={`https://fabiankaraben.github.io/${lang}/devops-sysadmin`}
+              portfolioUrl={`https://fabiankaraben.github.io/${lang}`}
             />
 
             <ResumeAbout 
@@ -54,7 +54,7 @@ export default async function DevopsResumePage({ params }: { params: Promise<{ l
                   <p className="mt-4">{t.aboutDevopsP2}</p>
                 </>
               }
-              portfolioUrl={`https://fabiankaraben.github.io/${lang}/devops-sysadmin`}
+              portfolioUrl={`https://fabiankaraben.github.io/${lang}`}
               portfolioDisplayUrl="fabiankaraben.github.io"
             />
 

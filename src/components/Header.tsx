@@ -34,7 +34,7 @@ export default function Header({ lang = "en" }: HeaderProps) {
     if (pathname.includes("/blog")) {
       return `/${lang}${hash}`;
     }
-    if (pathname.includes("/backend") || pathname.includes("/devops-sysadmin") || pathname.includes("/flutter")) {
+    if (pathname.includes("/backend") || pathname.includes("/full-stack") || pathname.includes("/flutter")) {
       return `${pathname}${hash}`;
     }
     return `/${lang}${hash}`;

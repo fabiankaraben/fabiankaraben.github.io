@@ -36,7 +36,7 @@ export default async function ResumePage({ params }: { params: Promise<{ lang: s
           
           {/* Action Bar (Hidden on print) */}
           <div className="flex justify-between items-center mb-8 print:hidden">
-            <Link href={`/${lang}`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
+            <Link href={`/${lang}/full-stack`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
               ← {t.backToHome || "Back to Home"}
             </Link>
             <PrintButton label={t.printResume} documentTitle={`Fabian-Karaben-Resume-${new Date().getFullYear()}-Full-Stack-${lang.toUpperCase()}`} />
@@ -48,7 +48,7 @@ export default async function ResumePage({ params }: { params: Promise<{ lang: s
           <ResumeHeader 
             title="Fabián Karaben"
             subtitle={t.fullStackTitle}
-            portfolioUrl="https://fabiankaraben.github.io"
+            portfolioUrl={`https://fabiankaraben.github.io/${lang}/full-stack`}
           />
 
           <ResumeAbout 
@@ -57,7 +57,7 @@ export default async function ResumePage({ params }: { params: Promise<{ lang: s
             aboutText={lang === "es" 
               ? "Desarrollador Full Stack con una sólida formación en infraestructura (DevOps), Node.js, Go y Java con Spring Boot. Certificado por AWS, especializado en automatización de sistemas de alto rendimiento. Busco unirme a un equipo como desarrollador Full Stack donde pueda aportar mi experiencia en arquitectura y mi capacidad para implementar sistemas robustos y eficientes."
               : "Full Stack Developer with a strong background in infrastructure (DevOps), Node.js, Go, and Java with Spring Boot. AWS certified, specializing in the automation of high-performance systems. Looking to join a team as a Full Stack Developer where I can contribute my architectural expertise and ability to implement robust and efficient systems."}
-            portfolioUrl={`https://fabiankaraben.github.io/${lang}`}
+            portfolioUrl={`https://fabiankaraben.github.io/${lang}/full-stack`}
             portfolioDisplayUrl="fabiankaraben.github.io"
           />
 
