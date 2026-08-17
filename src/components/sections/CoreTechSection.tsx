@@ -5,19 +5,19 @@ export default function CoreTechSection({ lang }: { lang: Language }) {
   const t = translations[lang];
 
   const skills = [
-    { name: "TypeScript", desc: "Next.js, React, Tailwind CSS", icon: "typescript" },
+    { name: "AWS", desc: "EC2, S3, CloudFront, Lambda", icon: "aws" },
+    { name: "Kubernetes", desc: lang === "es" ? "Orquestación, Escalabilidad" : "Orchestration, Scalability", icon: "kubernetes" },
+    { name: "Docker", desc: lang === "es" ? "Portabilidad, Contenedores" : "Portability, Containerization", icon: "docker" },
+    { name: "Cloudflare", desc: "Workers, KV, D1, R2", icon: "cloudflare" },
     { name: "Go", desc: lang === "es" ? "Gin, Echo, WebSockets, Chi" : "Gin, Echo, WebSockets, Chi", icon: "golang" },
+    { name: "TypeScript", desc: "Next.js, React, Tailwind CSS", icon: "typescript" },
     { name: "Java", desc: lang === "es" ? "Empresarial, Robustez, POO" : "Enterprise, Robustness, OOP", icon: "java" },
     { name: "Spring Boot", desc: lang === "es" ? "Framework, Inyección de Dependencias" : "Framework, Dependency Injection", icon: "spring" },
-    { name: "AWS", desc: "EC2, S3, CloudFront, Lambda", icon: "aws" },
-    { name: "Cloudflare", desc: "Workers, KV, D1, R2", icon: "cloudflare" },
-    { name: "Docker", desc: lang === "es" ? "Portabilidad, Contenedores" : "Portability, Containerization", icon: "docker" },
-    { name: "Kubernetes", desc: lang === "es" ? "Orquestación, Escalabilidad" : "Orchestration, Scalability", icon: "kubernetes" },
+    { name: "Python", desc: "FastAPI, Django, Flask", icon: "python" },
     { name: "PostgreSQL", desc: lang === "es" ? "Extensibilidad, BD Relacional" : "Extensibility, Relational DB", icon: "postgresql" },
     { name: "MongoDB", desc: lang === "es" ? "Escalabilidad, Almacén de Documentos NoSQL" : "Scalability, NoSQL Document Store", icon: "mongodb" },
     { name: "Redis", desc: lang === "es" ? "Caché en Memoria, Rendimiento" : "In-Memory Caching, Performance", icon: "redis" },
     { name: "SQLite", desc: lang === "es" ? "Base de Datos sin Servidor, D1, Turso" : "Serverless DB, D1, Turso", icon: "sqlite" },
-    { name: "Python", desc: "FastAPI, Django, Flask", icon: "python" },
     { name: "Hibernate", desc: lang === "es" ? "ORM JPA, Vinculación de Datos" : "JPA ORM, Data Binding", icon: "hibernate" },
     { name: "Maven", desc: lang === "es" ? "Gestión de Construcción y Dependencias" : "Build & Dependency Management", icon: "maven" },
   ];

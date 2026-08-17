@@ -18,8 +18,8 @@ import { translations } from "@/lib/translations";
 import fkPortrait from "@/assets/fk.jpg";
 
 export const metadata = {
-  title: "Fabián Karaben | DevOps & SysAdmin",
-  description: "Portfolio of Fabián Karaben, a DevOps & SysAdmin specializing in CI/CD, Kubernetes, Docker, and Linux Administration.",
+  title: "Fabián Karaben | DevOps / SRE Engineer",
+  description: "Portfolio of Fabián Karaben, a DevOps/SRE Engineer specializing in GitOps, Kubernetes, CI/CD pipelines, and cloud-native infrastructure.",
   robots: {
     index: false,
     follow: true,

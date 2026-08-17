@@ -11,8 +11,8 @@ import ResumeCertifications from "@/components/resume/ResumeCertifications";
 import ResumeLanguages from "@/components/resume/ResumeLanguages";
 
 export const metadata = {
-  title: "Fabián Karaben | Resume - DevOps & SysAdmin",
-  description: "Resume / CV of Fabián Karaben, DevOps Engineer and SysAdmin",
+  title: "Fabián Karaben | Resume - DevOps / SRE Engineer",
+  description: "Resume / CV of Fabián Karaben, DevOps/SRE Engineer",
   robots: { index: false, follow: true },
 };
 
@@ -34,7 +34,7 @@ export default async function DevopsResumePage({ params }: { params: Promise<{ l
             <Link href={`/${lang}`} className="text-sm font-medium text-slate-500 hover:text-brand-orange transition-colors">
               ← {t.backToHome || "Back to Home"}
             </Link>
-            <PrintButton label={t.printResume} documentTitle={`Fabian-Karaben-Resume-${new Date().getFullYear()}-DevOps-SysAdmin-${lang.toUpperCase()}`} />
+            <PrintButton label={t.printResume} documentTitle={`Fabian-Karaben-Resume-${new Date().getFullYear()}-DevOps-SRE-${lang.toUpperCase()}`} />
           </div>
 
           <div className="bg-white dark:bg-slate-900/50 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-16 print:shadow-none print:border-none print-container print:bg-white print:dark:bg-white">

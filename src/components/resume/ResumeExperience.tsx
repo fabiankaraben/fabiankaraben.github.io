@@ -7,19 +7,19 @@ interface ResumeExperienceProps {
 const experiencesData = [
   {
     id: "freelance-fs-devops",
-    title: { en: "Freelance Full Stack Developer & DevOps", es: "Full Stack Developer & DevOps Freelance" },
+    title: { en: "DevOps/SRE & Cloud Engineer (Freelance)", es: "DevOps/SRE & Cloud Engineer (Freelance)" },
     date: { en: "Feb 2024 - Present", es: "Feb 2024 - Presente" },
     location: { en: "Remote", es: "Remoto" },
     bullets: {
       en: [
-        "Architected and deployed full-stack web applications using TypeScript, Next.js, and Tailwind CSS on Cloudflare Pages and Vercel.",
-        "Developed backend services and REST APIs with Go, Java (Spring Boot), and Node.js, deployed on AWS and Kubernetes.",
-        "Obtained AWS Certified Cloud Practitioner certification; implemented CI/CD pipelines across AWS, Cloudflare, and Vercel."
+        "Designed and implemented CI/CD pipelines deploying containerized workloads to Kubernetes (K3s) via GitOps workflows using Argo CD and Kustomize.",
+        "Automated remote server provisioning with Ansible playbooks, managing infrastructure across AWS, Cloudflare, and Vercel.",
+        "Obtained AWS Certified Cloud Practitioner certification; trained toward Solutions Architect Associate, Developer Associate, and CKA certifications."
       ],
       es: [
-        "Diseñé y desplegué aplicaciones web full-stack usando TypeScript, Next.js y Tailwind CSS en Cloudflare Pages y Vercel.",
-        "Desarrollé servicios backend y APIs REST con Go, Java (Spring Boot) y Node.js, desplegados en AWS y Kubernetes.",
-        "Obtuve la certificación AWS Certified Cloud Practitioner; implementé pipelines CI/CD en AWS, Cloudflare y Vercel."
+        "Diseñé e implementé pipelines CI/CD desplegando cargas de trabajo en contenedores sobre Kubernetes (K3s) mediante flujos GitOps con Argo CD y Kustomize.",
+        "Automaticé el aprovisionamiento remoto de servidores con playbooks de Ansible, gestionando infraestructura en AWS, Cloudflare y Vercel.",
+        "Obtuve la certificación AWS Certified Cloud Practitioner; me formé en las certificaciones Solutions Architect Associate, Developer Associate y CKA."
       ]
     }
   },
@@ -57,17 +57,17 @@ const experiencesData = [
   },
   {
     id: "sysadmin-unam",
-    title: { en: "SysAdmin / DevOps", es: "SysAdmin / DevOps" },
+    title: { en: "DevOps Engineer", es: "DevOps Engineer" },
     date: { en: "May 2018 - Oct 2020", es: "May 2018 - Oct 2020" },
     location: { en: "Universidad Nacional de Misiones | Misiones, Argentina", es: "Universidad Nacional de Misiones | Misiones, Argentina" },
     bullets: {
       en: [
-        "Configured and maintained all internal university systems (student management, accounting, auditing, library) using Proxmox with LXC containers, Apache, and Tomcat.",
-        "Automated server provisioning and deployments with Ansible playbooks, ensuring high availability across institutional services."
+        "Automated server provisioning and deployment workflows with Ansible playbooks, ensuring reproducible configurations and high availability across all institutional services.",
+        "Managed containerized environments on Proxmox with LXC instances, deploying and maintaining critical university systems (student management, accounting, auditing, library) on Apache and Tomcat."
       ],
       es: [
-        "Configuré y mantuve todos los sistemas internos de la universidad (gestión de alumnos, contabilidad, auditorías, biblioteca) usando Proxmox con contenedores LXC, Apache y Tomcat.",
-        "Automaticé el aprovisionamiento de servidores y despliegues con playbooks de Ansible, asegurando alta disponibilidad en todos los servicios institucionales."
+        "Automaticé el aprovisionamiento de servidores y los flujos de despliegue con playbooks de Ansible, asegurando configuraciones reproducibles y alta disponibilidad en todos los servicios institucionales.",
+        "Gestioné entornos en contenedores sobre Proxmox con instancias LXC, desplegando y manteniendo sistemas universitarios críticos (gestión de alumnos, contabilidad, auditorías, biblioteca) sobre Apache y Tomcat."
       ]
     }
   },
@@ -87,19 +87,19 @@ const experiencesData = [
   },
   {
     id: "fs-hostsiete",
-    title: { en: "Full Stack Developer & SysAdmin", es: "Full Stack Developer & SysAdmin" },
+    title: { en: "Infrastructure & Automation Engineer", es: "Infrastructure & Automation Engineer" },
     date: { en: "Feb 2009 - Dec 2017", es: "Feb 2009 - Dic 2017" },
     location: { en: "HostSiete (Personal Entrepreneurship)", es: "HostSiete (Emprendimiento Propio)" },
     bullets: {
       en: [
-        "Founded and operated a web hosting, VPS, and domain registration business for nearly a decade.",
-        "Built a full client portal from scratch (PHP, JavaScript) that managed support tickets, billing, renewals, and automated cPanel account provisioning and suspension without manual intervention.",
-        "Acquired deep expertise in Linux server administration, cPanel configuration, security hardening, and infrastructure provider management (OVH)."
+        "Founded and operated a web hosting, VPS, and domain registration business for nearly a decade, managing the complete infrastructure lifecycle.",
+        "Built a fully automated account lifecycle system that interfaced directly with cPanel servers to provision, suspend, and terminate accounts without manual intervention.",
+        "Acquired deep expertise in Linux server provisioning, security hardening, cPanel configuration, and infrastructure provider management (OVH)."
       ],
       es: [
-        "Fundé y operé un negocio de venta de alojamiento web, VPS y registro de dominios durante casi una década.",
-        "Construí un portal completo de clientes desde cero (PHP, JavaScript) que gestionaba tickets de soporte, facturación, renovaciones y el aprovisionamiento/suspensión automática de cuentas cPanel sin intervención manual.",
-        "Adquirí gran experiencia en administración de servidores Linux, configuración de cPanel, seguridad y gestión de proveedores de infraestructura (OVH)."
+        "Fundé y operé un negocio de web hosting, VPS y registro de dominios durante casi una década, gestionando el ciclo de vida completo de la infraestructura.",
+        "Construí un sistema completamente automatizado para el ciclo de vida de cuentas que se conectaba directamente con servidores cPanel para aprovisionar, suspender y terminar cuentas sin intervención manual.",
+        "Adquirí gran experiencia en aprovisionamiento de servidores Linux, hardening de seguridad, configuración de cPanel y gestión de proveedores de infraestructura (OVH)."
       ]
     }
   },

@@ -14,21 +14,21 @@ export const translations = {
     // Status tags
     statusFullStack: "DESIGN → (BACKEND/FRONTEND + DEVOPS) → CLOUD",
     statusBackend: "DESIGN → (BACKEND + DEVOPS) → CLOUD",
-    statusDevops: "PLANNING → IaC → CI/CD → MONITORING",
+    statusDevops: "IaC → CI/CD → OBSERVABILITY → RELIABILITY",
     statusFlutter: "DESIGN → FLUTTER APP → BUILD/RELEASE → STORES",
 
     // Hero titles
     javaTitle: "Java Backend Developer",
     fullStackTitle: "Full Stack Developer",
     backendTitle: "Backend Developer",
-    devopsTitle: "DevOps & SysAdmin",
+    devopsTitle: "DevOps / SRE Engineer",
     flutterTitle: "Flutter Developer",
 
     // Hero descriptions
     javaDesc: "Architecting robust and scalable systems. I build the digital backbone of modern web applications, focusing on performance, security, and reliability.",
     fullStackDesc: "Building end-to-end web architectures, from fluid, high-performance interfaces to scalable, resilient backend APIs and databases.",
     backendDesc: "Architecting concurrent microservices, highly optimized APIs, and transaction-safe enterprise infrastructures using Go, Java, and Node.js.",
-    devopsDesc: "Automating infrastructure, streamlining CI/CD pipelines, and maintaining highly available, secure Linux server environments.",
+    devopsDesc: "Building reliable, self-healing infrastructure through GitOps workflows, Kubernetes orchestration, and automated CI/CD pipelines — backed by 10+ years of hands-on Linux operations and AWS certification.",
     flutterDesc: "Building beautiful, natively compiled, multi-platform applications from a single codebase with Flutter and Dart.",
 
     // General section titles & descriptions
@@ -62,8 +62,8 @@ export const translations = {
     aboutBeP2: "I hold an AWS certification and possess a strong background in containerized orchestration (Docker, Kubernetes) and serverless edge technologies (Cloudflare Workers).",
 
     // About me content (DevOps)
-    aboutDevopsP1: "I am a DevOps and former SysAdmin with a passion for automation, infrastructure as code, and creating reliable deployment pipelines. I bridge the gap between development and operations to ensure seamless, scalable application delivery.",
-    aboutDevopsP2: "With a strong foundation in Linux system administration, networking, and security, I combine traditional ops experience with modern cloud orchestration tools like Kubernetes, Docker, and Terraform.",
+    aboutDevopsP1: "I am a DevOps/SRE Engineer with over 10 years of hands-on infrastructure experience — from managing bare-metal Linux servers and automating provisioning with Ansible, to orchestrating containerized workloads on Kubernetes and implementing GitOps pipelines with Argo CD. I hold an AWS Certified Cloud Practitioner certification and have trained toward the Solutions Architect Associate, Developer Associate, and CKA certifications.",
+    aboutDevopsP2: "My career uniquely blends deep operational expertise (Linux hardening, networking, monitoring) with modern cloud-native practices (IaC, CI/CD, container orchestration, sealed secrets management). I build infrastructure that is automated, observable, and resilient by design.",
 
     // About me content (Flutter)
     aboutFlutterP1: "I am a Flutter Developer specialized in building high-performance, visually engaging mobile applications. I leverage modern state management solutions like Riverpod and BLoC to create reactive and scalable app architectures.",
@@ -80,7 +80,7 @@ export const translations = {
     contactJavaDesc: "Have a project in mind or just want to chat? Feel free to reach out! I'm always open to new opportunities and collaborations in backend architectures and robust systems.",
     contactFsDesc: "Have a project in mind or just want to chat? Feel free to reach out! I'm always open to new opportunities and collaborations in end-to-end full-stack architectures.",
     contactBeDesc: "Have a project in mind or just want to chat? Feel free to reach out! I'm always open to new opportunities and collaborations in backend architectures and cloud APIs.",
-    contactDevopsDesc: "Looking to optimize your deployment pipelines or scale your infrastructure? Feel free to reach out!",
+    contactDevopsDesc: "Looking for a DevOps/SRE engineer to optimize your deployment pipelines, scale your infrastructure, or improve system reliability? Let's connect!",
     contactFlutterDesc: "Have a mobile app idea or need to build a cross-platform product? Feel free to reach out!",
 
     // Resume
@@ -123,21 +123,21 @@ export const translations = {
     // Status tags
     statusFullStack: "DESIGN → (BACKEND/FRONTEND + DEVOPS) → CLOUD",
     statusBackend: "DESIGN → (BACKEND + DEVOPS) → CLOUD",
-    statusDevops: "PLANNING → IaC → CI/CD → MONITORING",
+    statusDevops: "IaC → CI/CD → OBSERVABILITY → RELIABILITY",
     statusFlutter: "DESIGN → FLUTTER APP → BUILD/RELEASE → STORES",
 
     // Hero titles
     javaTitle: "Desarrollador Backend Java",
     fullStackTitle: "Desarrollador Full Stack",
     backendTitle: "Desarrollador Backend",
-    devopsTitle: "DevOps y SysAdmin",
+    devopsTitle: "DevOps / SRE Engineer",
     flutterTitle: "Desarrollador Flutter",
 
     // Hero descriptions
     javaDesc: "Diseñando arquitecturas robustas y escalables. Construyo la columna vertebral digital de las aplicaciones web modernas, enfocándome en el rendimiento, la seguridad y la confiabilidad.",
     fullStackDesc: "Construyendo arquitecturas web de extremo a extremo, desde interfaces fluidas y de alto rendimiento hasta APIs backend y bases de datos escalables y resilientes.",
     backendDesc: "Diseñando microservicios concurrentes, APIs altamente optimizadas e infraestructuras empresariales con transacciones seguras utilizando Go, Java y Node.js.",
-    devopsDesc: "Automatizando infraestructura, optimizando pipelines CI/CD y manteniendo entornos de servidores Linux altamente disponibles y seguros.",
+    devopsDesc: "Construyendo infraestructura confiable y auto-recuperable mediante flujos GitOps, orquestación Kubernetes y pipelines CI/CD automatizados — respaldado por más de 10 años de operaciones Linux y certificación AWS.",
     flutterDesc: "Construyendo hermosas aplicaciones multiplataforma compiladas nativamente desde una única base de código con Flutter y Dart.",
 
     // General section titles & descriptions
@@ -171,8 +171,8 @@ export const translations = {
     aboutBeP2: "Cuento con una certificación de AWS y poseo una sólida base en orquestación de contenedores (Docker, Kubernetes) y tecnologías serverless en el edge (Cloudflare Workers).",
 
     // About me content (DevOps)
-    aboutDevopsP1: "Soy DevOps y ex SysAdmin con pasión por la automatización, la infraestructura como código y la creación de pipelines de despliegue confiables. Acorto la brecha entre desarrollo y operaciones para garantizar entregas fluidas y escalables.",
-    aboutDevopsP2: "Cuento con una base sólida en administración de sistemas Linux, redes y seguridad, combinando mi experiencia en operaciones tradicionales con herramientas modernas de orquestación en la nube como Kubernetes, Docker y Terraform.",
+    aboutDevopsP1: "Soy DevOps/SRE Engineer con más de 10 años de experiencia práctica en infraestructura — desde la gestión de servidores Linux bare-metal y la automatización del aprovisionamiento con Ansible, hasta la orquestación de cargas de trabajo en contenedores sobre Kubernetes y la implementación de pipelines GitOps con Argo CD. Cuento con la certificación AWS Certified Cloud Practitioner y me he formado en las certificaciones Solutions Architect Associate, Developer Associate y CKA.",
+    aboutDevopsP2: "Mi carrera combina de manera única una profunda experiencia operacional (hardening Linux, redes, monitoreo) con prácticas cloud-native modernas (IaC, CI/CD, orquestación de contenedores, gestión de sealed secrets). Construyo infraestructura que es automatizada, observable y resiliente por diseño.",
 
     // About me content (Flutter)
     aboutFlutterP1: "Soy un Desarrollador Flutter especializado en crear aplicaciones móviles de alto rendimiento y visualmente atractivas. Utilizo soluciones modernas de manejo de estado como Riverpod y BLoC para crear arquitecturas reactivas y escalables.",
@@ -189,7 +189,7 @@ export const translations = {
     contactJavaDesc: "¿Tienes un proyecto en mente o simplemente quieres charlar? ¡No dudes en contactarme! Siempre estoy abierto a nuevas oportunidades y colaboraciones en arquitecturas backend y sistemas robustos.",
     contactFsDesc: "¿Tienes un proyecto en mente o simplemente quieres charlar? ¡No dudes en contactarme! Siempre estoy abierto a nuevas oportunidades y colaboraciones en arquitecturas full-stack de extremo a extremo.",
     contactBeDesc: "¿Tienes un proyecto en mente o simplemente quieres charlar? ¡No dudes en contactarme! Siempre estoy abierto a nuevas oportunidades y colaboraciones en arquitecturas backend y APIs en la nube.",
-    contactDevopsDesc: "¿Buscas optimizar tus pipelines de despliegue o escalar tu infraestructura? ¡No dudes en contactarme!",
+    contactDevopsDesc: "¿Buscas un ingeniero DevOps/SRE para optimizar tus pipelines de despliegue, escalar tu infraestructura o mejorar la confiabilidad de tus sistemas? ¡Conectemos!",
     contactFlutterDesc: "¿Tienes una idea para una app móvil o necesitas construir un producto multiplataforma? ¡No dudes en contactarme!",
 
     // Resume

@@ -14,18 +14,18 @@ const trajectoryData = [
     id: "fs-devops-2024",
     year: "2024 – Present",
     title: {
-      en: "Full Stack Developer & DevOps Freelance",
-      es: "Full Stack Developer & DevOps Freelance",
+      en: "DevOps/SRE & Cloud Engineer (Freelance)",
+      es: "DevOps/SRE & Cloud Engineer (Freelance)",
     },
     summary: {
-      en: "Building full-stack apps and backend services as a remote freelancer. AWS certified, deploying across cloud platforms.",
-      es: "Desarrollo de aplicaciones full-stack y servicios backend como freelancer remoto. Certificado AWS, desplegando en múltiples plataformas cloud.",
+      en: "AWS certified engineer designing GitOps pipelines, orchestrating Kubernetes deployments, and automating cloud infrastructure across AWS, Cloudflare, and Vercel.",
+      es: "Ingeniero certificado AWS diseñando pipelines GitOps, orquestando despliegues en Kubernetes y automatizando infraestructura cloud en AWS, Cloudflare y Vercel.",
     },
     fullDescription: {
-      en: "I decided to focus on my favorite layers of software development: backend and cloud platforms. I obtained my first official AWS certification (AWS Certified Cloud Practitioner) and pivoted toward backend and DevOps projects as a remote freelancer. Market demand led me back to full-stack development, this time with TypeScript, Next.js, and Tailwind CSS, deploying primarily on Cloudflare and Vercel. In parallel, I have developed backend systems with Go, Java (Spring Boot), and Node.js, deploying on AWS and Kubernetes. With over 20 years of experience, my profile allows me to tackle a wide variety of projects, and my most up-to-date knowledge centers on Full Stack development with modern technologies like Next.js, as well as the implementation of DevOps deployment pipelines on AWS, Cloudflare, and Vercel.",
-      es: "Decidí enfocarme en mis capas favoritas del desarrollo de software: backend y plataforma cloud. Obtuve mi primera certificación oficial de AWS (AWS Certified Cloud Practitioner) y me orienté hacia proyectos de backend y DevOps en modalidad freelance remota. La demanda del mercado me llevó nuevamente al desarrollo full stack, esta vez con TypeScript, Next.js y Tailwind CSS, desplegando principalmente en Cloudflare y Vercel. En paralelo, he desarrollado sistemas backend con Go, Java (Spring Boot) y Node.js, desplegando en AWS y Kubernetes. Con más de 20 años de experiencia, mi perfil me permite abordar una gran variedad de proyectos, y mi conocimiento más actualizado se centra en el desarrollo Full Stack con tecnologías modernas como Next.js, así como en la implementación de pipelines de despliegue DevOps en AWS, Cloudflare y Vercel.",
+      en: "I pivoted to focus on infrastructure and cloud platforms, obtaining my AWS Certified Cloud Practitioner certification and training toward the Solutions Architect Associate, Developer Associate, and CKA certifications. My current work centers on designing CI/CD pipelines, deploying containerized workloads on Kubernetes (K3s), implementing GitOps workflows with Argo CD, and automating server provisioning with Ansible. I also build the backend services (Go, Java/Spring Boot, Node.js) and web applications (TypeScript, Next.js) that run on the infrastructure I design, giving me end-to-end visibility from code to production.",
+      es: "Me orienté hacia infraestructura y plataformas cloud, obteniendo la certificación AWS Certified Cloud Practitioner y formándome en las certificaciones Solutions Architect Associate, Developer Associate y CKA. Mi trabajo actual se centra en diseñar pipelines CI/CD, desplegar cargas de trabajo en contenedores sobre Kubernetes (K3s), implementar flujos GitOps con Argo CD y automatizar el aprovisionamiento de servidores con Ansible. También desarrollo los servicios backend (Go, Java/Spring Boot, Node.js) y aplicaciones web (TypeScript, Next.js) que corren sobre la infraestructura que diseño, otorgándome visibilidad end-to-end desde el código hasta producción.",
     },
-    tags: ["TypeScript", "Next.js", "Go", "Java", "Spring Boot", "Node.js", "AWS", "Kubernetes", "CI/CD"],
+    tags: ["AWS", "Kubernetes", "CI/CD", "Ansible", "Argo CD", "Docker", "Go", "TypeScript"],
     icon: Cloud,
   },
   {
@@ -68,18 +68,18 @@ const trajectoryData = [
     id: "sysadmin-unam-2018",
     year: "2018 – 2020",
     title: {
-      en: "SysAdmin / DevOps — Universidad Nacional de Misiones",
-      es: "SysAdmin / DevOps — Universidad Nacional de Misiones",
+      en: "DevOps Engineer — Universidad Nacional de Misiones",
+      es: "DevOps Engineer — Universidad Nacional de Misiones",
     },
     summary: {
-      en: "Managed all internal university systems with Proxmox/LXC containers, automating infrastructure with Ansible.",
-      es: "Gestioné todos los sistemas internos de la universidad con contenedores Proxmox/LXC, automatizando infraestructura con Ansible.",
+      en: "Automated infrastructure provisioning with Ansible, orchestrated containerized services on Proxmox/LXC, and ensured high availability across all university systems.",
+      es: "Automaticé el aprovisionamiento de infraestructura con Ansible, orquesté servicios en contenedores sobre Proxmox/LXC y garanticé alta disponibilidad en todos los sistemas universitarios.",
     },
     fullDescription: {
-      en: "Back in Posadas, my previous experience in server configuration opened the doors for me to work as a SysAdmin at the public university of my province. My task consisted of configuring and maintaining all internal systems of the institution (student management, accounting, audits, library, among others), using Proxmox servers with LXC instances, deploying services on Apache and Tomcat, and automating infrastructure using Ansible playbooks.",
-      es: "De regreso en Posadas, mi experiencia previa en configuración de servidores me abrió las puertas para trabajar como SysAdmin en la universidad pública de mi provincia. Mi tarea consistió en configurar y mantener todos los sistemas internos de la institución (gestión de alumnos, contabilidad, auditorías, biblioteca, entre otros), utilizando servidores Proxmox con instancias LXC, desplegando servicios sobre Apache y Tomcat, y automatizando la infraestructura mediante playbooks de Ansible.",
+      en: "Returning to Posadas, my infrastructure background led me to join the public university of my province, where I was responsible for the entire operational infrastructure. I automated server provisioning and deployment workflows using Ansible playbooks, managed containerized environments on Proxmox with LXC instances, and maintained high availability across all critical institutional systems (student management, accounting, auditing, library). Services were deployed on Apache and Tomcat, with a focus on reliability, security, and reproducible configurations.",
+      es: "De regreso en Posadas, mi experiencia en infraestructura me llevó a integrarme a la universidad pública de mi provincia, donde fui responsable de toda la infraestructura operativa. Automaticé el aprovisionamiento de servidores y los flujos de despliegue mediante playbooks de Ansible, gestioné entornos en contenedores sobre Proxmox con instancias LXC y mantuve alta disponibilidad en todos los sistemas institucionales críticos (gestión de alumnos, contabilidad, auditorías, biblioteca). Los servicios se desplegaban sobre Apache y Tomcat, con foco en confiabilidad, seguridad y configuraciones reproducibles.",
     },
-    tags: ["Proxmox", "LXC", "Ansible", "Apache", "Tomcat", "Linux"],
+    tags: ["Ansible", "Proxmox", "LXC", "Linux", "Apache", "Tomcat"],
     icon: Server,
   },
   {
@@ -104,18 +104,18 @@ const trajectoryData = [
     id: "hostsiete-2009",
     year: "2009 – 2017",
     title: {
-      en: "Full Stack Developer & SysAdmin — HostSiete",
-      es: "Full Stack Developer & SysAdmin — HostSiete",
+      en: "Infrastructure & Automation Engineer — HostSiete",
+      es: "Infrastructure & Automation Engineer — HostSiete",
     },
     summary: {
-      en: "Founded and operated a web hosting business for nearly a decade. Built a full client portal with automated server provisioning.",
-      es: "Fundé y operé un negocio de web hosting durante casi una década. Construí un portal de clientes con aprovisionamiento automatizado de servidores.",
+      en: "Founded and operated a hosting infrastructure business for nearly a decade. Built automated server provisioning and lifecycle management systems.",
+      es: "Fundé y operé un negocio de infraestructura de hosting durante casi una década. Construí sistemas automatizados de aprovisionamiento y gestión del ciclo de vida de servidores.",
     },
     fullDescription: {
-      en: "I founded my own web hosting, VPS, and domain registration business. Throughout this nearly decade-long adventure, I gained extensive experience in cPanel server configuration, security, and infrastructure provider management like OVH. Additionally, I fully developed the client area: a system that managed support tickets, expirations, payments, and renewals, connecting directly with cPanel servers to create, suspend, or cancel accounts automatically without manual intervention. In 2017, I decided to close the business, transferring my client portfolio to a reputable Argentine company with similar services and pricing.",
-      es: "Fundé mi propio negocio de venta de servicios de web hosting, VPS y registro de dominios. A lo largo de esta aventura de casi una década, adquirí amplia experiencia en configuración de servidores cPanel, seguridad y gestión de proveedores de infraestructura como OVH. Además, desarrollé íntegramente el área de clientes: un sistema que gestionaba tickets de soporte, vencimientos, pagos y renovaciones, conectándose directamente con los servidores cPanel para dar de alta, suspender o cancelar cuentas de forma automatizada y sin intervención manual. En 2017 decidí cerrar el emprendimiento cediendo mi cartera de clientes a una empresa argentina de buena reputación, con servicios y precios similares a los que ofrecía.",
+      en: "I founded and operated a web hosting, VPS, and domain registration business for nearly a decade. I was responsible for the complete infrastructure lifecycle: Linux server provisioning and hardening, cPanel configuration, security audits, and infrastructure provider management (OVH). A key achievement was building a fully automated account lifecycle system that interfaced directly with cPanel servers to provision, suspend, and terminate accounts without manual intervention — an early implementation of infrastructure automation principles. In 2017, I closed the business and transferred the client portfolio to a reputable Argentine company.",
+      es: "Fundé y operé un negocio de web hosting, VPS y registro de dominios durante casi una década. Fui responsable del ciclo de vida completo de la infraestructura: aprovisionamiento y hardening de servidores Linux, configuración de cPanel, auditorías de seguridad y gestión de proveedores de infraestructura (OVH). Un logro clave fue la construcción de un sistema completamente automatizado para el ciclo de vida de cuentas que se conectaba directamente con los servidores cPanel para aprovisionar, suspender y terminar cuentas sin intervención manual — una implementación temprana de los principios de automatización de infraestructura. En 2017 cerré el emprendimiento y transferí la cartera de clientes a una empresa argentina de buena reputación.",
     },
-    tags: ["PHP", "JavaScript", "cPanel", "Linux", "OVH", "Security"],
+    tags: ["Linux", "Automation", "cPanel", "Security", "OVH", "Infrastructure"],
     icon: HardDrive,
   },
   {
