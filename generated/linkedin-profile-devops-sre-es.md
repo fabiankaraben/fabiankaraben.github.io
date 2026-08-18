@@ -6,7 +6,7 @@
 
 ## Titular (Headline)
 
-```
+```text
 DevOps / SRE Engineer | AWS Certified | Kubernetes · GitOps · CI/CD · Ansible · Docker | +10 Años de Experiencia en Infraestructura
 ```
 
@@ -14,7 +14,7 @@ DevOps / SRE Engineer | AWS Certified | Kubernetes · GitOps · CI/CD · Ansible
 
 ## Acerca de (About / Summary)
 
-```
+```text
 DevOps/SRE Engineer con más de 10 años de experiencia práctica en infraestructura — desde la gestión de servidores Linux bare-metal y la automatización del aprovisionamiento con Ansible, hasta la orquestación de cargas de trabajo en contenedores sobre Kubernetes y la implementación de pipelines GitOps con Argo CD.
 
 Cuento con la certificación AWS Certified Cloud Practitioner y me he formado en las certificaciones Solutions Architect Associate, Developer Associate y Certified Kubernetes Administrator (CKA).
@@ -50,7 +50,8 @@ Estoy abierto a roles DevOps/SRE donde pueda aportar mi experiencia en infraestr
 **Fecha de fin:** Actualidad  
 
 **Descripción:**
-```
+
+```text
 Diseño e implementación de pipelines CI/CD, orquestación de despliegues en Kubernetes y automatización de infraestructura cloud en AWS, Cloudflare y Vercel.
 
 • Diseñé e implementé pipelines CI/CD desplegando cargas de trabajo en contenedores sobre Kubernetes (K3s) mediante flujos GitOps con Argo CD y Kustomize.
@@ -76,7 +77,8 @@ Plataforma multi-capa construida con arquitectura Modular Monolith en Go, aprovi
 **Fecha de fin:** Febrero 2024  
 
 **Descripción:**
-```
+
+```text
 Desarrollé un panel interno de gestión y configuración en Flutter para una billetera virtual Fintech de marca blanca utilizada por múltiples empresas. Resolví bugs de producción y entregué mejoras de funcionalidades en la aplicación existente de billetera virtual construida con Flutter.
 ```
 
@@ -93,7 +95,8 @@ Desarrollé un panel interno de gestión y configuración en Flutter para una bi
 **Fecha de fin:** Octubre 2022  
 
 **Descripción:**
-```
+
+```text
 Early adopter de Flutter, construyendo aplicaciones móviles multiplataforma para clientes a través de Freelancer.com y Workana. Integré backends utilizando Go, TypeScript, GCP y Firebase, manejando autenticación, sincronización de datos en tiempo real y notificaciones push.
 ```
 
@@ -110,7 +113,8 @@ Early adopter de Flutter, construyendo aplicaciones móviles multiplataforma par
 **Fecha de fin:** Octubre 2020  
 
 **Descripción:**
-```
+
+```text
 Responsable de toda la infraestructura operativa de la universidad. Automaticé el aprovisionamiento de servidores y los flujos de despliegue mediante playbooks de Ansible, gestioné entornos en contenedores sobre Proxmox con instancias LXC y mantuve alta disponibilidad en todos los sistemas institucionales críticos.
 
 • Automaticé el aprovisionamiento de servidores y los flujos de despliegue con playbooks de Ansible, asegurando configuraciones reproducibles y alta disponibilidad en todos los servicios institucionales.
@@ -131,7 +135,8 @@ Responsable de toda la infraestructura operativa de la universidad. Automaticé 
 **Fecha de fin:** Junio 2014  
 
 **Descripción:**
-```
+
+```text
 Desarrollé el panel de administración interno y el dashboard de analítica de datos para una startup de venta de tickets para eventos, usando PHP y el framework Yii.
 ```
 
@@ -148,7 +153,8 @@ Desarrollé el panel de administración interno y el dashboard de analítica de 
 **Fecha de fin:** Diciembre 2017  
 
 **Descripción:**
-```
+
+```text
 Fundé y operé un negocio de web hosting, VPS y registro de dominios durante casi una década. Fui responsable del ciclo de vida completo de la infraestructura: aprovisionamiento y hardening de servidores Linux, configuración de cPanel, auditorías de seguridad y gestión de proveedores de infraestructura (OVH).
 
 • Fundé y operé un negocio de web hosting, VPS y registro de dominios durante casi una década, gestionando el ciclo de vida completo de la infraestructura.
@@ -171,7 +177,8 @@ En 2017 cerré el emprendimiento y transferí la cartera de clientes a una empre
 **Fecha de fin:** Febrero 2009  
 
 **Descripción:**
-```
+
+```text
 Comencé mi carrera construyendo sitios web para clientes locales, creciendo orgánicamente a través de recomendaciones de boca en boca. Entregué soluciones full-stack utilizando PHP, HTML, CSS, jQuery, Bootstrap y WordPress en entornos de alojamiento compartido.
 ```
 
@@ -186,7 +193,7 @@ Comencé mi carrera construyendo sitios web para clientes locales, creciendo org
 **Organización emisora:** Amazon Web Services (AWS)  
 **Fecha de emisión:** Octubre 2024  
 **Fecha de vencimiento:** Octubre 2027  
-**URL de la credencial:** https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url
+**URL de la credencial:** <https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url>
 
 ---
 
@@ -194,7 +201,7 @@ Comencé mi carrera construyendo sitios web para clientes locales, creciendo org
 
 **Organización emisora:** Udemy  
 **Fecha de emisión:** Mayo 2024  
-**URL de la credencial:** https://www.udemy.com/certificate/UC-96b48f71-6433-4750-8172-a3e3f7349f4e/
+**URL de la credencial:** <https://www.udemy.com/certificate/UC-96b48f71-6433-4750-8172-a3e3f7349f4e/>
 
 ---
 
@@ -202,7 +209,7 @@ Comencé mi carrera construyendo sitios web para clientes locales, creciendo org
 
 **Organización emisora:** Udemy  
 **Fecha de emisión:** Septiembre 2024  
-**URL de la credencial:** https://www.udemy.com/certificate/UC-ce8d7e79-36d1-43f3-af5f-c448912f6f84/
+**URL de la credencial:** <https://www.udemy.com/certificate/UC-ce8d7e79-36d1-43f3-af5f-c448912f6f84/>
 
 ---
 
@@ -210,7 +217,7 @@ Comencé mi carrera construyendo sitios web para clientes locales, creciendo org
 
 **Organización emisora:** Udemy  
 **Fecha de emisión:** Julio 2024  
-**URL de la credencial:** https://www.udemy.com/certificate/UC-a342a993-bd55-45f8-8fbc-77537ee44657/
+**URL de la credencial:** <https://www.udemy.com/certificate/UC-a342a993-bd55-45f8-8fbc-77537ee44657/>
 
 ---
 
@@ -248,11 +255,11 @@ Agrega estas aptitudes en este orden para que los reclutadores vean las habilida
 
 Agrega estos elementos a tu sección Destacados de LinkedIn:
 
-1. **Portfolio** — https://fabiankaraben.github.io/es
-2. **Wordsus Infra (GitHub)** — https://github.com/wordsus/wordsus-infra
-3. **Wordsus GitOps (GitHub)** — https://github.com/wordsus/wordsus-gitops
-4. **Wordsus Backend (GitHub)** — https://github.com/wordsus/wordsus-backend
-5. **Badge de Certificación AWS** — https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url
+1. **Portfolio** — <https://fabiankaraben.github.io/es>
+2. **Wordsus Infra (GitHub)** — <https://github.com/wordsus/wordsus-infra>
+3. **Wordsus GitOps (GitHub)** — <https://github.com/wordsus/wordsus-gitops>
+4. **Wordsus Backend (GitHub)** — <https://github.com/wordsus/wordsus-backend>
+5. **Badge de Certificación AWS** — <https://www.credly.com/badges/93cee039-21f8-4bd2-9352-e0c977897905/public_url>
 
 ---
 
@@ -260,6 +267,6 @@ Agrega estos elementos a tu sección Destacados de LinkedIn:
 
 **Nombre:** Fabián Karaben  
 **URL del perfil:** linkedin.com/in/fabiankaraben  
-**Sitio web:** https://fabiankaraben.github.io/es  
+**Sitio web:** <https://fabiankaraben.github.io/es>  
 **Abierto a trabajar:** DevOps Engineer, SRE, Site Reliability Engineer, Platform Engineer, Infrastructure Engineer  
 **Preferencia de ubicación:** Remoto  
